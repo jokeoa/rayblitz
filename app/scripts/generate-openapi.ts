@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { z } from "zod";
 import * as examples from "../src/lib/api/contract-examples.ts";
 import {
@@ -175,6 +175,7 @@ if (process.argv.includes("--check")) {
   if ((await readFile(output, "utf8")) !== serialized) throw new Error("OpenAPI is outdated. Run npm run contracts:generate.");
   console.log("OpenAPI matches the contracts.");
 } else {
+  await mkdir(new URL("../../docs/", import.meta.url), { recursive: true });
   await writeFile(output, serialized);
   console.log("Generated docs/openapi.json.");
 }

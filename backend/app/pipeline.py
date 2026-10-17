@@ -89,14 +89,28 @@ async def run(video: Path, work_dir: Path, progress=None, deadline: float | None
     use_detector = config.DETECTOR != "off"
     reserve = DESCRIBE_RESERVE_SEC + (DETECT_RESERVE_SEC if use_detector else 0)
     scan_deadline = deadline - reserve if deadline else None
-    events = await analyzer.analyze(video, work_dir, progress, deadline=scan_deadline)
+    scan_progress = 0.0
+    limitations = []
+
+    def scanned(value):
+        nonlocal scan_progress
+        scan_progress = value
+        if progress:
+            progress(value * .8)
+
+    events = await analyzer.analyze(video, work_dir, scanned, deadline=scan_deadline)
+    if scan_progress < 1:
+        limitations.append("Часть окон видео не обработана из-за ограничения времени.")
     if use_detector:
         budget = max(1.0, deadline - DESCRIBE_RESERVE_SEC - time.time()) if deadline else None
         try:
             events = await asyncio.wait_for(detected(video, work_dir, events, duration), timeout=budget)
         except asyncio.TimeoutError:
+            limitations.append("Проверка детектором не завершена в отведённое время.")
             log.warning("detector stage hit the deadline, keeping scan events only")
             events = [e for e in events if e.rule_id not in config.COMPOSITE_RULES]
+    if progress:
+        progress(.9)
     picked = decide(events, config.THRESHOLD, thresholds())
     for e, _ in picked:
         if deadline and time.time() > deadline - 10:
@@ -104,4 +118,4 @@ async def run(video: Path, work_dir: Path, progress=None, deadline: float | None
         else:
             e.observation = await analyzer.describe(work_dir, e)
     violations = [await asyncio.to_thread(violation, video, e, n, duration) for e, n in picked]
-    return {"verdict": "violation" if violations else "no_violation", "violations": violations}
+    return {"verdict": "violation" if violations else "no_violation", "violations": violations, "limitations": limitations}

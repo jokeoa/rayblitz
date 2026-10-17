@@ -53,7 +53,7 @@ DETECTOR=off API_KEY=<ключ> .venv/bin/uvicorn app.main:app --port 8000
 
 Без torch детектор выключается через `DETECTOR=off`; с ним — `uv pip install -r pyproject.toml --extra detector`. Пороги в `rules/thresholds.json` подобраны для режима с детектором.
 
-Интерфейс: `http://localhost:8000`.
+API: `http://localhost:8000/api/v1`. Интерфейс запускается отдельно из `app/`.
 
 ## Запуск на GPU-сервере
 
@@ -78,9 +78,40 @@ curl -X POST https://<host>/api/v1/analyze -H "X-API-Key: <ключ>" -F "file=@
 curl https://<host>/api/v1/jobs/<job_id> -H "X-API-Key: <ключ>"
 ```
 
-Ответ `/api/v1/jobs/{job_id}` строго по схеме ТЗ, без лишних полей: `job_id`, `status`, `verdict`, `violations[].type/timecode_sec/description/evidence_frames`. В `description` — что видно на видео и основание: полное название документа, пункт и требование. Пока задача идёт, есть ещё `progress`.
+Контракты фронтенда (`app/src/lib/api/contracts.ts`, `jury-contracts.ts`,
+`health-contracts.ts`) определяют HTTP-пейлоуды. `ANALYSIS_API_URL` фронтенда
+должен указывать на `https://<host>/api/v1`.
 
-Для интерфейса без ключа: `POST /ui/analyze`, `GET /ui/jobs/{job_id}` (то же плюс `rule` с документом, пунктом и ссылкой на adilet.zan.kz, `confidence`, `elapsed_sec`), `GET /ui/jobs/{job_id}/video`. Если фронтенд открыт с другого адреса, разрешите его: `CORS_ORIGINS=https://front.example.kz`. Папка `static/` необязательна: если её нет, сервис отдаёт только API.
+- `POST /api/v1/analyze`: один MOV до 100 MiB; `202 {"job_id":"..."}` после
+  проверки видеопотока и сохранения задачи. Ошибки имеют форму
+  `{"error":{"code":"...","message":"..."}}`; нечитаемое видео — 422.
+- `GET /api/v1/jobs/{job_id}`: представление для жюри, кадры JPEG в base64.
+- `GET /api/v1/jobs/{job_id}?view=ui`: прогресс по этапам во всех состояниях;
+  после завершения — `overview`, `verdict`, `violations_count` без изображений.
+- `GET /api/v1/jobs/{job_id}/violations?page=1&page_size=20`: неизменяемые
+  события в порядке `(timecode_sec, id)`, нормативные источники и ссылки на кадры.
+- `GET /api/v1/jobs/{job_id}/violations/{violation_id}/frames/{frame_id}`:
+  JPEG-байты с авторизацией тем же ключом.
+- `GET /api/v1/health`: авторизованная проверка бэкенда и сервиса модели;
+  200 при доступности обоих, 503 при недоступности модели.
+
+Все ответы запрещают кэширование. Устаревшие `/ui/*` и `/health` удалены.
+Обзор генерирует локальная LLM из результата анализа; ошибка генерации завершает
+задачу с `OVERVIEW_GENERATION_FAILED`. Общий лимит включает очередь и обзор.
+Задачи, прерванные перезапуском сервиса, возвращают `ANALYSIS_FAILED`.
+
+Проверка реальных ответов FastAPI исходными Zod-схемами фронта (без GPU):
+
+```bash
+cd app
+BACKEND_PYTHON=/path/to/backend/.venv/bin/python npm run contracts:test:backend
+npm test
+npm run contracts:check
+```
+
+Python-окружение должно содержать зависимости из `backend/pyproject.toml`, а
+фронтенд — установленные npm-зависимости. Тесты подменяют инференс, но используют
+настоящие HTTP-маршруты, сохранение результата и JPEG-файлы.
 
 Проверка развёрнутого сервиса по контракту (ключ, коды ошибок, строгая схема, JPEG-кадры, лимит 5 минут):
 
@@ -109,7 +140,7 @@ API_KEY=<ключ> .venv/bin/python eval/run_service.py --base http://127.0.0.1:
 .venv/bin/python eval/run_service.py --score runs/eval/service
 ```
 
-Видео отправляются через `/api/v1/analyze`, а результат читается из `/ui/jobs/{job_id}`: там есть правило и уверенность, нужные для подсчёта.
+Видео отправляются через `/api/v1/analyze`, результат читается из авторизованного `/api/v1/jobs/{job_id}`. Тип связывается с каталогом локально. Для новых прогонов `run_service.py` выбирает первое событие по времени; прежний выбор по внутреннему confidence удалён из публичного контракта. Историческая таблица ниже использовала прежний выбор события и не является результатом новых прогонов.
 
 ## Нормативные источники
 

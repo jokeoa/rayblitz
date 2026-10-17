@@ -9,8 +9,7 @@ import httpx
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app import config
-from app.pipeline import thresholds
+from app import config, rules
 from calibrate import load_typed
 from run_eval import build_items, load_labels
 
@@ -26,10 +25,11 @@ async def submit(client: httpx.AsyncClient, base: str, key: str, video: Path) ->
     job_id = r.json()["job_id"]
     while True:
         await asyncio.sleep(3)
-        s = (await client.get(f"{base}/ui/jobs/{job_id}")).json()
+        s = (await client.get(f"{base}/api/v1/jobs/{job_id}", headers={"X-API-Key": key})).json()
         if s["status"] != "processing":
             s["wall_sec"] = round(time.time() - t0, 1)
             for v in s.get("violations", []):
+                v["rule"] = rules.citation(next(r["id"] for r in rules.rules() if r["type"] == v["type"]))
                 v["evidence_frames"] = len(v["evidence_frames"])
             return s
 
@@ -50,19 +50,19 @@ async def run_all(items: list[dict], out: Path, base: str, key: str, parallel: i
         await asyncio.gather(*(one(i) for i in items))
 
 
-def top(s: dict, th: dict[str, float]) -> dict | None:
+def top(s: dict) -> dict | None:
     vs = s.get("violations") or []
-    return max(vs, key=lambda v: v["confidence"] - th.get(v["rule"]["id"], 0.0)) if vs else None
+    return min(vs, key=lambda v: v["timecode_sec"]) if vs else None
 
 
-def score(items: list[dict], out: Path, typed: dict, th: dict[str, float]) -> dict[str, tuple[bool, dict | None]]:
+def score(items: list[dict], out: Path, typed: dict) -> dict[str, tuple[bool, dict | None]]:
     tp = fp = fn = tn = type_ok = exact = late = failed = 0
     errs, preds = [], {}
     for item in items:
         s = json.loads((out / f"{item['name']}.json").read_text(encoding="utf-8"))
         failed += s["status"] != "done"
         late += s["wall_sec"] >= LIMIT_SEC
-        v = top(s, th)
+        v = top(s)
         preds[item["name"]] = (v is not None, v)
         if v and item["violation"]:
             tp += 1
@@ -102,8 +102,8 @@ def main() -> None:
         asyncio.run(run_all(run_items, args.out, args.base.rstrip("/"), args.key, args.parallel))
     dirs = args.score or [args.out]
     items = [i for i in items if all((d / f"{i['name']}.json").exists() for d in dirs)]
-    typed, th = load_typed(), thresholds()
-    preds = [score(items, d, typed, th) for d in dirs]
+    typed = load_typed()
+    preds = [score(items, d, typed) for d in dirs]
     print()
     for item in items:
         label = "V@" + ",".join(f"{t:g}" for t in item["times"]) if item["violation"] else "ok"

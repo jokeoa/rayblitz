@@ -40,10 +40,10 @@ if ! curl -sf http://127.0.0.1:8081/health >/dev/null; then
 fi
 curl -sf http://127.0.0.1:8081/health && echo " llama-server ready"
 
-if [ "$START_APP" = "1" ] && ! curl -sf http://127.0.0.1:8000/health >/dev/null; then
+if [ "$START_APP" = "1" ] && ! curl -sf -H "X-API-Key: ${API_KEY:-dev-key}" http://127.0.0.1:8000/api/v1/health >/dev/null; then
   : "${API_KEY:?set API_KEY}"
   API_KEY="$API_KEY" VLM_CONCURRENCY="$SLOTS" MAX_JOBS=$((SLOTS + 2)) HF_HUB_OFFLINE=1 \
     nohup .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 > runs/app.log 2>&1 &
-  for _ in $(seq 1 30); do curl -sf http://127.0.0.1:8000/health >/dev/null && break; sleep 1; done
-  curl -sf http://127.0.0.1:8000/health && echo " app ready on :8000"
+  for _ in $(seq 1 30); do curl -sf -H "X-API-Key: ${API_KEY:-dev-key}" http://127.0.0.1:8000/api/v1/health >/dev/null && break; sleep 1; done
+  curl -sf -H "X-API-Key: ${API_KEY:-dev-key}" http://127.0.0.1:8000/api/v1/health && echo " app ready on :8000"
 fi

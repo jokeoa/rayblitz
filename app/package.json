@@ -21,7 +21,8 @@
     "typecheck": "tsc --noEmit",
     "format": "biome format",
     "lint": "biome lint",
-    "check": "biome check"
+    "check": "biome check",
+    "contracts:test:backend": "node scripts/check-backend-contracts.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
