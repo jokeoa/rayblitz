@@ -9,51 +9,324 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppIndexRouteImport } from './routes/_app/index'
+import { Route as AppWatchIndexRouteImport } from './routes/_app/watch.index'
+import { Route as AppWatchJobIdRouteImport } from './routes/_app/watch.$jobId'
+import { Route as ApiReviewAnalyzeRouteImport } from './routes/api/review/analyze'
+import { Route as ApiReviewHealthRouteImport } from './routes/api/review/health'
+import { Route as ApiReviewSessionRouteImport } from './routes/api/review/session'
+import { Route as ApiReviewDevMockScenarioRouteImport } from './routes/api/review/dev/mock-scenario'
+import { Route as ApiReviewJobsJobIdRouteImport } from './routes/api/review/jobs/$jobId'
+import { Route as ApiReviewJobsJobIdViolationsRouteImport } from './routes/api/review/jobs/$jobId/violations'
+import { Route as ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRouteImport } from './routes/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWatchIndexRoute = AppWatchIndexRouteImport.update({
+  id: '/watch/',
+  path: '/watch/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWatchJobIdRoute = AppWatchJobIdRouteImport.update({
+  id: '/watch/$jobId',
+  path: '/watch/$jobId',
+  getParentRoute: () => AppRoute,
+} as any)
+const ApiReviewAnalyzeRoute = ApiReviewAnalyzeRouteImport.update({
+  id: '/api/review/analyze',
+  path: '/api/review/analyze',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiReviewHealthRoute = ApiReviewHealthRouteImport.update({
+  id: '/api/review/health',
+  path: '/api/review/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiReviewSessionRoute = ApiReviewSessionRouteImport.update({
+  id: '/api/review/session',
+  path: '/api/review/session',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiReviewDevMockScenarioRoute =
+  ApiReviewDevMockScenarioRouteImport.update({
+    id: '/api/review/dev/mock-scenario',
+    path: '/api/review/dev/mock-scenario',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiReviewJobsJobIdRoute = ApiReviewJobsJobIdRouteImport.update({
+  id: '/api/review/jobs/$jobId',
+  path: '/api/review/jobs/$jobId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiReviewJobsJobIdViolationsRoute =
+  ApiReviewJobsJobIdViolationsRouteImport.update({
+    id: '/violations',
+    path: '/violations',
+    getParentRoute: () => ApiReviewJobsJobIdRoute,
+  } as any)
+const ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute =
+  ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRouteImport.update({
+    id: '/$violationId/frames/$frameId',
+    path: '/$violationId/frames/$frameId',
+    getParentRoute: () => ApiReviewJobsJobIdViolationsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof AppIndexRoute
+  '/login': typeof LoginRoute
+  '/watch/$jobId': typeof AppWatchJobIdRoute
+  '/api/review/analyze': typeof ApiReviewAnalyzeRoute
+  '/api/review/health': typeof ApiReviewHealthRoute
+  '/api/review/session': typeof ApiReviewSessionRoute
+  '/watch/': typeof AppWatchIndexRoute
+  '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
+  '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
+  '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/': typeof AppIndexRoute
+  '/watch/$jobId': typeof AppWatchJobIdRoute
+  '/api/review/analyze': typeof ApiReviewAnalyzeRoute
+  '/api/review/health': typeof ApiReviewHealthRoute
+  '/api/review/session': typeof ApiReviewSessionRoute
+  '/watch': typeof AppWatchIndexRoute
+  '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
+  '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
+  '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/login': typeof LoginRoute
+  '/_app/': typeof AppIndexRoute
+  '/_app/watch/$jobId': typeof AppWatchJobIdRoute
+  '/api/review/analyze': typeof ApiReviewAnalyzeRoute
+  '/api/review/health': typeof ApiReviewHealthRoute
+  '/api/review/session': typeof ApiReviewSessionRoute
+  '/_app/watch/': typeof AppWatchIndexRoute
+  '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
+  '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
+  '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/watch/$jobId'
+    | '/api/review/analyze'
+    | '/api/review/health'
+    | '/api/review/session'
+    | '/watch/'
+    | '/api/review/dev/mock-scenario'
+    | '/api/review/jobs/$jobId'
+    | '/api/review/jobs/$jobId/violations'
+    | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/login'
+    | '/'
+    | '/watch/$jobId'
+    | '/api/review/analyze'
+    | '/api/review/health'
+    | '/api/review/session'
+    | '/watch'
+    | '/api/review/dev/mock-scenario'
+    | '/api/review/jobs/$jobId'
+    | '/api/review/jobs/$jobId/violations'
+    | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/login'
+    | '/_app/'
+    | '/_app/watch/$jobId'
+    | '/api/review/analyze'
+    | '/api/review/health'
+    | '/api/review/session'
+    | '/_app/watch/'
+    | '/api/review/dev/mock-scenario'
+    | '/api/review/jobs/$jobId'
+    | '/api/review/jobs/$jobId/violations'
+    | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  ApiReviewAnalyzeRoute: typeof ApiReviewAnalyzeRoute
+  ApiReviewHealthRoute: typeof ApiReviewHealthRoute
+  ApiReviewSessionRoute: typeof ApiReviewSessionRoute
+  ApiReviewDevMockScenarioRoute: typeof ApiReviewDevMockScenarioRoute
+  ApiReviewJobsJobIdRoute: typeof ApiReviewJobsJobIdRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/': {
+      id: '/_app/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/watch/': {
+      id: '/_app/watch/'
+      path: '/watch'
+      fullPath: '/watch/'
+      preLoaderRoute: typeof AppWatchIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/watch/$jobId': {
+      id: '/_app/watch/$jobId'
+      path: '/watch/$jobId'
+      fullPath: '/watch/$jobId'
+      preLoaderRoute: typeof AppWatchJobIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/api/review/analyze': {
+      id: '/api/review/analyze'
+      path: '/api/review/analyze'
+      fullPath: '/api/review/analyze'
+      preLoaderRoute: typeof ApiReviewAnalyzeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/api/review/health': {
+      id: '/api/review/health'
+      path: '/api/review/health'
+      fullPath: '/api/review/health'
+      preLoaderRoute: typeof ApiReviewHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/review/session': {
+      id: '/api/review/session'
+      path: '/api/review/session'
+      fullPath: '/api/review/session'
+      preLoaderRoute: typeof ApiReviewSessionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/review/dev/mock-scenario': {
+      id: '/api/review/dev/mock-scenario'
+      path: '/api/review/dev/mock-scenario'
+      fullPath: '/api/review/dev/mock-scenario'
+      preLoaderRoute: typeof ApiReviewDevMockScenarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/review/jobs/$jobId': {
+      id: '/api/review/jobs/$jobId'
+      path: '/api/review/jobs/$jobId'
+      fullPath: '/api/review/jobs/$jobId'
+      preLoaderRoute: typeof ApiReviewJobsJobIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/review/jobs/$jobId/violations': {
+      id: '/api/review/jobs/$jobId/violations'
+      path: '/violations'
+      fullPath: '/api/review/jobs/$jobId/violations'
+      preLoaderRoute: typeof ApiReviewJobsJobIdViolationsRouteImport
+      parentRoute: typeof ApiReviewJobsJobIdRoute
+    }
+    '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': {
+      id: '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
+      path: '/$violationId/frames/$frameId'
+      fullPath: '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
+      preLoaderRoute: typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRouteImport
+      parentRoute: typeof ApiReviewJobsJobIdViolationsRoute
     }
   }
 }
 
+interface AppRouteChildren {
+  AppIndexRoute: typeof AppIndexRoute
+  AppWatchJobIdRoute: typeof AppWatchJobIdRoute
+  AppWatchIndexRoute: typeof AppWatchIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppIndexRoute: AppIndexRoute,
+  AppWatchJobIdRoute: AppWatchJobIdRoute,
+  AppWatchIndexRoute: AppWatchIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
+interface ApiReviewJobsJobIdViolationsRouteChildren {
+  ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute: typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
+}
+
+const ApiReviewJobsJobIdViolationsRouteChildren: ApiReviewJobsJobIdViolationsRouteChildren =
+  {
+    ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute:
+      ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute,
+  }
+
+const ApiReviewJobsJobIdViolationsRouteWithChildren =
+  ApiReviewJobsJobIdViolationsRoute._addFileChildren(
+    ApiReviewJobsJobIdViolationsRouteChildren,
+  )
+
+interface ApiReviewJobsJobIdRouteChildren {
+  ApiReviewJobsJobIdViolationsRoute: typeof ApiReviewJobsJobIdViolationsRouteWithChildren
+}
+
+const ApiReviewJobsJobIdRouteChildren: ApiReviewJobsJobIdRouteChildren = {
+  ApiReviewJobsJobIdViolationsRoute:
+    ApiReviewJobsJobIdViolationsRouteWithChildren,
+}
+
+const ApiReviewJobsJobIdRouteWithChildren =
+  ApiReviewJobsJobIdRoute._addFileChildren(ApiReviewJobsJobIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  LoginRoute: LoginRoute,
+  ApiReviewAnalyzeRoute: ApiReviewAnalyzeRoute,
+  ApiReviewHealthRoute: ApiReviewHealthRoute,
+  ApiReviewSessionRoute: ApiReviewSessionRoute,
+  ApiReviewDevMockScenarioRoute: ApiReviewDevMockScenarioRoute,
+  ApiReviewJobsJobIdRoute: ApiReviewJobsJobIdRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
