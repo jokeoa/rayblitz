@@ -26,7 +26,7 @@ async def submit(client: httpx.AsyncClient, base: str, key: str, video: Path) ->
     job_id = r.json()["job_id"]
     while True:
         await asyncio.sleep(3)
-        s = (await client.get(f"{base}/api/v1/jobs/{job_id}", headers={"X-API-Key": key})).json()
+        s = (await client.get(f"{base}/ui/jobs/{job_id}")).json()
         if s["status"] != "processing":
             s["wall_sec"] = round(time.time() - t0, 1)
             for v in s.get("violations", []):
@@ -56,7 +56,7 @@ def top(s: dict, th: dict[str, float]) -> dict | None:
 
 
 def score(items: list[dict], out: Path, typed: dict, th: dict[str, float]) -> dict[str, tuple[bool, dict | None]]:
-    tp = fp = fn = tn = type_ok = late = failed = 0
+    tp = fp = fn = tn = type_ok = exact = late = failed = 0
     errs, preds = [], {}
     for item in items:
         s = json.loads((out / f"{item['name']}.json").read_text(encoding="utf-8"))
@@ -66,9 +66,12 @@ def score(items: list[dict], out: Path, typed: dict, th: dict[str, float]) -> di
         preds[item["name"]] = (v is not None, v)
         if v and item["violation"]:
             tp += 1
-            type_ok += v["rule"]["id"] in typed.get(item["name"], {}).get("rules", set())
+            right_type = v["rule"]["id"] in typed.get(item["name"], {}).get("rules", set())
+            type_ok += right_type
             if item["times"]:
-                errs.append(min(abs(v["timecode_sec"] - t) for t in item["times"]))
+                err = min(abs(v["timecode_sec"] - t) for t in item["times"])
+                errs.append(err)
+                exact += right_type and err <= 2
         elif item["violation"]:
             fn += 1
         elif v:
@@ -78,7 +81,7 @@ def score(items: list[dict], out: Path, typed: dict, th: dict[str, float]) -> di
     errs.sort()
     walls = sorted(json.loads((out / f"{i['name']}.json").read_text(encoding="utf-8"))["wall_sec"] for i in items)
     print(f"{out.name}: acc={(tp + tn) / len(items):.3f} tp={tp} fp={fp} fn={fn} tn={tn} type={type_ok}/{tp} "
-          f"t_err_median={errs[len(errs) // 2] if errs else None} within2s={sum(e <= 2 for e in errs)}/{len(errs)} "
+          f"type_and_time2s={exact}/{tp + fn} t_err_median={errs[len(errs) // 2] if errs else None} "
           f"wall_max={walls[-1]}s late={late} failed={failed}")
     return preds
 

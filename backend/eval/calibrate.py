@@ -89,7 +89,7 @@ def load_typed() -> dict[str, dict]:
 def report_types(samples: list[dict], preds: list[tuple[bool, str | None]], typed: dict, min_t: float,
                  rest) -> None:
     hits: dict[str, list[int]] = {}
-    top_ok = top_n = 0
+    top_ok = top_n = exact = 0
     for s, (pred, top_rule) in zip(samples, preds):
         lab = typed.get(s["name"])
         if not lab or not lab["rules"]:
@@ -100,7 +100,10 @@ def report_types(samples: list[dict], preds: list[tuple[bool, str | None]], type
         if pred:
             top_n += 1
             top_ok += top_rule in lab["rules"]
+            t = when(s, top_rule)
+            exact += top_rule in lab["rules"] and t is not None and any(abs(t - x) <= 2 for x in s["times"])
     print(f"\ntype of top event matches label: {top_ok}/{top_n} detected videos")
+    print(f"type and time within 2 s: {exact}/{sum(s['violation'] for s in samples)} violation videos")
     print("per-rule recall on labeled events (leave-one-out):")
     for r, h in sorted(hits.items()):
         print(f"  {r:>24} {sum(h)}/{len(h)}")
