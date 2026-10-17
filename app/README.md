@@ -1,212 +1,78 @@
-Welcome to your new TanStack Start app!
+# Видеоанализ: приложение
 
-# Getting Started
+Дашборд для анализа видео кассовой дисциплины: вход по API-ключу, дашборд со списком видео и состоянием сервисов, страница просмотра с плеером, многослойным таймлайном событий, AI Overview и карточками нарушений.
 
-To run this application:
+Стек: TanStack Start (React 19, Vite), shadcn/ui (base-luma), Tailwind v4, Zustand (клиентское состояние), TanStack Query (серверное состояние), Motion, DiceBear (lorelei), Agentation (только в dev).
 
-```bash
+Контракт с бэкендом: [docs/api-contract.md](../docs/api-contract.md).
+
+## Запуск
+
+Node.js 22.18+.
+
+```sh
 npm install
-npm run dev
 ```
 
-# Building For Production
+| Скрипт | Что делает |
+| --- | --- |
+| `npm run dev` | Dev-режим против настоящего анализатора (`ANALYSIS_API_URL`). Видны devtools и Agentation. |
+| `npm run dev:mock` | Dev-режим + локальный мок-анализатор. Видны devtools, Agentation и панель Mock. |
+| `npm run present` | Презентационная сборка против настоящего анализатора. Без dev-инструментов. |
+| `npm run present:mock` | Презентационная сборка + мок-анализатор. Без dev-инструментов. |
+| `npm run mock:analyzer` | Только мок-анализатор (порт 4010). |
+| `npm run build` / `npm run preview` | Обычная production-сборка и её предпросмотр. |
+| `npm test` | Юнит-тесты (контракты, пагинация, раскладка таймлайна). |
+| `npm run typecheck` / `npm run check` | TypeScript и Biome. |
 
-To build this application for production:
+### Dev и презентация
 
-```bash
-npm run build
+Режим задаёт `VITE_DEV_TOOLS` (`.env.development` и `.env.presentation`). В презентационном режиме из бандла полностью удаляются: TanStack devtools, Agentation, панель Mock, Zustand devtools и отладочные блоки (в блоке health это сырой ответ `/health` и метка mock). Остаётся только то, что видит пользователь.
+
+В dev-режиме Agentation при включении замораживает анимации и ставит `<video>` на паузу, так что воспроизведение может останавливаться само. В презентации этого нет.
+
+## Мок-режим
+
+`dev:mock` и `present:mock` поднимают HTTP-сервер [mock/analyzer](mock/analyzer/server.ts), который реализует `/api/v1` из контракта. Браузер при этом ходит как обычно: `fetch` на `/api/review/*`, прокси отправляет запрос на мок.
+
+- API-ключ: `fb-demo-key`. Любой другой даёт 401.
+- Примеры видео для загрузки: [mock/samples](mock/samples) (`kassa-demo.mov`, `kassa-clean.mov`).
+- Результат по имени файла: `fail` или `error` даёт ошибку анализа, `clean` или `ok` даёт «нарушение не обнаружено», остальное даёт нарушения. Тайм-коды масштабируются под реальную длину MOV.
+- В dev-режиме панель Mock (внизу по центру) переключает состояние health (GPU загружается, бэкенд недоступен, медленный ответ), исход анализа и загружает примеры в один клик.
+- Все данные мока помечены как демонстрационные и не относятся к содержимому видео.
+
+## Как устроено
+
+```
+браузер ──fetch──> /api/review/*  (TanStack Start, серверные маршруты)  ──fetch + X-API-Key──> /api/v1/*
 ```
 
-## Styling
+- **Ключ.** Страница входа принимает API-ключ. Сервер проверяет его через `/health` и хранит в памяти процесса, а браузеру выдаёт только непрозрачный HttpOnly-cookie `review_session` (SameSite=Strict). Ключ не попадает в localStorage, cookie, URL или JS. Перезапуск сервера завершает все сеансы.
+- **Прокси.** [src/routes/api/review](src/routes/api/review) валидирует ответы анализатора схемами контракта, проверяет Origin у POST, строго разбирает query и отдаёт `Cache-Control: no-store`. Если анализатор недоступен, `/health` отвечает локальным 503 без догадок о GPU.
+- **Опрос.** Health раз в 10 с, задание раз в 2 с (без параллельных запросов), остановка по терминальному статусу, 401/404 и через 300 с после приёма. Дальше только ручное обновление.
+- **Новый анализ** отключён, пока оба сервиса не подтверждены как готовые.
+- **История** хранится в браузере (localStorage), потому что в контракте нет списка заданий. Видео для предпросмотра лежит в IndexedDB, так как API исходный файл не отдаёт. Выход из системы очищает и то и другое, смена ключа тоже.
+- **Метрики health** (отклик, медиана, доступность) считаются на клиенте по реальным запросам: контракт отдаёт только статусы и сообщения.
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+## Переменные окружения
 
-### Removing Tailwind CSS
+| Переменная | Где | Назначение |
+| --- | --- | --- |
+| `ANALYSIS_API_URL` | сервер | Адрес анализатора, по умолчанию `http://localhost:8000/api/v1`. |
+| `VITE_DEV_TOOLS` | сборка | `true` только в dev-режиме. |
+| `VITE_MOCK` | сборка | Ставится скриптами мока; в dev показывает метки мока. |
+| `MOCK_CONTROL_URL` | сервер | Управляющий адрес мока, ставится скриптами мока. |
 
-If you prefer not to use Tailwind CSS:
+## Структура
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Remove `@tailwindcss/vite` and `tailwindcss` from `package.json`
-
-## Linting & Formatting
-
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
-
-
-```bash
-npm run lint
-npm run format
-npm run check
 ```
-
-
-## T3Env
-
-- You can use T3Env to add type safety to your environment variables.
-- Add Environment variables to the `src/env.mjs` file.
-- Use the environment variables in your code.
-
-### Usage
-
-```ts
-import { env } from "#/env";
-
-console.log(env.VITE_APP_TITLE);
+mock/analyzer   мок-анализатор и фикстуры
+mock/samples    примеры .mov
+mock/frames     JPEG-кадры для мока
+scripts         dev-mock.ts, mock-analyzer.ts, генератор OpenAPI
+src/routes      страницы (login, dashboard, watch) и /api/review/*
+src/server      сессия и клиент к анализатору (только сервер)
+src/stores      Zustand: auth, history, player, health, ui
+src/lib/api     контракты, fetch-клиент, запросы
+src/components  приложение; ui/ это shadcn
 ```
-
-
-
-
-
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
