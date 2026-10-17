@@ -49,7 +49,7 @@ python3 -m venv .venv
 .venv/bin/pip install -q --upgrade pip
 .venv/bin/pip install -q fastapi "uvicorn[standard]" python-multipart httpx pillow openpyxl
 .venv/bin/pip install -q torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
-.venv/bin/pip install -q transformers==5.20.1
+.venv/bin/pip install -q transformers==5.20.1 scipy==1.15.3
 .venv/bin/python -c "from transformers import AutoImageProcessor, AutoModelForObjectDetection as M; AutoImageProcessor.from_pretrained('PekingU/rtdetr_v2_r50vd'); M.from_pretrained('PekingU/rtdetr_v2_r50vd'); from transformers import Owlv2Processor, Owlv2ForObjectDetection; Owlv2Processor.from_pretrained('google/owlv2-base-patch16-ensemble'); Owlv2ForObjectDetection.from_pretrained('google/owlv2-base-patch16-ensemble')"
 .venv/bin/python -c "import app.main; print('app imports ok')"
 

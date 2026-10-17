@@ -15,4 +15,5 @@ dependencies = [
 detector = [
     "torch==2.11.0",
     "transformers==5.20.1",
+    "scipy==1.15.3",
 ]
