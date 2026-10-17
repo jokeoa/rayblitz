@@ -1,0 +1,43 @@
+services:
+  vlm:
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda
+    command: >
+      -m /models/Qwen3.5-9B-Q4_K_M.gguf
+      --mmproj /models/mmproj-Qwen3.5-9B-BF16.gguf
+      --host 0.0.0.0 --port 8081
+      -c 65536 -np 4 -ngl 99
+      --image-max-tokens 256
+      --reasoning off
+      --cache-ram 1024
+    volumes:
+      - ./models:/models:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  app:
+    build: .
+    environment:
+      VLM_BASE_URL: http://vlm:8081/v1
+      API_KEY: ${API_KEY:?set API_KEY}
+      VLM_CONCURRENCY: "4"
+      MAX_JOBS: "6"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./runs:/srv/runs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    depends_on:
+      - vlm
+    restart: unless-stopped

@@ -1,0 +1,222 @@
+{
+  "sources": {
+    "cash_ops": {
+      "title": "Правила осуществления кассовых операций и операций по инкассации банкнот, монет и ценностей, утв. постановлением Правления НБРК от 29.11.2019 № 231 (рег. № 19680)",
+      "short": "Правила кассовых операций (НБРК № 231)",
+      "url": "https://adilet.zan.kz/rus/docs/V1900019680",
+      "checked": "adilet.zan.kz, сверено 17.10.2026"
+    },
+    "premises": {
+      "title": "Правила организации охраны и устройства помещений банков второго уровня, утв. постановлением Правления НБРК от 24.02.2020 № 14 (рег. № 20075)",
+      "short": "Правила охраны и устройства помещений (НБРК № 14)",
+      "url": "https://adilet.zan.kz/rus/docs/V2000020075",
+      "checked": "adilet.zan.kz, сверено 17.10.2026"
+    },
+    "infosec": {
+      "title": "Требования к обеспечению информационной безопасности банков, филиалов банков-нерезидентов Республики Казахстан и организаций, осуществляющих отдельные виды банковских операций, утв. постановлением Правления АРРФР от 03.04.2026 № 53 (рег. № 38336)",
+      "short": "Требования к ИБ банков (АРРФР № 53)",
+      "url": "https://adilet.zan.kz/rus/docs/V2600038336",
+      "checked": "adilet.zan.kz, сверено 17.10.2026"
+    }
+  },
+  "rules": [
+    {
+      "id": "unattended_valuables",
+      "code": "D-01",
+      "type": "Наличные или ценности без присмотра",
+      "visual": "Banknotes, coins or a cash bag lie on the open desk while the employee walks away or leaves the room, or the next visitor comes to the desk while the previous client's money still lies there.",
+      "not_violation": "Money is inside a closed drawer, tray or safe; the employee stays at the desk and works with the money.",
+      "source": "cash_ops",
+      "clause": "п. 20 ч. 2, п. 22",
+      "requirement": "ранее принятые наличные хранятся в устройствах, закрывающихся на ключ; кассовому работнику не допускается покидать рабочее место до окончания обслуживания клиента",
+      "interpretation": false
+    },
+    {
+      "id": "safe_left_open",
+      "code": "D-02",
+      "type": "Сейф открыт без необходимости",
+      "visual": "The safe or lockable cabinet door stays open while the employee is not putting in or taking out valuables: the employee sits at the laptop, talks to a visitor, or leaves.",
+      "not_violation": "The safe is open only while valuables are being put in or taken out and is closed right after.",
+      "source": "cash_ops",
+      "clause": "п. 20 ч. 2",
+      "requirement": "ранее принятые наличные хранятся в специальных устройствах, закрывающихся на ключ",
+      "interpretation": true
+    },
+    {
+      "id": "key_left",
+      "code": "D-03",
+      "type": "Ключ оставлен в замке сейфа",
+      "visual": "A key stays in the lock of the safe or cabinet, or a key bunch lies on the desk, while the employee walks away or leaves the room.",
+      "not_violation": "The employee takes the key along, or keeps it in hand or on a wrist band.",
+      "source": "cash_ops",
+      "clause": "п. 80",
+      "requirement": "порядок хранения ключей от специальных устройств на рабочем месте кассового работника (сейф, металлический шкаф, ящики стола) определяется внутренними документами банка, обеспечивающими исключение их несанкционированного использования",
+      "interpretation": true
+    },
+    {
+      "id": "workstation_unlocked",
+      "code": "A-01",
+      "type": "Рабочая станция не заблокирована при уходе",
+      "visual": "The employee leaves the room or walks away from the desk while the laptop screen stays bright with a working window and the lid open.",
+      "not_violation": "A lock screen (dark background, clock) or a dark screen; the laptop lid is closed; the employee only turns to the safe next to the desk for a few seconds.",
+      "source": "infosec",
+      "clause": "п. 71 подп. 9)",
+      "requirement": "рабочая станция или ноутбук блокируется с возможностью разблокировки только при вводе аутентификационных данных пользователя",
+      "interpretation": true
+    },
+    {
+      "id": "documents_left_open",
+      "code": "A-04",
+      "type": "Документы и печати оставлены на столе",
+      "visual": "When the employee leaves, client documents, document folders, ID copies or bank stamps stay openly on the desk.",
+      "not_violation": "Documents of the current client during service; papers inside a closed folder or drawer.",
+      "source": "infosec",
+      "clause": "п. 76 подп. 1)",
+      "requirement": "для защиты информации на бумажных носителях применяются организационные ограничения доступа к документам",
+      "interpretation": true
+    },
+    {
+      "id": "no_id_check",
+      "code": "B-02",
+      "type": "Кассовая операция без предъявления удостоверения",
+      "visual": "The cashier accepts or pays out cash to a visitor, but in these frames the visitor never hands over or shows an identity card, passport or a phone screen with a digital document, and the cashier never looks at one.",
+      "not_violation": "The visitor hands over or shows an ID card or phone screen before the cash is accepted or paid out.",
+      "source": "cash_ops",
+      "clause": "п. 7, п. 19 подп. 1), п. 31 подп. 1)",
+      "requirement": "кассовые операции осуществляются после надлежащей проверки; кассовый работник проводит визуальную идентификацию клиента по документу, удостоверяющему личность, или цифровому документу",
+      "interpretation": false
+    },
+    {
+      "id": "client_substitution",
+      "code": "B-04",
+      "type": "Наличные выданы не тому, кто прошёл идентификацию",
+      "visual": "One visitor leaves and another visitor sits down, and the cashier hands the second visitor money or documents that were prepared before, without checking the second visitor's ID.",
+      "not_violation": "The new visitor shows an ID and goes through the procedure from the start.",
+      "source": "cash_ops",
+      "clause": "п. 7, п. 31 подп. 1)",
+      "requirement": "кассовые операции осуществляются после надлежащей проверки; при выдаче проводится визуальная идентификация клиента по документу",
+      "interpretation": false
+    },
+    {
+      "id": "count_without_client",
+      "code": "D-04",
+      "type": "Приём и пересчёт денег не в присутствии клиента",
+      "visual": "The cashier counts or accepts the visitor's money after the visitor has left, or takes the visitor's money out of the visitor's sight, or a handed-over bundle goes into the safe without counting.",
+      "not_violation": "Counting while the visitor sits at the desk; bank bundles in intact packaging.",
+      "source": "cash_ops",
+      "clause": "п. 20 ч. 1",
+      "requirement": "наличные деньги принимаются и пересчитываются кассовым работником в присутствии клиента",
+      "interpretation": false
+    },
+    {
+      "id": "payout_without_count",
+      "code": "D-05",
+      "type": "Выдача наличных без пересчёта при клиенте",
+      "visual": "The cashier hands banknotes to the visitor without counting them on the machine or note by note in front of the visitor, and the visitor puts them away at once.",
+      "not_violation": "Whole bank bundles in intact packaging; the visitor counts the money at the desk while the cashier watches.",
+      "source": "cash_ops",
+      "clause": "п. 31 подп. 4)",
+      "requirement": "кассовый работник пересчитывает подготовленные к выдаче наличные деньги в присутствии клиента",
+      "interpretation": false
+    },
+    {
+      "id": "manual_count",
+      "code": "D-06",
+      "type": "Пересчёт без счётной машины",
+      "visual": "The cashier counts and forms a bundle of banknotes only by hand, although a banknote counting machine is available.",
+      "not_violation": "Hand counting after the machine count; checking single notes on the detector.",
+      "source": "cash_ops",
+      "clause": "п. 41",
+      "requirement": "пересчёт и сортировка наличных денег осуществляются на оборудовании с проверкой не менее двух машиночитаемых защитных признаков",
+      "interpretation": false
+    },
+    {
+      "id": "rejected_note_added",
+      "code": "D-18",
+      "type": "Отбракованная машиной купюра добавлена в пачку",
+      "visual": "The counting machine rejects a banknote, and the cashier puts that rejected banknote into the counted bundle by hand without re-checking it.",
+      "not_violation": "The cashier sets the rejected note aside or runs it through the machine or detector again.",
+      "source": "cash_ops",
+      "clause": "п. 19 подп. 2), п. 41, п. 57",
+      "requirement": "банкноты принимаются с проверкой на подлинность и платёжность; пересчёт ведётся на оборудовании с проверкой машиночитаемых защитных признаков",
+      "interpretation": false
+    },
+    {
+      "id": "personal_items",
+      "code": "D-08",
+      "type": "Личные вещи на рабочем месте кассира",
+      "visual": "The cashier puts outerwear, a personal bag, a wallet or a shopping bag on the cash desk or next to the money.",
+      "not_violation": "Medicines; bank document folders.",
+      "source": "cash_ops",
+      "clause": "п. 12 ч. 1",
+      "requirement": "хранение личных вещей, наличных денег и ценностей работников банка осуществляется вне кассового узла",
+      "interpretation": false
+    },
+    {
+      "id": "phone_use",
+      "code": "D-09",
+      "type": "Смартфон на рабочем месте кассира",
+      "visual": "The employee holds, uses or places a personal smartphone at the desk in the room where cash is handled.",
+      "not_violation": "The desk phone; the visitor's own phone in the visitor's hands.",
+      "source": "cash_ops",
+      "clause": "п. 12 ч. 2",
+      "requirement": "в кассовый узел допускается вносить только средства связи, не имеющие функции фото- и видеофиксации",
+      "interpretation": false
+    },
+    {
+      "id": "food_drink",
+      "code": "G-03",
+      "type": "Еда или напитки на рабочем месте кассира",
+      "visual": "The employee eats or drinks at the desk where cash, client documents or the counting machine are.",
+      "not_violation": "A closed water bottle away from the work surface.",
+      "source": "cash_ops",
+      "clause": "п. 12 ч. 1",
+      "requirement": "хранение личных вещей работников осуществляется вне кассового узла (продукты и напитки рассматриваются как личные вещи)",
+      "interpretation": true
+    },
+    {
+      "id": "bag_unchecked",
+      "code": "D-11",
+      "type": "Сумка с ценностями принята без проверки",
+      "visual": "The employee takes a sealed cash bag and immediately puts it away without inspecting the seal, seams and label, and the person who handed it over leaves right away.",
+      "not_violation": "The employee inspects the bag from all sides and signs the document while the courier waits; opening an intact bag for counting.",
+      "source": "cash_ops",
+      "clause": "п. 24 подп. 3), 4)",
+      "requirement": "при приёме сумки кассовый работник проверяет её целостность и правильность пломбирования",
+      "interpretation": false
+    },
+    {
+      "id": "unauthorized_person",
+      "code": "D-12",
+      "type": "Посторонний в помещении с ценностями",
+      "visual": "A person other than the employee and the client being served enters the cash room or looks into it, for example through the glass door behind the cashier's back while the cashier sits with the back to the door and does not notice, comes to the employee's side of the desk, the safe or the counting machine, or hands things to the cashier during another client's service.",
+      "not_violation": "The client sitting in the client's chair across the desk; a person accompanied by the employee.",
+      "source": "premises",
+      "clause": "п. 8 ч. 1",
+      "requirement": "кассовый узел изолируется от других помещений одним закрывающимся служебным входом",
+      "interpretation": true
+    },
+    {
+      "id": "door_left_open",
+      "code": "D-13",
+      "type": "Дверь кассы оставлена открытой",
+      "visual": "The door of the room stays open in all or most of these frames while the employee is inside and works, instead of being closed after entering; it is worse when the cashier sits with the back to the open door and cannot see who comes in.",
+      "not_violation": "The door opens only for someone to pass and is closed right after; the door stays closed.",
+      "source": "premises",
+      "clause": "п. 8 ч. 1, п. 16 подп. 1)",
+      "requirement": "кассовый узел изолируется от других помещений одним закрывающимся служебным входом; каждая касса имеет отдельный вход с закрывающейся на замок дверью",
+      "interpretation": true
+    },
+    {
+      "id": "cash_concealment",
+      "code": "D-10",
+      "type": "Деньги убраны в карман, одежду или сумку",
+      "visual": "A hand with banknotes goes to a pocket, sleeve, under clothing, into a personal bag or below the desk and comes back empty.",
+      "not_violation": "Money goes into the tray, drawer, safe or counting machine.",
+      "source": "cash_ops",
+      "clause": "п. 12 ч. 1, п. 20 ч. 2",
+      "requirement": "личные деньги работников хранятся вне кассового узла; принятые наличные хранятся в устройствах, закрывающихся на ключ",
+      "interpretation": true
+    }
+  ]
+}

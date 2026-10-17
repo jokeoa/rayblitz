@@ -1,0 +1,27 @@
+{
+  "intro": "The cashier is the employee who works at the laptop. The visitor sits across the desk from the cashier. The black banknote counting machine on the desk looks like a small printer. Banknotes are small colored paper notes.",
+  "atoms": {
+    "away": "Is the cashier away from the desk: the cashier's chair is empty, or the cashier stands at the door or leaves the room?",
+    "cash_desk": "Are banknotes or a stack of paper money lying on the desk?",
+    "safe_open": "Is the door of the grey metal cabinet open, swung out so that its inside is visible?",
+    "key": "Is a key or a bunch of keys sticking out of the grey cabinet's lock or lying on the desk?",
+    "screen_work": "Does the laptop screen show a bright working program window, mostly white with text, tables or forms, and not a full-screen colorful picture or wallpaper?",
+    "docs_desk": "Are papers, a document folder or rubber stamps (small round objects with a handle) lying on the desk?",
+    "client_present": "Is a visitor sitting or standing at the visitor's side of the desk, across from the cashier?",
+    "cash_exchange": "Does money pass between the visitor and the cashier: one puts banknotes on the desk or holds them out, and the other takes them?",
+    "cash_to_client": "Does the cashier hand banknotes to the visitor or push them across the desk to the visitor?",
+    "id_shown": "Does the visitor show or hand over an ID card, a passport or a phone screen with a document to the cashier?",
+    "machine_count": "Does the cashier put banknotes into the counting machine or take banknotes out of it?",
+    "hand_count": "Is the cashier counting banknotes by hand, flipping through them note by note?",
+    "part_separated": "Does the cashier take a part off a stack of banknotes by hand?",
+    "rejected_note": "Does the counting machine push out a single banknote that the cashier then puts back into the stack by hand?",
+    "phone": "Is the cashier holding a smartphone in the hand or looking at its screen?",
+    "food": "Is the cashier eating or drinking, holding a cup or a bottle to the mouth?",
+    "personal_items": "Is a handbag, a backpack, a jacket, a wallet or a shopping bag lying on the cashier's desk?",
+    "door_open": "Is the glass door of the room open, swung inward or with a gap at its frame?",
+    "extra_person": "Is there a third person inside the room, in the doorway, or standing right at the glass door looking in, besides the cashier and one visitor? People sitting far away in the next office do not count.",
+    "cash_bag": "Is a cash bag (a fabric bag or sack, it can look like a pillow) handed to the cashier or put on the desk?",
+    "visitor_leaves": "Does the visitor get up and walk away from the desk or out of the room?",
+    "hand_hidden": "Does the cashier's hand with banknotes go into a pocket, under clothing or below the desk and come back empty?"
+  }
+}

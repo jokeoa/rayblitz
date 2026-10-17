@@ -1,0 +1,8 @@
+.venv
+data
+runs
+eval
+synthetic
+models
+scratch
+**/__pycache__

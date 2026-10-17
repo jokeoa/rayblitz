@@ -1,0 +1,20 @@
+{
+ "unattended_valuables": 0.1762,
+ "safe_left_open": 0.2546,
+ "key_left": 0.10200000000000001,
+ "workstation_unlocked": 0.1,
+ "documents_left_open": 0.1,
+ "no_id_check": 0.1,
+ "client_substitution": 0.1,
+ "count_without_client": 0.11370000000000001,
+ "payout_without_count": 0.11520000000000001,
+ "manual_count": 0.2624,
+ "rejected_note_added": 0.1,
+ "personal_items": 0.379,
+ "phone_use": 0.5142,
+ "food_drink": 0.29610000000000003,
+ "bag_unchecked": 0.2037,
+ "unauthorized_person": 0.2198,
+ "door_left_open": 0.3375,
+ "cash_concealment": 0.1896
+}
