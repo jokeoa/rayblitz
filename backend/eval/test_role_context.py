@@ -32,6 +32,20 @@ class RoleContextTests(unittest.TestCase):
         events = role_context.desk_events(rows, [0, 0, 20, 20], 100)
         self.assertEqual(events['leaves'], [1]); self.assertEqual(events['empty'], [[1, 3]])
 
+    def test_nobody_detected_at_desk_is_evidence_of_leaving(self):
+        rows = self.setup_rows([('banker', True, [0, 0, 10, 10]), ('banker', False, None),
+                                ('banker', False, None), ('banker', False, None)])
+        rows = [dict(r, objects=[{'label': 'person', 'box': [0, 0, 10, 10]}] if r['t'] == 0 else
+                     [{'label': 'person', 'box': [80, 80, 90, 90]}]) for r in rows]
+        events = role_context.desk_events(rows, [0, 0, 20, 20], 100)
+        self.assertEqual(events['leaves'], [1]); self.assertEqual(events['empty'], [[1, 3]])
+
+    def test_unidentified_person_at_desk_is_not_absence(self):
+        rows = self.setup_rows([('banker', True, [0, 0, 10, 10]), ('banker', False, None), ('banker', False, None)])
+        rows = [dict(r, objects=[{'label': 'person', 'box': [5, 5, 15, 15]}]) for r in rows]
+        events = role_context.desk_events(rows, [0, 0, 20, 20], 100)
+        self.assertEqual(events['leaves'], []); self.assertEqual(events['empty'], [])
+
     def test_uncertain_link_does_not_support_employee(self):
         self.setup_rows([('banker', False, [0, 0, 10, 10])])
         self.assertEqual(role_context.banker_boxes(0, 100), [])

@@ -63,10 +63,17 @@ def desk_events(rows: list[dict], zone: list[float] | None, width: int) -> dict 
     if current.get() is None: return None
     counts, leaves, arrivals, empty = [], [], [], []
     previous, start = None, None
+    overlaps = lambda b: b[0] < zone[2] and b[2] > zone[0] and b[1] < zone[3] and b[3] > zone[1]
     for row in rows:
         boxes = banker_boxes(row['t'], width)
-        inside = None if not boxes or zone is None else int(any(
-            b[0] < zone[2] and b[2] > zone[0] and b[1] < zone[3] and b[3] > zone[1] for b in boxes))
+        if zone is None:
+            inside = None
+        elif boxes:
+            inside = int(any(overlaps(b) for b in boxes))
+        elif 'objects' in row and not any(o['label'] == 'person' and overlaps(o['box']) for o in row['objects']):
+            inside = 0
+        else:
+            inside = None
         counts.append(inside)
         if previous == 1 and inside == 0: leaves.append(row['t'])
         if previous == 0 and inside == 1: arrivals.append(row['t'])
