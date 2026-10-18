@@ -29,5 +29,5 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl enable --now cashguard
-for _ in $(seq 1 60); do curl -sf http://127.0.0.1:8000/health >/dev/null && break; sleep 1; done
-curl -sf http://127.0.0.1:8000/health && echo " cashguard.service ready on :8000"
+for _ in $(seq 1 60); do curl -sf -H "X-API-Key: ${API_KEY:-dev-key}" http://127.0.0.1:8000/api/v1/health >/dev/null && break; sleep 1; done
+curl -sf -H "X-API-Key: ${API_KEY:-dev-key}" http://127.0.0.1:8000/api/v1/health && echo " cashguard.service ready on :8000"
