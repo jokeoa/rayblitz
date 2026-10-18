@@ -18,7 +18,11 @@ import { Route as ApiReviewAnalyzeRouteImport } from './routes/api/review/analyz
 import { Route as ApiReviewHealthRouteImport } from './routes/api/review/health'
 import { Route as ApiReviewSessionRouteImport } from './routes/api/review/session'
 import { Route as ApiReviewDevMockScenarioRouteImport } from './routes/api/review/dev/mock-scenario'
+import { Route as ApiReviewJobsIndexRouteImport } from './routes/api/review/jobs/index'
 import { Route as ApiReviewJobsJobIdRouteImport } from './routes/api/review/jobs/$jobId'
+import { Route as ApiReviewJobsJobIdObservationsRouteImport } from './routes/api/review/jobs/$jobId/observations'
+import { Route as ApiReviewJobsJobIdReviewRouteImport } from './routes/api/review/jobs/$jobId/review'
+import { Route as ApiReviewJobsJobIdVideoRouteImport } from './routes/api/review/jobs/$jobId/video'
 import { Route as ApiReviewJobsJobIdViolationsRouteImport } from './routes/api/review/jobs/$jobId/violations'
 import { Route as ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRouteImport } from './routes/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
 
@@ -67,10 +71,32 @@ const ApiReviewDevMockScenarioRoute =
     path: '/api/review/dev/mock-scenario',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiReviewJobsIndexRoute = ApiReviewJobsIndexRouteImport.update({
+  id: '/api/review/jobs/',
+  path: '/api/review/jobs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiReviewJobsJobIdRoute = ApiReviewJobsJobIdRouteImport.update({
   id: '/api/review/jobs/$jobId',
   path: '/api/review/jobs/$jobId',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ApiReviewJobsJobIdObservationsRoute =
+  ApiReviewJobsJobIdObservationsRouteImport.update({
+    id: '/observations',
+    path: '/observations',
+    getParentRoute: () => ApiReviewJobsJobIdRoute,
+  } as any)
+const ApiReviewJobsJobIdReviewRoute =
+  ApiReviewJobsJobIdReviewRouteImport.update({
+    id: '/review',
+    path: '/review',
+    getParentRoute: () => ApiReviewJobsJobIdRoute,
+  } as any)
+const ApiReviewJobsJobIdVideoRoute = ApiReviewJobsJobIdVideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => ApiReviewJobsJobIdRoute,
 } as any)
 const ApiReviewJobsJobIdViolationsRoute =
   ApiReviewJobsJobIdViolationsRouteImport.update({
@@ -95,6 +121,10 @@ export interface FileRoutesByFullPath {
   '/watch/': typeof AppWatchIndexRoute
   '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
   '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs/': typeof ApiReviewJobsIndexRoute
+  '/api/review/jobs/$jobId/observations': typeof ApiReviewJobsJobIdObservationsRoute
+  '/api/review/jobs/$jobId/review': typeof ApiReviewJobsJobIdReviewRoute
+  '/api/review/jobs/$jobId/video': typeof ApiReviewJobsJobIdVideoRoute
   '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
   '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
@@ -108,6 +138,10 @@ export interface FileRoutesByTo {
   '/watch': typeof AppWatchIndexRoute
   '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
   '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs': typeof ApiReviewJobsIndexRoute
+  '/api/review/jobs/$jobId/observations': typeof ApiReviewJobsJobIdObservationsRoute
+  '/api/review/jobs/$jobId/review': typeof ApiReviewJobsJobIdReviewRoute
+  '/api/review/jobs/$jobId/video': typeof ApiReviewJobsJobIdVideoRoute
   '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
   '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
@@ -123,6 +157,10 @@ export interface FileRoutesById {
   '/_app/watch/': typeof AppWatchIndexRoute
   '/api/review/dev/mock-scenario': typeof ApiReviewDevMockScenarioRoute
   '/api/review/jobs/$jobId': typeof ApiReviewJobsJobIdRouteWithChildren
+  '/api/review/jobs/': typeof ApiReviewJobsIndexRoute
+  '/api/review/jobs/$jobId/observations': typeof ApiReviewJobsJobIdObservationsRoute
+  '/api/review/jobs/$jobId/review': typeof ApiReviewJobsJobIdReviewRoute
+  '/api/review/jobs/$jobId/video': typeof ApiReviewJobsJobIdVideoRoute
   '/api/review/jobs/$jobId/violations': typeof ApiReviewJobsJobIdViolationsRouteWithChildren
   '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId': typeof ApiReviewJobsJobIdViolationsViolationIdFramesFrameIdRoute
 }
@@ -138,6 +176,10 @@ export interface FileRouteTypes {
     | '/watch/'
     | '/api/review/dev/mock-scenario'
     | '/api/review/jobs/$jobId'
+    | '/api/review/jobs/'
+    | '/api/review/jobs/$jobId/observations'
+    | '/api/review/jobs/$jobId/review'
+    | '/api/review/jobs/$jobId/video'
     | '/api/review/jobs/$jobId/violations'
     | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
   fileRoutesByTo: FileRoutesByTo
@@ -151,6 +193,10 @@ export interface FileRouteTypes {
     | '/watch'
     | '/api/review/dev/mock-scenario'
     | '/api/review/jobs/$jobId'
+    | '/api/review/jobs'
+    | '/api/review/jobs/$jobId/observations'
+    | '/api/review/jobs/$jobId/review'
+    | '/api/review/jobs/$jobId/video'
     | '/api/review/jobs/$jobId/violations'
     | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
   id:
@@ -165,6 +211,10 @@ export interface FileRouteTypes {
     | '/_app/watch/'
     | '/api/review/dev/mock-scenario'
     | '/api/review/jobs/$jobId'
+    | '/api/review/jobs/'
+    | '/api/review/jobs/$jobId/observations'
+    | '/api/review/jobs/$jobId/review'
+    | '/api/review/jobs/$jobId/video'
     | '/api/review/jobs/$jobId/violations'
     | '/api/review/jobs/$jobId/violations/$violationId/frames/$frameId'
   fileRoutesById: FileRoutesById
@@ -177,6 +227,7 @@ export interface RootRouteChildren {
   ApiReviewSessionRoute: typeof ApiReviewSessionRoute
   ApiReviewDevMockScenarioRoute: typeof ApiReviewDevMockScenarioRoute
   ApiReviewJobsJobIdRoute: typeof ApiReviewJobsJobIdRouteWithChildren
+  ApiReviewJobsIndexRoute: typeof ApiReviewJobsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -244,12 +295,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiReviewDevMockScenarioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/review/jobs/': {
+      id: '/api/review/jobs/'
+      path: '/api/review/jobs'
+      fullPath: '/api/review/jobs/'
+      preLoaderRoute: typeof ApiReviewJobsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/review/jobs/$jobId': {
       id: '/api/review/jobs/$jobId'
       path: '/api/review/jobs/$jobId'
       fullPath: '/api/review/jobs/$jobId'
       preLoaderRoute: typeof ApiReviewJobsJobIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/api/review/jobs/$jobId/observations': {
+      id: '/api/review/jobs/$jobId/observations'
+      path: '/observations'
+      fullPath: '/api/review/jobs/$jobId/observations'
+      preLoaderRoute: typeof ApiReviewJobsJobIdObservationsRouteImport
+      parentRoute: typeof ApiReviewJobsJobIdRoute
+    }
+    '/api/review/jobs/$jobId/review': {
+      id: '/api/review/jobs/$jobId/review'
+      path: '/review'
+      fullPath: '/api/review/jobs/$jobId/review'
+      preLoaderRoute: typeof ApiReviewJobsJobIdReviewRouteImport
+      parentRoute: typeof ApiReviewJobsJobIdRoute
+    }
+    '/api/review/jobs/$jobId/video': {
+      id: '/api/review/jobs/$jobId/video'
+      path: '/video'
+      fullPath: '/api/review/jobs/$jobId/video'
+      preLoaderRoute: typeof ApiReviewJobsJobIdVideoRouteImport
+      parentRoute: typeof ApiReviewJobsJobIdRoute
     }
     '/api/review/jobs/$jobId/violations': {
       id: '/api/review/jobs/$jobId/violations'
@@ -298,10 +377,16 @@ const ApiReviewJobsJobIdViolationsRouteWithChildren =
   )
 
 interface ApiReviewJobsJobIdRouteChildren {
+  ApiReviewJobsJobIdObservationsRoute: typeof ApiReviewJobsJobIdObservationsRoute
+  ApiReviewJobsJobIdReviewRoute: typeof ApiReviewJobsJobIdReviewRoute
+  ApiReviewJobsJobIdVideoRoute: typeof ApiReviewJobsJobIdVideoRoute
   ApiReviewJobsJobIdViolationsRoute: typeof ApiReviewJobsJobIdViolationsRouteWithChildren
 }
 
 const ApiReviewJobsJobIdRouteChildren: ApiReviewJobsJobIdRouteChildren = {
+  ApiReviewJobsJobIdObservationsRoute: ApiReviewJobsJobIdObservationsRoute,
+  ApiReviewJobsJobIdReviewRoute: ApiReviewJobsJobIdReviewRoute,
+  ApiReviewJobsJobIdVideoRoute: ApiReviewJobsJobIdVideoRoute,
   ApiReviewJobsJobIdViolationsRoute:
     ApiReviewJobsJobIdViolationsRouteWithChildren,
 }
@@ -317,6 +402,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiReviewSessionRoute: ApiReviewSessionRoute,
   ApiReviewDevMockScenarioRoute: ApiReviewDevMockScenarioRoute,
   ApiReviewJobsJobIdRoute: ApiReviewJobsJobIdRouteWithChildren,
+  ApiReviewJobsIndexRoute: ApiReviewJobsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

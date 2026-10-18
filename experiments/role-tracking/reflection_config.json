@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "sampling_seconds": 2,
+  "max_interval_seconds": 2.01,
+  "max_pair_overlap": 0.15,
+  "min_step_iou": 0.1,
+  "max_normalized_step": 0.35,
+  "policy": "offline: two bracketing reflection observations, same visible direct counterpart, continuous provisional tracks; unknown is retained",
+  "selection": "All four existing clips; diagnostic development comparison, not held-out validation"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "backend/README.md:162-173",
+  "source_kind": "documented API evaluation; raw service outputs unavailable locally",
+  "sample": {
+    "videos": 40,
+    "positive": 21,
+    "negative": 19
+  },
+  "confusion_matrix": {
+    "tp": 17,
+    "fp": 3,
+    "fn": 4,
+    "tn": 16
+  },
+  "metrics_percent": {
+    "accuracy": 82.5,
+    "recall": 80.95238095238095,
+    "precision": 85.0,
+    "correct_type_and_time_within_2s": 23.809523809523807
+  },
+  "limitations": [
+    "No fresh inference or raw-output verification performed.",
+    "Binary video-level correctness does not establish correct violation type or timestamp.",
+    "This dataset is not established as an independent final test."
+  ]
+}

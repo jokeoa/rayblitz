@@ -2,6 +2,7 @@
 
 API_FIELDS = ("type", "timecode_sec", "description", "evidence_frames")
 STAGES = (
+    ("vision", "Люди и предметы", "Отслеживаем людей, закрепляем роли и наблюдаем предметы на столе."),
     ("analysis", "Анализ видео", "Ищем события и подготавливаем кадры-доказательства."),
     ("overview", "Подготовка обзора", "Локальная модель обобщает результаты анализа."),
 )
@@ -17,7 +18,7 @@ def progress(job: dict) -> dict:
                  "failed" if job["status"] == "failed" else "running")
         stages.append(dict(id=id_, label=label, description=description, status=state,
                            percent=100 if state == "done" else percent if i == active and state != "pending" else 0))
-    overall = 100 if job["status"] == "done" else (90 + percent * .1 if active else percent * .9)
+    overall = 100 if job["status"] == "done" else (active + percent/100) / len(STAGES) * 100
     return {"percent": round(overall, 2), "stages": stages}
 
 

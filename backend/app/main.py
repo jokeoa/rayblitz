@@ -5,6 +5,8 @@ import secrets
 import subprocess
 import tempfile
 import time
+import json
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -12,8 +14,9 @@ import httpx
 from fastapi import Depends, FastAPI, File, Header, HTTPException, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import JSONResponse, Response, FileResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
+from pydantic import BaseModel, Field
 
 from app import config, jobs, payloads
 from app.video import probe
@@ -21,7 +24,16 @@ from app.video import probe
 MAX_BYTES = 100 * 1024 * 1024
 ALLOWED = {".mov"}
 JOB_ID = re.compile(r"^[0-9a-f]{8}$")
-app = FastAPI(title="CashGuard")
+@asynccontextmanager
+async def lifespan(app):
+    jobs.recover()
+    yield
+    for task in list(jobs._tasks):
+        task.cancel()
+    await asyncio.gather(*jobs._tasks, return_exceptions=True)
+
+
+app = FastAPI(title="CashGuard", lifespan=lifespan)
 
 
 def fail(status: int, code: str, message: str):
@@ -117,6 +129,59 @@ async def job(request: Request, job_id: str):
     if view not in {"jury", "ui"}:
         fail(400, "BAD_REQUEST", "Неизвестное представление результата.")
     return payloads.job_response(get_job(job_id), view)
+
+
+@app.get('/api/v1/jobs', dependencies=[Depends(check_key)])
+async def history(request: Request):
+    query(request, set())
+    return {'items': jobs.history()}
+
+
+@app.get('/api/v1/jobs/{job_id}/video', dependencies=[Depends(check_key)])
+async def video(request: Request, job_id: str):
+    query(request, set())
+    get_job(job_id)
+    path = jobs.job_dir(job_id) / 'playback.mp4'
+    if not path.exists():
+        fail(409, 'JOB_NOT_DONE', 'Видео подготавливается к просмотру.')
+    return FileResponse(path, media_type='video/mp4')
+
+
+@app.get('/api/v1/jobs/{job_id}/observations', dependencies=[Depends(check_key)])
+async def observations(request: Request, job_id: str):
+    query(request, set())
+    get_job(job_id)
+    directory = jobs.job_dir(job_id)
+    result = {'people': None, 'objects': None}
+    for name in result:
+        path = directory / f'{name}.json'
+        if path.exists():
+            result[name] = json.loads(path.read_text())
+    return result
+
+
+class Review(BaseModel):
+    reviewed: bool = False
+    notes: str = Field(default='', max_length=8000)
+
+
+@app.get('/api/v1/jobs/{job_id}/review', dependencies=[Depends(check_key)])
+async def get_review(request: Request, job_id: str):
+    query(request, set())
+    get_job(job_id)
+    path = jobs.job_dir(job_id) / 'review.json'
+    return json.loads(path.read_text()) if path.exists() else Review().model_dump()
+
+
+@app.put('/api/v1/jobs/{job_id}/review', dependencies=[Depends(check_key)])
+async def put_review(request: Request, job_id: str, body: Review):
+    query(request, set())
+    get_job(job_id)
+    path = jobs.job_dir(job_id) / 'review.json'
+    temporary = path.with_suffix('.tmp')
+    temporary.write_text(body.model_dump_json())
+    temporary.replace(path)
+    return body
 
 
 @app.get("/api/v1/jobs/{job_id}/violations", dependencies=[Depends(check_key)])

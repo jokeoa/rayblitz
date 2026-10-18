@@ -1,0 +1,592 @@
+[
+  {
+    "video": "X-11",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      133.74,
+      316.368,
+      258.149,
+      418.866
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "assistant_visual_review"
+  },
+  {
+    "video": "X-11",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      59.012,
+      252.95,
+      113.852,
+      341.725
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-11",
+    "frame": 50,
+    "t": 5.0,
+    "detection_id": 0,
+    "box": [
+      136.034,
+      313.898,
+      257.457,
+      418.871
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "assistant_visual_review"
+  },
+  {
+    "video": "X-11",
+    "frame": 50,
+    "t": 5.0,
+    "detection_id": 1,
+    "box": [
+      60.953,
+      252.583,
+      112.962,
+      341.732
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-11",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      111.94,
+      312.551,
+      212.587,
+      419.533
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "assistant_visual_review"
+  },
+  {
+    "video": "X-11",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 1,
+    "box": [
+      45.891,
+      256.919,
+      112.967,
+      330.642
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-11",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 0,
+    "box": [
+      150.995,
+      212.274,
+      219.22,
+      410.465
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "assistant_visual_review"
+  },
+  {
+    "video": "X-11",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 1,
+    "box": [
+      127.841,
+      201.137,
+      162.253,
+      325.742
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-11",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 0,
+    "box": [
+      43.442,
+      204.414,
+      138.87,
+      407.877
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "assistant_visual_review"
+  },
+  {
+    "video": "X-48",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      134.32,
+      186.435,
+      213.352,
+      396.141
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      177.795,
+      388.509,
+      285.168,
+      585.435
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 2,
+    "box": [
+      0.132,
+      222.864,
+      53.411,
+      315.686
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      100.776,
+      297.412,
+      206.017,
+      417.922
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 1,
+    "box": [
+      0.076,
+      221.864,
+      48.624,
+      293.449
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 2,
+    "box": [
+      171.706,
+      388.056,
+      282.155,
+      578.203
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 3,
+    "box": [
+      21.898,
+      234.056,
+      101.262,
+      371.32
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 0,
+    "box": [
+      105.605,
+      293.946,
+      198.923,
+      414.293
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 1,
+    "box": [
+      167.614,
+      386.164,
+      281.842,
+      577.859
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 2,
+    "box": [
+      0.266,
+      222.613,
+      51.031,
+      293.146
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 3,
+    "box": [
+      12.406,
+      237.534,
+      100.299,
+      370.455
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 0,
+    "box": [
+      104.404,
+      293.436,
+      198.57,
+      415.169
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 1,
+    "box": [
+      166.835,
+      386.287,
+      282.969,
+      571.444
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 2,
+    "box": [
+      0.584,
+      222.636,
+      51.476,
+      292.402
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 3,
+    "box": [
+      12.256,
+      237.847,
+      94.664,
+      326.365
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 550,
+    "t": 55.0,
+    "detection_id": 0,
+    "box": [
+      103.749,
+      290.747,
+      194.561,
+      413.841
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P1",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 550,
+    "t": 55.0,
+    "detection_id": 1,
+    "box": [
+      174.536,
+      386.006,
+      272.978,
+      570.01
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 550,
+    "t": 55.0,
+    "detection_id": 2,
+    "box": [
+      1.892,
+      222.723,
+      52.285,
+      295.158
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 550,
+    "t": 55.0,
+    "detection_id": 3,
+    "box": [
+      38.022,
+      236.499,
+      94.438,
+      370.457
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 700,
+    "t": 70.0,
+    "detection_id": 0,
+    "box": [
+      132.972,
+      292.015,
+      239.919,
+      409.285
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "customer",
+    "person": "P3",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 700,
+    "t": 70.0,
+    "detection_id": 1,
+    "box": [
+      170.136,
+      384.213,
+      273.201,
+      571.281
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "observable_role": "banker",
+    "person": "P2",
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth.",
+    "role_annotator": "human_user",
+    "role_label_source": "Explicit user clarification: В розовой банкир, остальные клиенты"
+  },
+  {
+    "video": "X-48",
+    "frame": 700,
+    "t": 70.0,
+    "detection_id": 2,
+    "box": [
+      5.124,
+      223.377,
+      56.708,
+      290.92
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 700,
+    "t": 70.0,
+    "detection_id": 3,
+    "box": [
+      71.875,
+      236.869,
+      93.797,
+      287.558
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  },
+  {
+    "video": "X-48",
+    "frame": 700,
+    "t": 70.0,
+    "detection_id": 4,
+    "box": [
+      64.896,
+      236.894,
+      95.08,
+      321.06
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "observable_role": null,
+    "person": null,
+    "selection": "Fixed source-selected frame; boxes with detector score >=0.5. Not complete person ground truth."
+  }
+]

@@ -1,16 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
+import { OverlaySwitch } from "@/components/watch/overlay-switch";
+import { useOverlayStore } from "@/stores/overlay-store";
 import { Badge } from "@/components/ui/badge";
 import { PlayerControls } from "@/components/watch/player-controls";
 import { ReviewPanel, type ReviewState } from "@/components/watch/review-panel";
 import { Timeline } from "@/components/watch/timeline";
 import { VideoPlayer } from "@/components/watch/video-player";
 import { useVideoSource } from "@/hooks/use-video-source";
-import { PROCESSING_DEADLINE_MS, type Violation } from "@/lib/api/contracts";
+import { type Violation } from "@/lib/api/contracts";
 import { jobQuery, violationsQuery } from "@/lib/api/queries";
 import { formatBytes, formatRelative } from "@/lib/format";
-import { deleteVideo } from "@/lib/video-blobs";
+import { getObservations } from "@/lib/api/observations";
+import { ObservationOverlay } from "@/components/watch/observation-overlay";
+import { ReviewerNotes } from "@/components/watch/reviewer-notes";
+import { ObservationsPanel } from "@/components/watch/observations-panel";
 import { useHistoryStore } from "@/stores/history-store";
 import { usePlayerStore } from "@/stores/player-store";
 
@@ -26,7 +31,6 @@ function WatchPage() {
 	const entry = useHistoryStore((state) =>
 		state.entries.find((e) => e.jobId === jobId),
 	);
-	const removeEntry = useHistoryStore((state) => state.remove);
 
 	const job = useQuery(jobQuery(jobId, entry?.createdAt ?? null));
 	const done = job.data?.status === "done" ? job.data : null;
@@ -35,7 +39,15 @@ function WatchPage() {
 		...violationsQuery(jobId),
 		enabled: hasEvents,
 	});
-	const source = useVideoSource(jobId);
+	const source = useVideoSource(jobId, entry?.playbackReady !== true);
+	const overlay = useOverlayStore((state) => state.mode);
+	const setOverlay = useOverlayStore((state) => state.setMode);
+	const overlaysVisible = useOverlayStore((state) => state.visible);
+	const observations = useQuery({
+		queryKey: ["observations", jobId],
+		queryFn: ({ signal }) => getObservations(jobId, signal),
+		refetchInterval: job.data?.status === "processing" ? 5000 : false,
+	});
 
 	useEffect(() => {
 		usePlayerStore.getState().open(jobId);
@@ -58,26 +70,18 @@ function WatchPage() {
 		player.controller?.seek(violation.timecode_sec);
 	};
 
-	const timedOut =
-		job.data?.status === "processing" &&
-		entry !== undefined &&
-		Date.now() - entry.createdAt > PROCESSING_DEADLINE_MS;
-
 	const state: ReviewState = {
 		job: job.data,
 		jobError: job.error,
 		violations: violations.data,
 		violationsLoading: hasEvents && violations.isPending,
 		violationsError: violations.isError,
-		timedOut,
 		onRefresh: () => {
 			void job.refetch();
 			if (violations.isError) void violations.refetch();
 		},
 		refreshing: job.isFetching,
-		onRemove: () => {
-			removeEntry(jobId);
-			void deleteVideo(jobId);
+		onBack: () => {
 			void navigate({ to: "/watch" });
 		},
 		onSelect: select,
@@ -105,7 +109,7 @@ function WatchPage() {
 						<p className="mt-1 text-sm tabular text-muted-foreground">
 							{entry
 								? `${formatBytes(entry.sizeBytes)} · загружено ${formatRelative(entry.createdAt)}`
-								: "Видео не найдено в истории этого браузера"}
+								: "Видео из общей истории"}
 						</p>
 					</div>
 					{job.data?.status === "failed" ? (
@@ -117,9 +121,27 @@ function WatchPage() {
 					) : null}
 				</header>
 
-				<VideoPlayer source={source} fallbackDuration={fallbackDuration} />
+				<div className="flex shrink-0 justify-end">
+					<OverlaySwitch />
+				</div>
+				<VideoPlayer
+					source={source}
+					fallbackDuration={
+						observations.data?.people?.info.duration ?? fallbackDuration
+					}
+				>
+					{observations.data && overlaysVisible && (
+						<ObservationOverlay data={observations.data} mode={overlay} />
+					)}
+				</VideoPlayer>
 				<PlayerControls violations={events} />
 				<Timeline violations={events} state={timelineState} onSelect={select} />
+				<ObservationsPanel
+					data={observations.data}
+					mode={overlay}
+					onMode={setOverlay}
+				/>
+				<ReviewerNotes key={jobId} jobId={jobId} />
 			</div>
 
 			<aside

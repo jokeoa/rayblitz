@@ -1,0 +1,10 @@
+[
+  {"video":"X-4","name":"visitor_arrival","times":[6,8,10,12,14],"question":"Does the entering visitor retain an ID while passing the employee and taking a seat?"},
+  {"video":"X-4","name":"visitor_replacement","times":[48,52,56,60,64,68],"question":"Does a new visitor inherit the departed visitor's ID or role?"},
+  {"video":"X-18","name":"employee_reaches_equipment","times":[9,10,11,12,13,14,15],"question":"Do IDs swap when the employee stands in front of the seated visitor?"},
+  {"video":"X-18","name":"third_person_arrival","times":[16,17,18,19,20,21,22],"question":"Does the third person cause an ID or role reassignment?"},
+  {"video":"X-27","name":"exit_through_glass_door","times":[17,18,19,20,21,22,23,24],"question":"Is the employee confused with a reflection or fragmented behind the door?"},
+  {"video":"X-38","name":"visitor_replacement","times":[24,26,28,30,32,34,36,38],"question":"Are successive visitors and their reflections kept separate?"},
+  {"video":"X-18","name":"occlusion_detail","times":[11,12.5,13.5,13.6,13.7,13.8,14,15,20],"selection":"post-run diagnostic drilldown, not an independent test sample","question":"Which ID gets the primary customer detection at the end of the overlap?"},
+  {"video":"X-4","name":"role_inversion","times":[5,10,15,20,30,35,60,65,70],"selection":"post-run diagnostic drilldown, not an independent test sample","question":"Why do stable IDs receive inverted banker/customer role predictions?"}
+]

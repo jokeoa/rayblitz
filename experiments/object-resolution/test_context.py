@@ -1,0 +1,52 @@
+import copy
+import unittest
+
+from common import ROOT, read_json
+from context_resolution import PersonContext, observation_intervals, resolve
+
+
+class ContextTests(unittest.TestCase):
+    def test_role_lookup_is_causal_and_expires(self):
+        person = {"person_id":"P1", "classification":{"role":"banker"}}
+        context = PersonContext({"fps":10,"people":{"P1":{"initialized_at":2}},
+                                 "rows":[{"t":1.9,"tracks":[person]}, {"t":2.,"tracks":[person]}]})
+        self.assertIsNone(context.at(1.8))
+        self.assertEqual(context.at(1.95)["t"],1.9)
+        self.assertEqual(context.at(1.95)["tracks"][0]["classification"]["role"],"unknown")
+        self.assertEqual(context.at(2.)["tracks"][0]["classification"]["role"],"banker")
+        self.assertIsNone(context.at(2.2))
+        self.assertEqual(person["classification"]["role"],"banker")
+
+    def test_worn_clothes_excluded_but_table_jacket_preserved(self):
+        for video,t,expect_exclusion in [("X-24",9.,True),("X-14",78.,True),("X-1",22.,True),("X-40",15.,False)]:
+            raw=read_json(ROOT/"runs"/video/"desk-detections.json")["rows"][20]["arms"]["desk"]
+            clothes=[p for p in raw if p["class"]=="clothing" and p["score"]>=.15]
+            before=copy.deepcopy(clothes)
+            roles=PersonContext(read_json(ROOT.parent/"role-tracking/runs/safe-side"/video/"person_tracks.json"))
+            kept,excluded=resolve(clothes,roles.at(t),[],t)
+            self.assertTrue(clothes,video)
+            self.assertEqual(bool(excluded),expect_exclusion,video)
+            self.assertEqual(bool(kept),not expect_exclusion,video)
+            self.assertEqual(clothes,before)
+
+    def test_equipment_override_scoped_in_space_and_time(self):
+        anchor={"id":"counter","interval":[7,11],"class":"cash_counter","class_index":10,
+                "box":[75,345,147,435],"identity_source":"human"}
+        left={"class":"desk_phone","box":[75,350,143,429],"score":.2}
+        right={"class":"desk_phone","box":[279,369,319,411],"score":.3}
+        kept,_=resolve([left,right],None,[anchor],9)
+        self.assertEqual([p['class'] for p in kept],['desk_phone','cash_counter'])
+        self.assertEqual(left['class'],'desk_phone')
+        self.assertTrue(all(p['class']=='desk_phone' for p in resolve([left,right],None,[anchor],11)[0]))
+
+    def test_duration_does_not_bridge_missing_observation(self):
+        track={"id":"cash-1","class":"cash"}
+        rows=[{"t":t,"tracks":ps} for t,ps in [(0,[track]),(.1,[track]),(.2,[]),(.3,[track])]]
+        item=observation_intervals(rows,10)[0]
+        self.assertEqual(item["intervals"],[[0,.2],[.3,.4]])
+        self.assertEqual(item["observed_seconds"],.3)
+        self.assertEqual(item["observed_samples"],3)
+
+
+if __name__ == "__main__":
+    unittest.main()

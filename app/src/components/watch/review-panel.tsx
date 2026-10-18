@@ -23,16 +23,14 @@ export type ReviewState = {
 	violations: Violation[] | undefined;
 	violationsLoading: boolean;
 	violationsError: boolean;
-	/** The 300 s auto-poll budget is spent; only manual refresh remains. */
-	timedOut: boolean;
 	onRefresh: () => void;
 	refreshing: boolean;
-	onRemove: () => void;
+	onBack: () => void;
 	onSelect: (violation: Violation) => void;
 };
 
 function Overview({ job }: { job: Extract<JobResponse, { status: "done" }> }) {
-	const { summary } = job.overview;
+	const { summary, limitations } = job.overview;
 	return (
 		<section aria-labelledby="overview-title" className="flex flex-col gap-3">
 			<div className="flex items-center gap-2">
@@ -46,6 +44,18 @@ function Overview({ job }: { job: Extract<JobResponse, { status: "done" }> }) {
 			</div>
 			<VerdictBadge verdict={job.verdict} className="self-start" />
 			<p className="text-sm leading-relaxed whitespace-pre-line">{summary}</p>
+			{limitations.length > 0 && (
+				<details className="text-xs leading-relaxed text-muted-foreground">
+					<summary className="cursor-pointer font-medium">
+						Ограничения анализа · {limitations.length}
+					</summary>
+					<ul className="mt-2 list-disc space-y-2 pl-4">
+						{limitations.map((item, index) => (
+							<li key={index}>{item}</li>
+						))}
+					</ul>
+				</details>
+			)}
 		</section>
 	);
 }
@@ -164,9 +174,9 @@ export function ReviewPanel({
 						variant="outline"
 						size="sm"
 						className="mt-3"
-						onClick={state.onRemove}
+						onClick={state.onBack}
 					>
-						Убрать из истории
+						К списку видео
 					</Button>
 				</AlertDescription>
 			</Alert>
@@ -206,27 +216,6 @@ export function ReviewPanel({
 			<div className="flex flex-col gap-4">
 				<h2 className="text-sm font-semibold tracking-tight">Идёт анализ</h2>
 				<StageProgress progress={job.progress} />
-				{state.timedOut ? (
-					<Alert>
-						<CircleAlert aria-hidden />
-						<AlertTitle>Время ожидания истекло</AlertTitle>
-						<AlertDescription>
-							<p>
-								Автоматическое обновление остановлено через 5 минут. Задание
-								могло завершиться.
-							</p>
-							<Button
-								variant="outline"
-								size="sm"
-								className="mt-3"
-								disabled={state.refreshing}
-								onClick={state.onRefresh}
-							>
-								Обновить статус
-							</Button>
-						</AlertDescription>
-					</Alert>
-				) : null}
 			</div>
 		);
 	} else if (job.status === "failed") {

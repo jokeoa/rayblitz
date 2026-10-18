@@ -18,7 +18,6 @@ import {
 import { apiJson } from "@/lib/api/client";
 import { type DevScenario, DevScenarioSchema } from "@/lib/api/dev-contracts";
 import { startAnalysis } from "@/lib/api/review";
-import { saveVideo } from "@/lib/video-blobs";
 import { useHistoryStore } from "@/stores/history-store";
 import cleanUrl from "../../../mock/samples/kassa-clean.mov?url";
 import demoUrl from "../../../mock/samples/kassa-demo.mov?url";
@@ -74,7 +73,6 @@ export function MockPanel() {
 				status: "processing",
 				percent: 0,
 			});
-			await saveVideo(accepted.job_id, file);
 			void navigate({
 				to: "/watch/$jobId",
 				params: { jobId: accepted.job_id },

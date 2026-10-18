@@ -1,7 +1,7 @@
-import { CircleAlert, Clock, LoaderCircle } from "lucide-react";
+import { CircleAlert, LoaderCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { VerdictBadge } from "@/components/verdict-badge";
-import type { DisplayStatus, HistoryEntry } from "@/stores/history-store";
+import type { HistoryStatus, HistoryEntry } from "@/stores/history-store";
 
 /** Status chip shared by the history modal and the dashboard list. */
 export function JobStatusBadge({
@@ -9,7 +9,7 @@ export function JobStatusBadge({
 	status,
 }: {
 	entry: HistoryEntry;
-	status: DisplayStatus;
+	status: HistoryStatus;
 }) {
 	switch (status) {
 		case "processing":
@@ -19,7 +19,7 @@ export function JobStatusBadge({
 						className="animate-spin motion-reduce:animate-none"
 						aria-hidden
 					/>
-					Анализ {Math.floor(entry.percent)}%
+					{entry.queued ? "В очереди" : `Анализ ${Math.floor(entry.percent)}%`}
 				</Badge>
 			);
 		case "failed":
@@ -27,13 +27,6 @@ export function JobStatusBadge({
 				<Badge variant="destructive">
 					<CircleAlert aria-hidden />
 					Ошибка
-				</Badge>
-			);
-		case "timeout":
-			return (
-				<Badge className="bg-warning-soft text-warning">
-					<Clock aria-hidden />
-					Превышено время
 				</Badge>
 			);
 		case "done":

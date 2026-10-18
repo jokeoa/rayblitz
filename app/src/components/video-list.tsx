@@ -13,7 +13,7 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { formatBytes, formatEvents, formatRelative } from "@/lib/format";
 import { cn } from "@/lib/utils";
-import { displayStatus, type HistoryEntry } from "@/stores/history-store";
+import { type HistoryEntry } from "@/stores/history-store";
 
 /**
  * The single video list used by the history modal (`compact`) and the
@@ -34,7 +34,7 @@ export function VideoList({
 	return (
 		<ItemGroup className={cn("gap-2", className)}>
 			{entries.map((entry) => {
-				const status = displayStatus(entry, now);
+				const status = entry.status;
 				return (
 					<Item
 						key={entry.jobId}

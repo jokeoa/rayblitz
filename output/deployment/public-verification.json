@@ -1,0 +1,13 @@
+{
+  "url": "https://cashguard.goigaming.tech",
+  "videos": 42,
+  "states": {
+    "processing": 30,
+    "done": 12
+  },
+  "https": "verified",
+  "authentication": "protected endpoints; secure HttpOnly SameSite session",
+  "video_range": 206,
+  "person_samples": 191,
+  "object_samples": 38
+}

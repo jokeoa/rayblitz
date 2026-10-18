@@ -1,0 +1,1052 @@
+[
+  {
+    "video": "X-4",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      183.43,
+      387.19,
+      284.428,
+      592.144
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      0.652,
+      222.067,
+      52.927,
+      298.882
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      89.229,
+      293.106,
+      211.539,
+      403.748
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 1,
+    "box": [
+      177.408,
+      388.072,
+      284.017,
+      574.152
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 2,
+    "box": [
+      1.719,
+      222.641,
+      53.602,
+      290.818
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 3,
+    "box": [
+      59.22,
+      238.407,
+      93.596,
+      287.632
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 4,
+    "box": [
+      52.805,
+      238.698,
+      100.974,
+      368.755
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 0,
+    "box": [
+      110.02,
+      293.546,
+      200.981,
+      418.736
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 2,
+    "box": [
+      172.148,
+      387.23,
+      280.523,
+      591.856
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 1,
+    "box": [
+      0.075,
+      221.21,
+      48.399,
+      292.272
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 3,
+    "box": [
+      35.872,
+      233.636,
+      93.072,
+      291.881
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 150,
+    "t": 15.0,
+    "detection_id": 4,
+    "box": [
+      33.787,
+      233.825,
+      99.116,
+      370.283
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 0,
+    "box": [
+      120.267,
+      289.786,
+      204.465,
+      421.737
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 1,
+    "box": [
+      182.333,
+      386.104,
+      282.597,
+      588.153
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 2,
+    "box": [
+      0.429,
+      222.34,
+      52.096,
+      297.79
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 3,
+    "box": [
+      29.35,
+      233.661,
+      101.548,
+      371.879
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 500,
+    "t": 50.0,
+    "detection_id": 0,
+    "box": [
+      70.28,
+      253.651,
+      181.322,
+      413.12
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 500,
+    "t": 50.0,
+    "detection_id": 1,
+    "box": [
+      171.196,
+      382.09,
+      282.416,
+      580.855
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 500,
+    "t": 50.0,
+    "detection_id": 2,
+    "box": [
+      6.863,
+      216.086,
+      80.312,
+      292.345
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 600,
+    "t": 60.0,
+    "detection_id": 0,
+    "box": [
+      75.659,
+      291.321,
+      186.339,
+      411.539
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 600,
+    "t": 60.0,
+    "detection_id": 1,
+    "box": [
+      170.356,
+      383.579,
+      278.079,
+      586.063
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-4",
+    "frame": 600,
+    "t": 60.0,
+    "detection_id": 2,
+    "box": [
+      5.597,
+      222.478,
+      87.719,
+      318.531
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      186.687,
+      347.674,
+      283.725,
+      499.539
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      6.925,
+      178.213,
+      61.647,
+      271.354
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      157.388,
+      348.824,
+      275.058,
+      553.79
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 1,
+    "box": [
+      146.836,
+      248.005,
+      228.316,
+      365.472
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 2,
+    "box": [
+      1.244,
+      177.644,
+      62.61,
+      259.471
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 125,
+    "t": 12.5,
+    "detection_id": 0,
+    "box": [
+      128.749,
+      267.598,
+      240.16,
+      569.409
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 125,
+    "t": 12.5,
+    "detection_id": 1,
+    "box": [
+      170.4,
+      248.029,
+      229.048,
+      356.048
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 125,
+    "t": 12.5,
+    "detection_id": 2,
+    "box": [
+      0.122,
+      152.862,
+      45.286,
+      273.636
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 125,
+    "t": 12.5,
+    "detection_id": 3,
+    "box": [
+      69.616,
+      248.735,
+      228.803,
+      372.08
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 136,
+    "t": 13.6,
+    "detection_id": 0,
+    "box": [
+      134.124,
+      340.186,
+      282.95,
+      564.125
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 136,
+    "t": 13.6,
+    "detection_id": 1,
+    "box": [
+      117.585,
+      247.903,
+      229.136,
+      369.701
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 136,
+    "t": 13.6,
+    "detection_id": 2,
+    "box": [
+      0.252,
+      180.929,
+      48.31,
+      271.868
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 180,
+    "t": 18.0,
+    "detection_id": 0,
+    "box": [
+      144.862,
+      346.757,
+      273.167,
+      566.252
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 180,
+    "t": 18.0,
+    "detection_id": 1,
+    "box": [
+      148.053,
+      248.316,
+      228.827,
+      367.004
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 180,
+    "t": 18.0,
+    "detection_id": 2,
+    "box": [
+      41.25,
+      136.075,
+      150.024,
+      373.513
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 0,
+    "box": [
+      143.483,
+      346.881,
+      267.291,
+      566.825
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 1,
+    "box": [
+      0,
+      161.589,
+      85.155,
+      437.445
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-18",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 2,
+    "box": [
+      146.243,
+      248.512,
+      229.276,
+      365.567
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      148.106,
+      286.748,
+      243.36,
+      405.231
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      161.394,
+      286.45,
+      192.976,
+      324.948
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 2,
+    "box": [
+      85.615,
+      225.086,
+      123.04,
+      302.417
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      145.62,
+      196.53,
+      228.893,
+      384.386
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 170,
+    "t": 17.0,
+    "detection_id": 0,
+    "box": [
+      120.614,
+      193.593,
+      213.466,
+      387.91
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 190,
+    "t": 19.0,
+    "detection_id": 0,
+    "box": [
+      108.674,
+      190.068,
+      186.736,
+      387.891
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 190,
+    "t": 19.0,
+    "detection_id": 1,
+    "box": [
+      78.167,
+      174.322,
+      123.264,
+      271.572
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 210,
+    "t": 21.0,
+    "detection_id": 0,
+    "box": [
+      66.372,
+      181.063,
+      139.139,
+      357.911
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 230,
+    "t": 23.0,
+    "detection_id": 0,
+    "box": [
+      99.379,
+      171.142,
+      173.553,
+      371.984
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-27",
+    "frame": 230,
+    "t": 23.0,
+    "detection_id": 1,
+    "box": [
+      100.394,
+      171.194,
+      163.779,
+      278.692
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 0,
+    "box": [
+      160.262,
+      365.917,
+      271.742,
+      547.603
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 0,
+    "t": 0.0,
+    "detection_id": 1,
+    "box": [
+      207.02,
+      170.686,
+      267.637,
+      321.13
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 0,
+    "box": [
+      150.561,
+      260.303,
+      231.979,
+      372.611
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 100,
+    "t": 10.0,
+    "detection_id": 1,
+    "box": [
+      152.286,
+      355.55,
+      280.794,
+      553.633
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 0,
+    "box": [
+      151.548,
+      262.487,
+      232.634,
+      372.273
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 1,
+    "box": [
+      164.041,
+      357.324,
+      262.008,
+      543.485
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 200,
+    "t": 20.0,
+    "detection_id": 2,
+    "box": [
+      59.452,
+      188.072,
+      87.306,
+      248.285
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 300,
+    "t": 30.0,
+    "detection_id": 0,
+    "box": [
+      168.243,
+      358.456,
+      267.487,
+      541.026
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 300,
+    "t": 30.0,
+    "detection_id": 1,
+    "box": [
+      57.173,
+      187.165,
+      87.446,
+      247.79
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 0,
+    "box": [
+      126.311,
+      266.925,
+      214.726,
+      372.744
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 1,
+    "box": [
+      164.334,
+      358.749,
+      266.189,
+      545.87
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 2,
+    "box": [
+      81.754,
+      204.424,
+      147.186,
+      344.44
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 3,
+    "box": [
+      27.896,
+      164.143,
+      78.71,
+      271.533
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 4,
+    "box": [
+      56.595,
+      187.096,
+      86.229,
+      247.266
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 360,
+    "t": 36.0,
+    "detection_id": 5,
+    "box": [
+      176.471,
+      63.143,
+      196.137,
+      106.174
+    ],
+    "label": "uncertain",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 0,
+    "box": [
+      145.826,
+      262.104,
+      219.785,
+      374.792
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 1,
+    "box": [
+      164.473,
+      356.683,
+      271.536,
+      542.106
+    ],
+    "label": "direct",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 2,
+    "box": [
+      98.133,
+      201.803,
+      149.925,
+      354.947
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 3,
+    "box": [
+      59.79,
+      186.997,
+      88.39,
+      247.422
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  },
+  {
+    "video": "X-38",
+    "frame": 400,
+    "t": 40.0,
+    "detection_id": 4,
+    "box": [
+      28.09,
+      164.975,
+      80.077,
+      270.548
+    ],
+    "label": "reflection",
+    "annotator": "assistant_visual_review",
+    "purpose": "diagnostic retention audit, not independent ground truth"
+  }
+]

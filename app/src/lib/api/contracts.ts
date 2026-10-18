@@ -2,7 +2,6 @@ import { z } from "zod";
 
 export const MAX_VIDEO_BYTES = 100 * 1024 * 1024;
 export const POLL_INTERVAL_MS = 2_000;
-export const PROCESSING_DEADLINE_MS = 300_000;
 export const DEFAULT_PAGE_SIZE = 20;
 export const MAX_PAGE_SIZE = 100;
 

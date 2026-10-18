@@ -1,0 +1,56 @@
+{
+  "source": "Direct user replies in this chat on 2026-10-18. Object identity confirmations only; not exhaustive boxes or track identities.",
+  "items": [
+    {
+      "video": "X-22",
+      "frame": 39,
+      "time": 13.9,
+      "absent": [
+        "key"
+      ],
+      "reply": "Нет, ключа нет"
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "time": 9.0,
+      "present": [
+        "stamp",
+        "notebook"
+      ],
+      "reply": "Печати и тетрадь"
+    },
+    {
+      "video": "X-46",
+      "frame": 20,
+      "time": 10.0,
+      "present": [
+        "cash",
+        "packaging"
+      ],
+      "reply": "3- пачка денег на столе, и упаковка"
+    },
+    {
+      "video": "X-13",
+      "frame": 20,
+      "time": 36.0,
+      "present": [
+        "cash"
+      ],
+      "reply": "1 деньги деньги деньги 2- деньги деньги обертка",
+      "interpretation": "Three items from left to right are money; does not identify scissors."
+    },
+    {
+      "video": "X-14",
+      "frame": 20,
+      "time": 78.0,
+      "present": [
+        "cash",
+        "packaging"
+      ],
+      "reply": "1 деньги деньги деньги 2- деньги деньги обертка",
+      "interpretation": "Back and front items are money; small item on the right is a wrapper."
+    }
+  ],
+  "vocabulary_change": "Notebook and packaging added after the source-only human review. Banknote detector and scissors added as explicit candidate classes after source inspection. The user also requested bags and banknote wrappers in other clips; X-13, X-14, X-15 and X-17 were added before final inference. An 18-class pilot and partial run are retained separately; final comparison uses the same 22-class vocabulary in all arms. This is development, not held-out evaluation."
+}

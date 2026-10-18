@@ -9,7 +9,7 @@ from pathlib import Path
 
 import httpx
 
-from app import config, rules
+from app import config, rules, role_context
 from app.analyzers.common import SYSTEM, Event, semaphore, windows
 from app.video import Frame, b64, sample_frames
 
@@ -26,7 +26,16 @@ def frame_content(chunk: list[Frame]) -> list[dict]:
     content = [{"type": "text", "text": "Frames from the ceiling camera in time order:"}]
     for i, f in enumerate(chunk):
         content.append({"type": "text", "text": f"Frame {LETTERS[i]} (t={f.t:.1f}s):"})
-        content.append({"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64(f.path.read_bytes())}})
+        image, role_hint = role_context.frame_evidence(f)
+        content.append({"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64(image)}})
+        if role_hint:
+            content.append({"type": "text", "text": role_hint})
+        # Four native-resolution desk crops per 8-second window retain small
+        # objects without replacing the global temporal view with enlarged pixels.
+        crop = f.path.parent.parent / 'desk_frames' / f'{round(f.t*2):05d}.jpg'
+        if i % 4 == 0 and crop.exists():
+            content.append({"type": "text", "text": f"Desk close-up at {f.t:.1f}s. Inspect money vs empty packaging; if unclear, do not assume cash."})
+            content.append({"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64(crop.read_bytes())}})
     return content
 
 

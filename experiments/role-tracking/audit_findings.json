@@ -1,0 +1,144 @@
+{
+  "reviewer": "assistant visual review of source-selected moments and raw tracker associations",
+  "status": "exploratory review; not independently human-annotated ground truth",
+  "findings": [
+    {
+      "video": "X-4",
+      "interval_seconds": [
+        15,
+        20
+      ],
+      "type": "high-confidence reflections detected as additional people",
+      "observation": "At 15s, reflection D1 has detector score 0.88949, while the real employee D2 scores 0.878895. At 20s two reflected silhouettes D2 and D3 score 0.772322 and 0.657255. All pass the 0.5 new-track threshold. A scalar confidence threshold cannot retain the employee and reject the higher-scoring reflection at 15s.",
+      "limit": "Assistant visual diagnosis selected after the user's feedback, not independently annotated validation. No reflection filter has been implemented or evaluated. X-27 contains a real person passing through the glass door, so a blanket glass exclusion would also suppress relevant people.",
+      "evidence_frames": [
+        "runs/X-4/role_frames/000150.jpg",
+        "runs/X-4/role_frames/000200.jpg"
+      ]
+    },
+    {
+      "video": "X-4",
+      "interval_seconds": [
+        15,
+        70
+      ],
+      "type": "role inversion despite stable person IDs",
+      "observation": "At 15-29.9s both arms label the employee, ID 0, as customer and the seated visitor, ID 3, as banker. At 65-69.9s the employee ID 0 is again customer and the new visitor (ByteTrack ID 30, BoT-SORT ID 29) is banker. At 30s and 70s contradictory observations reset these roles to unknown. These are incorrect outputs of the shared role model/box grounding, propagated by the vote policy, not identity swaps caused by the tracker.",
+      "limit": "Observable service roles were reviewed from the source sequence and workstation interaction by the assistant; this is not an independently annotated whole-dataset role metric. The experiment does not isolate semantic role reasoning from the VLM's binding of a D label to a box.",
+      "evidence_contact_sheet": "runs/audit/X-4-role_inversion.jpg"
+    },
+    {
+      "video": "X-18",
+      "interval_seconds": [
+        11,
+        15
+      ],
+      "type": "duplicate detections during partial occlusion, followed by identity discontinuity",
+      "observation": "The employee stands in front of the seated visitor. Both trackers emit additional overlapping tracks. At 13.5s the primary customer detection belongs to ID 4 in both arms; at 13.6-13.7s it belongs to ByteTrack ID 12 and BoT-SORT ID 11. At 13.8s ByteTrack returns to ID 4; BoT-SORT stays with ID 11 through the end of this clip.",
+      "bytetrack_anchor_ids": [
+        [
+          13.5,
+          4
+        ],
+        [
+          13.6,
+          12
+        ],
+        [
+          13.7,
+          12
+        ],
+        [
+          13.8,
+          4
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          15,
+          4
+        ],
+        [
+          20,
+          4
+        ]
+      ],
+      "botsort_reid_anchor_ids": [
+        [
+          13.5,
+          4
+        ],
+        [
+          13.6,
+          11
+        ],
+        [
+          13.7,
+          11
+        ],
+        [
+          13.8,
+          11
+        ],
+        [
+          14,
+          11
+        ],
+        [
+          15,
+          11
+        ],
+        [
+          20,
+          11
+        ]
+      ],
+      "limit": "The 0.2s duration describes the final reassignment at the end of the overlap, not all ambiguity during the entire occlusion. This does not isolate ReID from other BoT-SORT association differences.",
+      "evidence_contact_sheet": "runs/audit/X-18-occlusion_detail.jpg"
+    },
+    {
+      "video": "X-18",
+      "interval_seconds": [
+        16,
+        22
+      ],
+      "type": "additional person arrives",
+      "observation": "At the inspected moments the arriving person is separate from the employee and seated visitor: ByteTrack ID 14, BoT-SORT ID 12. The employee remains ID 0. The customer retains the respective IDs 4 and 11 after the earlier discontinuity.",
+      "human_role_label": "The user confirmed that the arriving third person is a customer; see reviewer_labels.json. The model correctly proposes customer at 20s, but both final timelines keep this new person unknown because the clip ends before a second eligible observation. This is abstention/latency, not a correct role assignment.",
+      "role_effect_of_discontinuity": "At 15-19.9s ByteTrack's original seated customer ID 4 has confirmed role customer; BoT-SORT's new ID 11 remains unknown. At 20s the shared model calls that seated customer other, which also clears ByteTrack's role. The later role error is shared and distinct from the earlier tracking discontinuity.",
+      "evidence_contact_sheet": "runs/audit/X-18-third_person_arrival.jpg"
+    },
+    {
+      "video": "X-4",
+      "interval_seconds": [
+        48,
+        68
+      ],
+      "type": "visitor replacement",
+      "observation": "Both arms distinguish the departing visitor (ID 3) from the arriving visitor (ByteTrack ID 30, BoT-SORT ID 29) at the inspected moments. The employee stays ID 0. Extra boxes on the glass remain.",
+      "evidence_contact_sheet": "runs/audit/X-4-visitor_replacement.jpg"
+    },
+    {
+      "video": "X-38",
+      "interval_seconds": [
+        24,
+        38
+      ],
+      "type": "visitor replacement",
+      "observation": "Both arms distinguish the departing visitor (ID 1) from the next visitor (ByteTrack ID 26, BoT-SORT ID 24) at the inspected moments. The employee stays ID 0. Several other tracks are on the glass/background.",
+      "evidence_contact_sheet": "runs/audit/X-38-visitor_replacement.jpg"
+    },
+    {
+      "video": "X-27",
+      "interval_seconds": [
+        0,
+        25
+      ],
+      "type": "movement, glass door and extraneous detections",
+      "observation": "At the inspected source moments the main employee keeps ID 0 in both arms while standing, moving and passing through the glass door. The total 9/8 predicted IDs must not be read as 9/8 real people or as 8/7 employee identity errors: the scene also contains extraneous detections on the glass/background and overlapping boxes.",
+      "evidence_contact_sheet": "runs/audit/X-27-exit_through_glass_door.jpg"
+    }
+  ]
+}

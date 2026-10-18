@@ -1,0 +1,353 @@
+[
+  {
+    "category": "banker",
+    "video": "X-4",
+    "review_id": "A1",
+    "frame": 0,
+    "detection_id": 0,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A1",
+    "frame": 0,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "customer",
+    "video": "X-4",
+    "review_id": "A2",
+    "frame": 100,
+    "detection_id": 0,
+    "person_id": "P2",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "banker",
+    "video": "X-4",
+    "review_id": "A2",
+    "frame": 100,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A2",
+    "frame": 100,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A2",
+    "frame": 100,
+    "detection_id": 3,
+    "person_id": "P2",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "customer",
+    "video": "X-4",
+    "review_id": "A3",
+    "frame": 200,
+    "detection_id": 0,
+    "person_id": "P2",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "banker",
+    "video": "X-4",
+    "review_id": "A3",
+    "frame": 200,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A3",
+    "frame": 200,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A3",
+    "frame": 200,
+    "detection_id": 3,
+    "person_id": "P2",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "customer",
+    "video": "X-4",
+    "review_id": "A4",
+    "frame": 650,
+    "detection_id": 0,
+    "person_id": "P3",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A4",
+    "frame": 650,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "banker",
+    "video": "X-4",
+    "review_id": "A4",
+    "frame": 650,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A4",
+    "frame": 650,
+    "detection_id": 3,
+    "person_id": "P3",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "reflection",
+    "video": "X-4",
+    "review_id": "A4",
+    "frame": 650,
+    "detection_id": 4,
+    "person_id": "P3",
+    "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445"
+  },
+  {
+    "category": "banker",
+    "video": "X-18",
+    "review_id": "B1",
+    "frame": 0,
+    "detection_id": 0,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "reflection",
+    "video": "X-18",
+    "review_id": "B1",
+    "frame": 0,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "customer",
+    "video": "X-18",
+    "review_id": "B2",
+    "frame": 80,
+    "detection_id": 0,
+    "person_id": "P3",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "banker",
+    "video": "X-18",
+    "review_id": "B2",
+    "frame": 80,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "reflection",
+    "video": "X-18",
+    "review_id": "B2",
+    "frame": 80,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "reflection",
+    "video": "X-18",
+    "review_id": "B2",
+    "frame": 80,
+    "detection_id": 3,
+    "person_id": "P3",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "customer",
+    "video": "X-18",
+    "review_id": "B3",
+    "frame": 137,
+    "detection_id": 0,
+    "person_id": "P3",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "banker",
+    "video": "X-18",
+    "review_id": "B3",
+    "frame": 137,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "reflection",
+    "video": "X-18",
+    "review_id": "B3",
+    "frame": 137,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "banker",
+    "video": "X-18",
+    "review_id": "B4",
+    "frame": 200,
+    "detection_id": 0,
+    "person_id": "P1",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "customer",
+    "video": "X-18",
+    "review_id": "B4",
+    "frame": 200,
+    "detection_id": 1,
+    "person_id": "P2",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "customer",
+    "video": "X-18",
+    "review_id": "B4",
+    "frame": 200,
+    "detection_id": 2,
+    "person_id": "P3",
+    "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c"
+  },
+  {
+    "category": "customer",
+    "video": "X-48",
+    "review_id": "C1",
+    "frame": 0,
+    "detection_id": 0,
+    "person_id": "P2",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "banker",
+    "video": "X-48",
+    "review_id": "C1",
+    "frame": 0,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "reflection",
+    "video": "X-48",
+    "review_id": "C1",
+    "frame": 0,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "customer",
+    "video": "X-48",
+    "review_id": "C2",
+    "frame": 100,
+    "detection_id": 0,
+    "person_id": "P2",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "reflection",
+    "video": "X-48",
+    "review_id": "C2",
+    "frame": 100,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "banker",
+    "video": "X-48",
+    "review_id": "C2",
+    "frame": 100,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "reflection",
+    "video": "X-48",
+    "review_id": "C2",
+    "frame": 100,
+    "detection_id": 3,
+    "person_id": "P2",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "customer",
+    "video": "X-48",
+    "review_id": "C3",
+    "frame": 600,
+    "detection_id": 0,
+    "person_id": "P2",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "banker",
+    "video": "X-48",
+    "review_id": "C3",
+    "frame": 600,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "customer",
+    "video": "X-48",
+    "review_id": "C4",
+    "frame": 680,
+    "detection_id": 0,
+    "person_id": "P3",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "banker",
+    "video": "X-48",
+    "review_id": "C4",
+    "frame": 680,
+    "detection_id": 1,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  },
+  {
+    "category": "reflection",
+    "video": "X-48",
+    "review_id": "C4",
+    "frame": 680,
+    "detection_id": 2,
+    "person_id": "P1",
+    "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906"
+  }
+]

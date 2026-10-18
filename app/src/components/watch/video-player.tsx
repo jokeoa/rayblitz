@@ -1,7 +1,9 @@
-import { Film, VideoOff } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { OverlaySwitch } from "./overlay-switch";
+import { Film, VideoOff, Maximize } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
 import type { VideoSource } from "@/hooks/use-video-source";
+import type { ReactNode } from "react";
 import {
 	type PlayerController,
 	playheadTime,
@@ -20,11 +22,21 @@ const clamp = (value: number, min: number, max: number) =>
 export function VideoPlayer({
 	source,
 	fallbackDuration,
+	children,
 }: {
 	source: VideoSource;
 	fallbackDuration: number;
+	children?: ReactNode;
 }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
+	const [fullscreen, setFullscreen] = useState(false);
+	useEffect(() => {
+		const changed = () =>
+			setFullscreen(document.fullscreenElement === containerRef.current);
+		document.addEventListener("fullscreenchange", changed);
+		return () => document.removeEventListener("fullscreenchange", changed);
+	}, []);
 	const status = usePlayerStore((state) => state.status);
 	const playbackFailed = status === "unavailable";
 
@@ -129,18 +141,42 @@ export function VideoPlayer({
 	}, [source.url]);
 
 	return (
-		<div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-neutral-950 shadow-card">
+		<div
+			ref={containerRef}
+			className="relative aspect-video w-full shrink-0 overflow-hidden rounded-2xl bg-neutral-950 shadow-card"
+		>
 			{source.url && !playbackFailed ? (
 				// biome-ignore lint/a11y/useMediaCaption: analysis footage has no captions track.
 				<video
 					ref={videoRef}
 					src={source.url}
 					playsInline
+					controls={fullscreen}
 					preload="metadata"
 					className="size-full object-contain"
 					onClick={() => usePlayerStore.getState().controller?.toggle()}
 				/>
 			) : null}
+			{children}
+			{fullscreen && <OverlaySwitch className="absolute left-3 top-3 z-10" />}
+			{source.url && !playbackFailed && (
+				<button
+					type="button"
+					aria-label={
+						fullscreen ? "Выйти из полноэкранного режима" : "На весь экран"
+					}
+					title="На весь экран"
+					className="absolute right-3 top-3 rounded-lg bg-black/60 p-2 text-white hover:bg-black/80"
+					onClick={() => {
+						const action = fullscreen
+							? document.exitFullscreen()
+							: containerRef.current?.requestFullscreen();
+						void action?.catch(() => {});
+					}}
+				>
+					<Maximize className="size-4" aria-hidden />
+				</button>
+			)}
 
 			{source.state === "loading" ||
 			(source.url && status === "loading" && !playbackFailed) ? (
@@ -159,13 +195,13 @@ export function VideoPlayer({
 						)}
 						<p className="text-sm font-medium text-white">
 							{source.state === "missing"
-								? "Видео нет на этом устройстве"
+								? "Видео ещё подготавливается"
 								: "Предпросмотр недоступен"}
 						</p>
 						<p className="text-xs text-neutral-400">
 							{source.state === "missing"
-								? "Исходный файл хранится только в браузере, где его загрузили. События и таймкоды при этом доступны."
-								: "Браузер не воспроизводит этот MOV. Анализ и события при этом доступны."}
+								? "Сервер готовит видео для воспроизведения."
+								: "Не удалось загрузить видео с сервера. Обновите страницу после завершения обработки."}
 						</p>
 					</div>
 				</div>

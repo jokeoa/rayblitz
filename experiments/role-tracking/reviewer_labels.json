@@ -1,0 +1,13 @@
+{
+  "provenance": "Direct user response in this experiment chat; evaluation-only; never an inference input",
+  "labels": [
+    {
+      "video": "X-18",
+      "interval_seconds": [17,22],
+      "person_description": "Third participant, white shirt, enters through the glass door and approaches the desk from the left",
+      "role": "customer",
+      "user_answer": "Клиент",
+      "tracker_ids_observed_by_assistant": {"bytetrack":14,"botsort_reid":12}
+    }
+  ]
+}

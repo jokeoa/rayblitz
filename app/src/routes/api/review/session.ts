@@ -19,6 +19,7 @@ import {
 	UpstreamUnreachable,
 	unauthorized,
 	upstreamFetch,
+	upstreamUnavailable,
 } from "@/server/upstream";
 
 export const Route = createFileRoute("/api/review/session")({
@@ -45,17 +46,18 @@ export const Route = createFileRoute("/api/review/session")({
 				const apiKey = body.data.api_key;
 
 				// The health endpoint requires the key, so it doubles as key validation.
-				let verified = true;
 				try {
 					const probe = await upstreamFetch("/health", apiKey, {
 						timeoutMs: HEALTH_REQUEST_TIMEOUT_MS,
 					});
 					if (probe.status === 401) return unauthorized();
+					if (![200, 503].includes(probe.status)) return upstreamUnavailable();
 				} catch (error) {
-					if (!(error instanceof UpstreamUnreachable)) throw error;
-					// Let people in during an outage so the health block can say what is wrong.
-					verified = false;
+					if (error instanceof UpstreamUnreachable)
+						return upstreamUnavailable();
+					throw error;
 				}
+				const verified = true;
 
 				const { id, profile } = createSession(apiKey);
 				const result: LoginResponse = { profile, verified };

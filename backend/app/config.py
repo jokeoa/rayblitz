@@ -31,3 +31,4 @@ MAX_JOBS = int(os.environ.get("MAX_JOBS", "3"))
 DEADLINE_SEC = float(os.environ.get("DEADLINE_SEC", "270"))
 JOB_LIMIT_SEC = float(os.environ.get("JOB_LIMIT_SEC", "295"))
 CORS_ORIGINS = [o for o in os.environ.get("CORS_ORIGINS", "").split(",") if o]
+REID_WEIGHTS = Path(os.environ.get("REID_WEIGHTS", ROOT / "models/osnet_x0_25_msmt17.pt"))

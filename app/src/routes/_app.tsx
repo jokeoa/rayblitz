@@ -19,13 +19,12 @@ import { UploadDialog } from "@/components/upload-dialog";
 import { useHealthRecorder } from "@/hooks/use-health";
 import { useHistorySync } from "@/hooks/use-history-sync";
 import { logout } from "@/lib/api/review";
-import { clearVideos } from "@/lib/video-blobs";
 import { getSessionState } from "@/server/auth.functions";
 import { useAuthStore } from "@/stores/auth-store";
 import { useHistoryStore } from "@/stores/history-store";
 
 export const Route = createFileRoute("/_app")({
-	// Everything behind the login is client state (history, blobs, player), so no SSR.
+	// The authenticated workspace loads its durable history from the server.
 	ssr: false,
 	beforeLoad: async () => {
 		const state = await getSessionState();
@@ -54,17 +53,11 @@ function AppLayout() {
 
 	useEffect(() => {
 		setProfile(profile);
-		// A different key must never inherit the previous person's history or videos.
-		if (useHistoryStore.getState().claim(profile.seed)) void clearVideos();
 	}, [profile, setProfile]);
 
 	const leave = useCallback(
 		async (reason: "expired" | "signed-out") => {
-			if (reason === "signed-out") {
-				// An explicit sign-out leaves nothing behind on a shared workstation.
-				useHistoryStore.getState().clear();
-				await clearVideos();
-			}
+			useHistoryStore.getState().clear();
 			queryClient.clear();
 			useAuthStore.getState().setProfile(null);
 			await navigate({ to: "/login", search: { reason } });

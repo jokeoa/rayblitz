@@ -14,11 +14,7 @@ import {
 } from "@/components/ui/empty";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { VideoList } from "@/components/video-list";
-import {
-	displayStatus,
-	type HistoryEntry,
-	useHistoryStore,
-} from "@/stores/history-store";
+import { type HistoryEntry, useHistoryStore } from "@/stores/history-store";
 import { useUiStore } from "@/stores/ui-store";
 
 export const Route = createFileRoute("/_app/")({ component: Dashboard });
@@ -28,7 +24,7 @@ const FILTERS = [
 	{
 		value: "processing",
 		label: "В работе",
-		test: (entry: HistoryEntry) => displayStatus(entry) === "processing",
+		test: (entry: HistoryEntry) => entry.status === "processing",
 	},
 	{
 		value: "violation",
@@ -38,7 +34,7 @@ const FILTERS = [
 	},
 	{
 		value: "clean",
-		label: "Без нарушений",
+		label: "Без найденных событий",
 		test: (entry: HistoryEntry) =>
 			entry.status === "done" && entry.verdict === "no_violation",
 	},
@@ -46,8 +42,8 @@ const FILTERS = [
 		value: "failed",
 		label: "Ошибки",
 		test: (entry: HistoryEntry) => {
-			const status = displayStatus(entry);
-			return status === "failed" || status === "timeout";
+			const status = entry.status;
+			return status === "failed";
 		},
 	},
 ] as const;
@@ -68,9 +64,11 @@ function Dashboard() {
 		>
 			<header className="flex flex-wrap items-center justify-between gap-4">
 				<div>
-					<h1 className="text-2xl font-semibold tracking-tight">Дашборд</h1>
+					<h1 className="text-2xl font-semibold tracking-tight">
+						Проверка видео
+					</h1>
 					<p className="mt-1 text-sm text-muted-foreground">
-						Видео, результаты анализа и состояние сервисов.
+						Общая история · видео, наблюдения и результаты анализа.
 					</p>
 				</div>
 				<Button onClick={openUpload}>

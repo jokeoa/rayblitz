@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "batch_id": "43b8e2d20ac647661679147e3dee5fe2add7dbc93fb34a3be164a9dcf14fd050",
+  "annotation_source": "human_user_with_explicit_corrections",
+  "purpose": "evaluation only; not read by role inference",
+  "selection": "diagnostic cases including prior role errors and first-entrant counterexample; not holdout",
+  "raw_user_message_file": "role_review_batch1_user.txt",
+  "corrections": [
+    {
+      "review_id": "A2",
+      "detection_id": 2,
+      "original": "reflection:P2",
+      "corrected": "reflection:P1",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A2",
+      "detection_id": 3,
+      "original": "reflection:P1",
+      "corrected": "reflection:P2",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A3",
+      "detection_id": 0,
+      "original": "reflection:P2",
+      "corrected": "person:P2",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A3",
+      "detection_id": 1,
+      "original": "reflection:P1",
+      "corrected": "person:P1",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A3",
+      "detection_id": 2,
+      "original": "person:P1",
+      "corrected": "reflection:P1",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A4",
+      "detection_id": 3,
+      "original": "person:P3",
+      "corrected": "reflection:P3",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "A4",
+      "detection_id": 4,
+      "original": "person:P3",
+      "corrected": "reflection:P3",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "review_id": "B4",
+      "detection_id": 2,
+      "original": "person:P2",
+      "corrected": "person:P3",
+      "confirmation": "Да, исправь эти рамки"
+    },
+    {
+      "video": "X-48",
+      "person_id": "P3",
+      "original_role": "banker",
+      "corrected_role": "customer",
+      "confirmation": "Клиент — в форме ошибся"
+    }
+  ],
+  "videos": [
+    {
+      "video": "X-4",
+      "people": [
+        {
+          "id": "P1",
+          "description": "Розовая кофта",
+          "role": "banker"
+        },
+        {
+          "id": "P2",
+          "description": "Белая рубашка",
+          "role": "customer"
+        },
+        {
+          "id": "P3",
+          "description": "Черная футболка",
+          "role": "customer"
+        }
+      ],
+      "original_user_notes": {
+        "Таймлайн": "Банкир сидит на месте и потом на 7 секунде заходит клиент, отдает удостоверение личности затем не забирает деньги, а следующий клиент в черном заходит, но деньги на столе это нарушение.",
+        "Первым вошедший": "P1 · Розовая кофта — Банкир",
+        "Гипотеза «первым входит банкир»": "Подтверждается в этом ролике"
+      },
+      "opening_banker": "P1",
+      "interpretation": "Banker is already present at t=0; their entrance is not observed. X-48 also contains a client at t=0. Entrance order cannot be inferred from simultaneous presence.",
+      "event_assessment_status": "user observation; violation labels not independently verified"
+    },
+    {
+      "video": "X-18",
+      "people": [
+        {
+          "id": "P1",
+          "description": "Розовая кофта",
+          "role": "banker"
+        },
+        {
+          "id": "P2",
+          "description": "Белая рубашка",
+          "role": "customer"
+        },
+        {
+          "id": "P3",
+          "description": "Черная футболка",
+          "role": "customer"
+        }
+      ],
+      "original_user_notes": {
+        "Таймлайн": "Сидит банкир потом заходит клиент в черной футболке и затем заходит клиент в белом и протягивает удостоверение, что нарушает протокл",
+        "Первым вошедший": "P1 · Розовая кофта — Банкир",
+        "Гипотеза «первым входит банкир»": "Подтверждается в этом ролике"
+      },
+      "opening_banker": "P1",
+      "interpretation": "Banker is already present at t=0; their entrance is not observed. X-48 also contains a client at t=0. Entrance order cannot be inferred from simultaneous presence.",
+      "event_assessment_status": "user observation; violation labels not independently verified"
+    },
+    {
+      "video": "X-48",
+      "people": [
+        {
+          "id": "P1",
+          "description": "Розовая кофта",
+          "role": "banker"
+        },
+        {
+          "id": "P2",
+          "description": "Белая рубашка",
+          "role": "customer"
+        },
+        {
+          "id": "P3",
+          "description": "Черная рубашка",
+          "role": "customer"
+        }
+      ],
+      "original_user_notes": {
+        "Таймлайн": "Сидит банкир, заходит клиент внести счет, потом после него чел в черной, все нормально.",
+        "Первым вошедший": "P1 · Розовая кофта — Банкир",
+        "Гипотеза «первым входит банкир»": "Подтверждается в этом ролике",
+        "Пояснение": "БАНКИР ВСЕГДА ПОЯВЛЯЕТСЯ ПЕРВЫМ В ВИДЕО"
+      },
+      "opening_banker": "P1",
+      "interpretation": "Banker is already present at t=0; their entrance is not observed. X-48 also contains a client at t=0. Entrance order cannot be inferred from simultaneous presence.",
+      "event_assessment_status": "user observation; violation labels not independently verified"
+    }
+  ],
+  "frames": [
+    {
+      "review_id": "A1",
+      "video": "X-4",
+      "frame": 0,
+      "t": 0.0,
+      "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445",
+      "detections_sha256": "bafb3c64e38f6cbb76e9c0d414a7a3ae87093a546e8c073d0f27adcb1d30e742",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            183.43,
+            387.19,
+            284.428,
+            592.144
+          ],
+          "score": 0.856892,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            0.652,
+            222.067,
+            52.927,
+            298.882
+          ],
+          "score": 0.77053,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "A1-source.png",
+      "marked_image": "A1.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "A2",
+      "video": "X-4",
+      "frame": 100,
+      "t": 10.0,
+      "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445",
+      "detections_sha256": "bafb3c64e38f6cbb76e9c0d414a7a3ae87093a546e8c073d0f27adcb1d30e742",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            89.229,
+            293.106,
+            211.539,
+            403.748
+          ],
+          "score": 0.907722,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            177.408,
+            388.072,
+            284.017,
+            574.152
+          ],
+          "score": 0.854655,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            1.719,
+            222.641,
+            53.602,
+            290.818
+          ],
+          "score": 0.85233,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 3,
+          "box": [
+            59.22,
+            238.407,
+            93.596,
+            287.632
+          ],
+          "score": 0.614138,
+          "kind": "reflection",
+          "person_id": "P2",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "A2-source.png",
+      "marked_image": "A2.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "A3",
+      "video": "X-4",
+      "frame": 200,
+      "t": 20.0,
+      "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445",
+      "detections_sha256": "bafb3c64e38f6cbb76e9c0d414a7a3ae87093a546e8c073d0f27adcb1d30e742",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            120.267,
+            289.786,
+            204.465,
+            421.737
+          ],
+          "score": 0.913284,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            182.333,
+            386.104,
+            282.597,
+            588.153
+          ],
+          "score": 0.860103,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            0.429,
+            222.34,
+            52.096,
+            297.79
+          ],
+          "score": 0.772322,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 3,
+          "box": [
+            29.35,
+            233.661,
+            101.548,
+            371.879
+          ],
+          "score": 0.657255,
+          "kind": "reflection",
+          "person_id": "P2",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "A3-source.png",
+      "marked_image": "A3.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "A4",
+      "video": "X-4",
+      "frame": 650,
+      "t": 65.0,
+      "source_sha256": "5385be9420e6a70547d6bcfd0b13d60f9c0738877645afa277d09550a96b8445",
+      "detections_sha256": "bafb3c64e38f6cbb76e9c0d414a7a3ae87093a546e8c073d0f27adcb1d30e742",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            126.095,
+            293.704,
+            218.783,
+            407.522
+          ],
+          "score": 0.935178,
+          "kind": "person",
+          "person_id": "P3",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            0.885,
+            222.078,
+            56.654,
+            292.467
+          ],
+          "score": 0.877826,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            169.882,
+            381.157,
+            275.826,
+            574.071
+          ],
+          "score": 0.870727,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 3,
+          "box": [
+            71.818,
+            239.404,
+            93.726,
+            287.218
+          ],
+          "score": 0.629232,
+          "kind": "reflection",
+          "person_id": "P3",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 4,
+          "box": [
+            65.987,
+            239.331,
+            94.727,
+            320.956
+          ],
+          "score": 0.525659,
+          "kind": "reflection",
+          "person_id": "P3",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "A4-source.png",
+      "marked_image": "A4.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "B1",
+      "video": "X-18",
+      "frame": 0,
+      "t": 0.0,
+      "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c",
+      "detections_sha256": "09f113c7fa229f20c15c1d070ca1233fd1bed7ab8f1aad2ae4b5c250aeeca774",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            186.687,
+            347.674,
+            283.725,
+            499.539
+          ],
+          "score": 0.872655,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            6.925,
+            178.213,
+            61.647,
+            271.354
+          ],
+          "score": 0.862626,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "B1-source.png",
+      "marked_image": "B1.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "B2",
+      "video": "X-18",
+      "frame": 80,
+      "t": 8.0,
+      "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c",
+      "detections_sha256": "09f113c7fa229f20c15c1d070ca1233fd1bed7ab8f1aad2ae4b5c250aeeca774",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            98.945,
+            276.603,
+            210.401,
+            394.282
+          ],
+          "score": 0.906142,
+          "kind": "person",
+          "person_id": "P3",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            171.745,
+            343.988,
+            269.912,
+            487.49
+          ],
+          "score": 0.820823,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            3.678,
+            179.333,
+            46.115,
+            275.192
+          ],
+          "score": 0.785484,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 3,
+          "box": [
+            35.462,
+            204.409,
+            102.22,
+            251.738
+          ],
+          "score": 0.651948,
+          "kind": "reflection",
+          "person_id": "P3",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "B2-source.png",
+      "marked_image": "B2.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "B3",
+      "video": "X-18",
+      "frame": 137,
+      "t": 13.7,
+      "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c",
+      "detections_sha256": "09f113c7fa229f20c15c1d070ca1233fd1bed7ab8f1aad2ae4b5c250aeeca774",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            132.133,
+            247.902,
+            229.274,
+            368.652
+          ],
+          "score": 0.900753,
+          "kind": "person",
+          "person_id": "P3",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            141.029,
+            342.537,
+            274.585,
+            564.276
+          ],
+          "score": 0.895031,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            1.028,
+            179.708,
+            51.508,
+            255.146
+          ],
+          "score": 0.763507,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "B3-source.png",
+      "marked_image": "B3.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "B4",
+      "video": "X-18",
+      "frame": 200,
+      "t": 20.0,
+      "source_sha256": "90607b0b0cb772fcf29b0c7e0e56fa6af36da6fac0efe93b8a616b5de94a156c",
+      "detections_sha256": "09f113c7fa229f20c15c1d070ca1233fd1bed7ab8f1aad2ae4b5c250aeeca774",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            143.483,
+            346.881,
+            267.291,
+            566.825
+          ],
+          "score": 0.937556,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            0,
+            161.589,
+            85.155,
+            437.445
+          ],
+          "score": 0.929217,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            146.243,
+            248.512,
+            229.276,
+            365.567
+          ],
+          "score": 0.89443,
+          "kind": "person",
+          "person_id": "P3",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "B4-source.png",
+      "marked_image": "B4.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "C1",
+      "video": "X-48",
+      "frame": 0,
+      "t": 0.0,
+      "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906",
+      "detections_sha256": "e5336481ce6cfe46a0e94659e6139a06a9da40b371f3275b71b47e2e6bc6bf19",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            134.32,
+            186.435,
+            213.352,
+            396.141
+          ],
+          "score": 0.905023,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            177.795,
+            388.509,
+            285.168,
+            585.435
+          ],
+          "score": 0.85387,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            0.132,
+            222.864,
+            53.411,
+            315.686
+          ],
+          "score": 0.806355,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "C1-source.png",
+      "marked_image": "C1.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "C2",
+      "video": "X-48",
+      "frame": 100,
+      "t": 10.0,
+      "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906",
+      "detections_sha256": "e5336481ce6cfe46a0e94659e6139a06a9da40b371f3275b71b47e2e6bc6bf19",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            100.776,
+            297.412,
+            206.017,
+            417.922
+          ],
+          "score": 0.932331,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            0.076,
+            221.864,
+            48.624,
+            293.449
+          ],
+          "score": 0.879374,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            171.706,
+            388.056,
+            282.155,
+            578.203
+          ],
+          "score": 0.868495,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 3,
+          "box": [
+            21.898,
+            234.056,
+            101.262,
+            371.32
+          ],
+          "score": 0.728989,
+          "kind": "reflection",
+          "person_id": "P2",
+          "person_role": "customer"
+        }
+      ],
+      "source_image": "C2-source.png",
+      "marked_image": "C2.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "C3",
+      "video": "X-48",
+      "frame": 600,
+      "t": 60.0,
+      "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906",
+      "detections_sha256": "e5336481ce6cfe46a0e94659e6139a06a9da40b371f3275b71b47e2e6bc6bf19",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            73.491,
+            187.165,
+            181.031,
+            405.827
+          ],
+          "score": 0.880262,
+          "kind": "person",
+          "person_id": "P2",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            179.813,
+            385.354,
+            283.797,
+            575.622
+          ],
+          "score": 0.850541,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "C3-source.png",
+      "marked_image": "C3.png",
+      "reviewed": true
+    },
+    {
+      "review_id": "C4",
+      "video": "X-48",
+      "frame": 680,
+      "t": 68.0,
+      "source_sha256": "1f5840bff58f298e89c4afa00cb1c18f6dafc5c4096c251d9b507604ebefe906",
+      "detections_sha256": "e5336481ce6cfe46a0e94659e6139a06a9da40b371f3275b71b47e2e6bc6bf19",
+      "boxes": [
+        {
+          "detection_id": 0,
+          "box": [
+            77.609,
+            328.955,
+            199.869,
+            413.065
+          ],
+          "score": 0.907448,
+          "kind": "person",
+          "person_id": "P3",
+          "person_role": "customer"
+        },
+        {
+          "detection_id": 1,
+          "box": [
+            170.65,
+            386.668,
+            282.835,
+            573.495
+          ],
+          "score": 0.879637,
+          "kind": "person",
+          "person_id": "P1",
+          "person_role": "banker"
+        },
+        {
+          "detection_id": 2,
+          "box": [
+            2.439,
+            223.185,
+            50.82,
+            291.509
+          ],
+          "score": 0.851677,
+          "kind": "reflection",
+          "person_id": "P1",
+          "person_role": "banker"
+        }
+      ],
+      "source_image": "C4-source.png",
+      "marked_image": "C4.png",
+      "reviewed": true
+    }
+  ]
+}

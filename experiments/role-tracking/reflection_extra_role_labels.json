@@ -1,0 +1,23 @@
+{
+  "video": "X-48",
+  "source": "Explicit user clarification in this conversation",
+  "user_answer": "В розовой банкир, остальные клиенты",
+  "purpose": "evaluation only, never inference",
+  "people": [
+    {
+      "id": "P1",
+      "description": "First entrant in white shirt",
+      "role": "customer"
+    },
+    {
+      "id": "P2",
+      "description": "Person in pink, near side of desk",
+      "role": "banker"
+    },
+    {
+      "id": "P3",
+      "description": "Later entrant in black shirt",
+      "role": "customer"
+    }
+  ]
+}

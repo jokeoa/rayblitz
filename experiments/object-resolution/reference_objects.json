@@ -1,0 +1,264 @@
+{
+  "scope": "Selected positive references of objects resting on the desk, not exhaustive frame annotations. Class identities marked human were supplied by the user; every box was drawn by the assistant. Other identities and static intervals are assistant-reviewed development annotations. Hands and off-table objects are excluded. Unmatched predictions must NOT be called false positives from this file.",
+  "objects": [
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "notebook",
+      "class": "notebook",
+      "box": [
+        179,
+        382,
+        232,
+        415
+      ],
+      "identity_source": "human",
+      "static_interval": [
+        0,
+        39
+      ]
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "stamp-left",
+      "class": "stamp",
+      "box": [
+        224,
+        399,
+        234,
+        418
+      ],
+      "identity_source": "human",
+      "static_interval": [
+        0,
+        39
+      ]
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "stamp-right",
+      "class": "stamp",
+      "box": [
+        234,
+        395,
+        244,
+        415
+      ],
+      "identity_source": "human",
+      "static_interval": [
+        0,
+        39
+      ]
+    },
+    {
+      "video": "X-46",
+      "frame": 20,
+      "entity": "cash-on-desk",
+      "class": "cash",
+      "box": [
+        151,
+        399,
+        177,
+        414
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "laptop",
+      "class": "laptop",
+      "box": [
+        245,
+        327,
+        319,
+        395
+      ],
+      "identity_source": "assistant"
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "phone",
+      "class": "desk_phone",
+      "box": [
+        278,
+        361,
+        322,
+        413
+      ],
+      "identity_source": "assistant"
+    },
+    {
+      "video": "X-15",
+      "frame": 20,
+      "entity": "green-bag",
+      "class": "bag",
+      "box": [
+        120,
+        371,
+        208,
+        405
+      ],
+      "identity_source": "assistant",
+      "static_interval": [
+        0,
+        39
+      ]
+    },
+    {
+      "video": "X-13",
+      "frame": 20,
+      "entity": "scissors",
+      "class": "scissors",
+      "box": [
+        168,
+        366,
+        178,
+        380
+      ],
+      "identity_source": "assistant",
+      "box_review": "Rechecked on canonical inference PNG before inspecting model predictions."
+    },
+    {
+      "video": "X-13",
+      "frame": 20,
+      "entity": "cash-left",
+      "class": "cash",
+      "box": [
+        149,
+        382,
+        166,
+        396
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-13",
+      "frame": 20,
+      "entity": "cash-middle",
+      "class": "cash",
+      "box": [
+        166,
+        380,
+        181,
+        392
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-13",
+      "frame": 20,
+      "entity": "cash-right",
+      "class": "cash",
+      "box": [
+        182,
+        372,
+        200,
+        384
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-14",
+      "frame": 20,
+      "entity": "cash-back",
+      "class": "cash",
+      "box": [
+        163,
+        417,
+        187,
+        429
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-14",
+      "frame": 20,
+      "entity": "cash-front",
+      "class": "cash",
+      "box": [
+        166,
+        430,
+        181,
+        443
+      ],
+      "identity_source": "human"
+    },
+    {
+      "video": "X-14",
+      "frame": 20,
+      "entity": "wrapper-right",
+      "class": "packaging",
+      "box": [
+        187,
+        428,
+        203,
+        437
+      ],
+      "identity_source": "human"
+    }
+  ],
+  "negatives": [],
+  "excluded_references": [
+    {
+      "video": "X-46",
+      "frame": 20,
+      "entity": "package-in-hand",
+      "class": "packaging",
+      "box": [
+        185,
+        365,
+        202,
+        384
+      ],
+      "identity_source": "human",
+      "reason": "outside the current on-table evaluation scope"
+    },
+    {
+      "video": "X-24",
+      "frame": 20,
+      "entity": "safe",
+      "class": "safe",
+      "box": [
+        203,
+        267,
+        273,
+        365
+      ],
+      "identity_source": "assistant",
+      "reason": "outside the current on-table evaluation scope"
+    },
+    {
+      "video": "X-17",
+      "frame": 20,
+      "entity": "green-bag",
+      "class": "bag",
+      "box": [
+        112,
+        338,
+        180,
+        396
+      ],
+      "identity_source": "assistant",
+      "reason": "outside the current on-table evaluation scope"
+    }
+  ],
+  "excluded_negatives": [
+    {
+      "video": "X-22",
+      "frame": 39,
+      "class": "key",
+      "region": [
+        177,
+        275,
+        217,
+        329
+      ],
+      "identity_source": "human",
+      "note": "User confirms no key in the shown lock area at this timestamp. Do not extend this label to other times."
+    }
+  ]
+}

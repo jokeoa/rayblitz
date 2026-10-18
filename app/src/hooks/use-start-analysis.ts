@@ -4,7 +4,6 @@ import { toast } from "sonner";
 import { MAX_VIDEO_BYTES } from "@/lib/api/contracts";
 import { startAnalysis } from "@/lib/api/review";
 import { formatBytes } from "@/lib/format";
-import { deleteVideo, saveVideo } from "@/lib/video-blobs";
 import { useHistoryStore } from "@/stores/history-store";
 
 /** Client-side pre-check mirroring the contract; the server stays authoritative. */
@@ -30,16 +29,15 @@ export function useStartAnalysis(options: { onAccepted?: () => void } = {}) {
 			file,
 		}),
 		onSuccess: ({ accepted, file }) => {
-			const evicted = useHistoryStore.getState().add({
+			useHistoryStore.getState().add({
 				jobId: accepted.job_id,
 				fileName: file.name,
 				sizeBytes: file.size,
 				createdAt: Date.now(),
 				status: "processing",
+				queued: true,
 				percent: 0,
 			});
-			for (const jobId of evicted) void deleteVideo(jobId);
-			void saveVideo(accepted.job_id, file);
 			toast.success("Видео принято в обработку", {
 				description: `Задание ${accepted.job_id}`,
 			});

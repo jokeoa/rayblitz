@@ -1,0 +1,1752 @@
+{
+  "purpose": "Banker initialization from safe position relative to desk",
+  "active_object_types": [
+    "desk",
+    "safe"
+  ],
+  "automatic_replacement": false,
+  "reviewer": "assistant visual review of frame at 2 seconds",
+  "calibration_sha256": "c34f6f59d321bf9b7bee737f1b6cef3a745935ec1eb02e5f0346fd5ec07053b4",
+  "note": "These crops document the reference. No appearance-template matcher is claimed. Coordinates apply only to the exact source/view.",
+  "videos": {
+    "X-1": {
+      "source_sha256": "8911a9219b9433091824e553a70bb80335f075fd8ac982d2062d2ecf023c16bc",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-8911a9219b94-2s",
+          "box": [
+            18.894672393798828,
+            387.53485107421875,
+            298.31884765625,
+            549.5897827148438
+          ],
+          "image": "scene-references/X-1/desk.png",
+          "image_sha256": "f9801b678730af0f9dc41179ece171c2317af34320cf9037df3a3d8cc3ea7d86",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              19,
+              444
+            ],
+            [
+              298,
+              412
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-8911a9219b94-2s",
+          "box": [
+            305.8505554199219,
+            356.011474609375,
+            413.2883605957031,
+            498.63232421875
+          ],
+          "image": "scene-references/X-1/safe.png",
+          "image_sha256": "036947a10e4ecf82af4b1da6d3839d7e66eb63c807f183d0d1c8cca8c3c79662",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-2": {
+      "source_sha256": "9932ae0a10d3b9371bf52ea558dc19092fcf47adcd275a73a52a56b95464bca6",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-9932ae0a10d3-2s",
+          "box": [
+            18.15606117248535,
+            387.8865966796875,
+            297.00421142578125,
+            547.7444458007812
+          ],
+          "image": "scene-references/X-2/desk.png",
+          "image_sha256": "23ae90b68ce8194d4829100e7b2620e376010c0bf52a8ab830d44a93399f6cc4",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              18,
+              444
+            ],
+            [
+              297,
+              412
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-9932ae0a10d3-2s",
+          "box": [
+            306.2982482910156,
+            357.196044921875,
+            413.136962890625,
+            499.481201171875
+          ],
+          "image": "scene-references/X-2/safe.png",
+          "image_sha256": "3c3813133c5f1cfd9d9b7622405b2b77933f39f245b707709ca9b9f62998ad94",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-3": {
+      "source_sha256": "21468fcef4ea5f45ce7d465e620f84e09c8b50314f4ecdc06f69224c701b3a5b",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-21468fcef4ea-2s",
+          "box": [
+            19.109525680541992,
+            383.57025146484375,
+            298.66363525390625,
+            550.6299438476562
+          ],
+          "image": "scene-references/X-3/desk.png",
+          "image_sha256": "8b8ab3f6269efa5902843a624233c3f8654812f36222c70e0559b5e0888ab6c7",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              19,
+              442
+            ],
+            [
+              299,
+              409
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-21468fcef4ea-2s",
+          "box": [
+            306.5056457519531,
+            357.1483154296875,
+            413.3751525878906,
+            499.00433349609375
+          ],
+          "image": "scene-references/X-3/safe.png",
+          "image_sha256": "52d68685314fcebcf93c521c8af924c1d34a14363ab38b4ccd9509b2d27f627a",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-8": {
+      "source_sha256": "6a53e10acdcf52396ad5b1697eead32d8322c0911d792523a5c33fe5b388f4e7",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-6a53e10acdcf-2s",
+          "box": [
+            44.56552505493164,
+            383.159912109375,
+            319.4382629394531,
+            544.6963500976562
+          ],
+          "image": "scene-references/X-8/desk.png",
+          "image_sha256": "071d380132c6bfb91a5ce6f6862c6eee46d64241d433d296ec0f4d083fd6f9f2",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              45,
+              440
+            ],
+            [
+              319,
+              407
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-6a53e10acdcf-2s",
+          "box": [
+            231.10110473632812,
+            298.77685546875,
+            304.3760681152344,
+            396.9287109375
+          ],
+          "image": "scene-references/X-8/safe.png",
+          "image_sha256": "036d0f6f94134d826d7b4760c352b5f2469ae28fed36c7fca532a2bdfbdbdaf5",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-10": {
+      "source_sha256": "57a0e46c7a45f0e831f61d9c80722fefe4b74dbcfe1d3031ff58307d481f9a5c",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-57a0e46c7a45-2s",
+          "box": [
+            10.309155464172363,
+            349.03631591796875,
+            288.9549255371094,
+            514.0454711914062
+          ],
+          "image": "scene-references/X-10/desk.png",
+          "image_sha256": "4a4029d292f75ee9733724bb0839291a49d3dc53fa5dff4cb623f1e2a883119b",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              10,
+              407
+            ],
+            [
+              289,
+              374
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-57a0e46c7a45-2s",
+          "box": [
+            200.48179626464844,
+            263.43853759765625,
+            274.69989013671875,
+            357.5287780761719
+          ],
+          "image": "scene-references/X-10/safe.png",
+          "image_sha256": "6aa093c2bc3c60a939bea9366d25652fa562bea94102aa0a0fb821e3ca605ace",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-11": {
+      "source_sha256": "b3a954a5b761ad47943e061599315e3fe9d22573eeb92bb14bf315cdcd422fc5",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-b3a954a5b761-2s",
+          "box": [
+            45.21694564819336,
+            395.5794677734375,
+            318.1064758300781,
+            556.078857421875
+          ],
+          "image": "scene-references/X-11/desk.png",
+          "image_sha256": "5fc6c0fc0efd08cf63a23f4b510ab301c3d07812d2c8079915db0b9a14a1eff1",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              45,
+              452
+            ],
+            [
+              318,
+              420
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-b3a954a5b761-2s",
+          "box": [
+            226.06309509277344,
+            304.1045837402344,
+            298.5599060058594,
+            395.0619201660156
+          ],
+          "image": "scene-references/X-11/safe.png",
+          "image_sha256": "5881f1c21dc0794ac04da6b6f935e412cecfacddd4c7752d336ec2a348a09a33",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-12": {
+      "source_sha256": "955755baf54418b48ea645dcd98e7e8dcca1d1e227e9b286a9427062db304fd4",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-955755baf544-2s",
+          "box": [
+            46.069923400878906,
+            397.4319763183594,
+            318.4397277832031,
+            554.55908203125
+          ],
+          "image": "scene-references/X-12/desk.png",
+          "image_sha256": "ace1f1585e43b63ca37f65d77278c3fc73a286e26da2782dcf0198cee4b0b73c",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              46,
+              452
+            ],
+            [
+              318,
+              421
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-955755baf544-2s",
+          "box": [
+            225.62181091308594,
+            305.3652038574219,
+            298.2066345214844,
+            399.2444152832031
+          ],
+          "image": "scene-references/X-12/safe.png",
+          "image_sha256": "39c6a2afbaefd7d8be0ae8907feeebbfaf67b5a8466924264eefcb70e1f37136",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-13": {
+      "source_sha256": "a37930cf119bb691be77d8624b18333b04d9c67066a7f4627d63e3208dfa6057",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-a37930cf119b-2s",
+          "box": [
+            26.79991912841797,
+            352.5639953613281,
+            306.9228210449219,
+            508.1616516113281
+          ],
+          "image": "scene-references/X-13/desk.png",
+          "image_sha256": "e0125196d2852a26ebd6f95244c0ed9f01e35975be46c1653ac74969f09e0e6a",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              27,
+              407
+            ],
+            [
+              307,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-a37930cf119b-2s",
+          "box": [
+            221.3923797607422,
+            265.9670104980469,
+            290.9058837890625,
+            358.7890930175781
+          ],
+          "image": "scene-references/X-13/safe.png",
+          "image_sha256": "4e17e63059dfe0520b7337df6900db010a5f6220af6f18202de9d69dee32319c",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-14": {
+      "source_sha256": "7d6890ecb4a2b28bbdd3b61b6711566eee84a53ab3439c40cd9b6a3a6714c681",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-7d6890ecb4a2-2s",
+          "box": [
+            45.626129150390625,
+            393.7717590332031,
+            318.492431640625,
+            554.1292724609375
+          ],
+          "image": "scene-references/X-14/desk.png",
+          "image_sha256": "a8c81a088cdee852efee75ed06bad8bc2b5e1746f38ad31a14c925b6d679c378",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              46,
+              450
+            ],
+            [
+              318,
+              418
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-7d6890ecb4a2-2s",
+          "box": [
+            225.1688690185547,
+            305.91522216796875,
+            297.79736328125,
+            394.9079284667969
+          ],
+          "image": "scene-references/X-14/safe.png",
+          "image_sha256": "a124dd52763906ec324d9121556b4435f7eed7ce6a7d49615ec0ea695936296d",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-15": {
+      "source_sha256": "69caf59620fcd80bedcb664514730ab38f2f800da27000a8e037d7440be5dc7a",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-69caf59620fc-2s",
+          "box": [
+            27.295928955078125,
+            354.078369140625,
+            304.84271240234375,
+            509.1526794433594
+          ],
+          "image": "scene-references/X-15/desk.png",
+          "image_sha256": "7431b86b1a883075a231b3d9880beca1c9c30063b12761b850dcb865599eaa17",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              27,
+              408
+            ],
+            [
+              305,
+              377
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-69caf59620fc-2s",
+          "box": [
+            217.7235870361328,
+            264.2458190917969,
+            290.93328857421875,
+            359.045654296875
+          ],
+          "image": "scene-references/X-15/safe.png",
+          "image_sha256": "8487209d48318ed424257a4c82a81e63a1666141a9d125d8bf5f7f6419db005c",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-16": {
+      "source_sha256": "3f516431cf37e3900b7eae857a7b09be258f485702ab56bc6e5b6129103f1fa5",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-3f516431cf37-2s",
+          "box": [
+            39.37810516357422,
+            353.34326171875,
+            305.31573486328125,
+            505.8447265625
+          ],
+          "image": "scene-references/X-16/desk.png",
+          "image_sha256": "9d65ed2dd2092d43b669a1fbb32409b755ea1142be7b6a953e7abbb84f4931b3",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              39,
+              407
+            ],
+            [
+              305,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-3f516431cf37-2s",
+          "box": [
+            319.6336364746094,
+            321.6849060058594,
+            429.5823669433594,
+            465.1626892089844
+          ],
+          "image": "scene-references/X-16/safe.png",
+          "image_sha256": "78897d08b5d97a9af12ca45a2fe92d357a0c87df73bb7faa4babb4368fa434cb",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-17": {
+      "source_sha256": "0378b8026b2e6afd1775a5d0fdd12dd09c491785b626e9c20428f7dc6bd59364",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-0378b8026b2e-2s",
+          "box": [
+            31.951313018798828,
+            352.939453125,
+            304.133544921875,
+            505.8914794921875
+          ],
+          "image": "scene-references/X-17/desk.png",
+          "image_sha256": "eac3234d88717198721034acbb171cb399e591eee169e4a704ff59cb1ceaf9f1",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              32,
+              406
+            ],
+            [
+              304,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-0378b8026b2e-2s",
+          "box": [
+            319.3151550292969,
+            322.7726745605469,
+            428.412353515625,
+            464.23443603515625
+          ],
+          "image": "scene-references/X-17/safe.png",
+          "image_sha256": "1f490223aac2b9370e5c14fd2f01dbd8ea7e88588a8274aad30cc6f5d68346a2",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-19": {
+      "source_sha256": "16065504b21260bff18698c7bbf048ffa356c9de43d43b92643b6c2eddedac0f",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-16065504b212-2s",
+          "box": [
+            30.994525909423828,
+            353.769287109375,
+            304.88763427734375,
+            504.12493896484375
+          ],
+          "image": "scene-references/X-19/desk.png",
+          "image_sha256": "91c400fc529f2a4d39de21eac0c6d6d7d2a0bf4ae8bf3b3b8c54001282bc31a3",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              31,
+              406
+            ],
+            [
+              305,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-16065504b212-2s",
+          "box": [
+            308,
+            344,
+            414,
+            488
+          ],
+          "image": "scene-references/X-19/safe.png",
+          "image_sha256": "88d30aab054407afd1d53d1914ffcbe1f2125b0c0802bb6515f5edc50a0973b5",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-20": {
+      "source_sha256": "7e585e33517f7258bd2d1ed3e139556609bc997bb07b78355555060ef193b77a",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-7e585e33517f-2s",
+          "box": [
+            68.58589935302734,
+            348.2585754394531,
+            327.5733337402344,
+            522.59326171875
+          ],
+          "image": "scene-references/X-20/desk.png",
+          "image_sha256": "5038a869a0d93bbc786ac720ab1a503320eccbf3e12fe330d51df54859edb32b",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              69,
+              409
+            ],
+            [
+              328,
+              374
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-7e585e33517f-2s",
+          "box": [
+            187.85472106933594,
+            250.89808654785156,
+            260.8958740234375,
+            352.156982421875
+          ],
+          "image": "scene-references/X-20/safe.png",
+          "image_sha256": "d942c87f505892fc38a7fbbad8520443e805e486fd17c5d3d5d1949dd9bf326a",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-21": {
+      "source_sha256": "efd876a04224cac781ac64bf5d6e107ded67340b7b7715fd9ca3408b240a1075",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-efd876a04224-2s",
+          "box": [
+            68.44950866699219,
+            348.8451843261719,
+            328.0032958984375,
+            528.1021118164062
+          ],
+          "image": "scene-references/X-21/desk.png",
+          "image_sha256": "1e21086b5b7881512db14167ec6e4413e2aa48c47880b3c65979a78e4f46dd05",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              68,
+              412
+            ],
+            [
+              328,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-efd876a04224-2s",
+          "box": [
+            187.86959838867188,
+            250.58453369140625,
+            260.9666748046875,
+            352.6431579589844
+          ],
+          "image": "scene-references/X-21/safe.png",
+          "image_sha256": "d0299f6cb5505f02227d2b40c7abb58a1c5d24d7ea1e2cb42ee3bf6ec7ac7146",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-22": {
+      "source_sha256": "c9a30d44907e4a41b3a8ccf101774cd2e0804de20927bfbc9e1ccba1f2326b78",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-c9a30d44907e-2s",
+          "box": [
+            66.75933837890625,
+            351.4142150878906,
+            328.6275329589844,
+            513.2053833007812
+          ],
+          "image": "scene-references/X-22/desk.png",
+          "image_sha256": "71b056921c616a4981ca883cfbf323a765f0f7892d92ebb6de1b06dea5aed082",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              67,
+              408
+            ],
+            [
+              329,
+              376
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-c9a30d44907e-2s",
+          "box": [
+            189.9151611328125,
+            250.34915161132812,
+            260.6956481933594,
+            346.2376403808594
+          ],
+          "image": "scene-references/X-22/safe.png",
+          "image_sha256": "1a186da425076513ecf190d13cdedfca42dccfd6914ac498110b40370331e92b",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-23": {
+      "source_sha256": "b637677ef5a7f0fa54d9f116ce6493cf74a4c99b8149a9c9916b96ef257535bd",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-b637677ef5a7-2s",
+          "box": [
+            67.70649719238281,
+            352.5086669921875,
+            328.0188293457031,
+            518.354736328125
+          ],
+          "image": "scene-references/X-23/desk.png",
+          "image_sha256": "d57e42396326ab43941ee6f86f9b7bd4ebfee8a036d2474c7d19fdefa2e059b9",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              68,
+              411
+            ],
+            [
+              328,
+              377
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-b637677ef5a7-2s",
+          "box": [
+            188.43167114257812,
+            250.2052764892578,
+            259.8550109863281,
+            348.20086669921875
+          ],
+          "image": "scene-references/X-23/safe.png",
+          "image_sha256": "3cd0916c9926e1450986eadcbc2b2fc58e4cd27d3901414d4aa6ba8b20546212",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-24": {
+      "source_sha256": "c175a683749401d5a9ecf6f1c188b64fa8a09543f41482c1e4eb2232255715d3",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-c175a6837494-2s",
+          "box": [
+            86.62545776367188,
+            368.1095886230469,
+            345.4935607910156,
+            543.02685546875
+          ],
+          "image": "scene-references/X-24/desk.png",
+          "image_sha256": "4ea4d03c11e36bbf52499202da2284cb807bf97ef924e1dabdcf827b2f7eb588",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              87,
+              429
+            ],
+            [
+              345,
+              394
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-c175a6837494-2s",
+          "box": [
+            206.3865509033203,
+            268.347412109375,
+            272.2560119628906,
+            365.1718444824219
+          ],
+          "image": "scene-references/X-24/safe.png",
+          "image_sha256": "fccf45453f3683173b2e846bf7c1bd3b746dcd6a487c25b22dac550097df8aa6",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-25": {
+      "source_sha256": "901f61cf1a1b8754dda56466308c19fc203a1a4c0e85d1e7827849d34e2d52f0",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-901f61cf1a1b-2s",
+          "box": [
+            87.23744201660156,
+            365.83599853515625,
+            347.3515319824219,
+            538.8842163085938
+          ],
+          "image": "scene-references/X-25/desk.png",
+          "image_sha256": "2bf84310a9e28d07cf7a58ed00b667d75b3bb44d36dc0a7963fa4c7dfa102eec",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              87,
+              426
+            ],
+            [
+              347,
+              392
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-901f61cf1a1b-2s",
+          "box": [
+            204.53274536132812,
+            269.4700622558594,
+            271.5482482910156,
+            364.8975524902344
+          ],
+          "image": "scene-references/X-25/safe.png",
+          "image_sha256": "74d052f72b66a9b9e11bc7e9fee1f3ffd80b7c2d8389ba9cd8074179f7acddf9",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-26": {
+      "source_sha256": "e3a00b6e0f38b1d9b5498140f14906c71e204359262a90ce7a9974d64bf081e9",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-e3a00b6e0f38-2s",
+          "box": [
+            87.40059661865234,
+            366.59271240234375,
+            346.07916259765625,
+            538.2098999023438
+          ],
+          "image": "scene-references/X-26/desk.png",
+          "image_sha256": "9a0327671564af3784e2be9cc318afa84b2f881faa77a7d46d90648b39e4f58f",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              87,
+              427
+            ],
+            [
+              346,
+              392
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-e3a00b6e0f38-2s",
+          "box": [
+            205.98629760742188,
+            268.3307800292969,
+            271.7182312011719,
+            365.0669860839844
+          ],
+          "image": "scene-references/X-26/safe.png",
+          "image_sha256": "960beb10aadf2dc1e0434a85bf421f2ebb872f32d584e004fde0f118334150b6",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-27": {
+      "source_sha256": "d3d21494d74e40a7586fe4f6164e515f6621a2d413538c4e15c67d394e85fc2d",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-d3d21494d74e-2s",
+          "box": [
+            87.36795806884766,
+            368.43707275390625,
+            346.04302978515625,
+            546.2462768554688
+          ],
+          "image": "scene-references/X-27/desk.png",
+          "image_sha256": "1ab57d8ef0069d9fa4feef330596cd724d3c3e42ca1e7d3bdeddc3069f88943c",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              87,
+              431
+            ],
+            [
+              346,
+              395
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-d3d21494d74e-2s",
+          "box": [
+            205.6802978515625,
+            268.14776611328125,
+            272.0307312011719,
+            365.89031982421875
+          ],
+          "image": "scene-references/X-27/safe.png",
+          "image_sha256": "69bbcee9d0901e272e6e0f7bf2a58e771f5da06d53a733f767068d9a9c55b99a",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-28": {
+      "source_sha256": "d15ef04bcfae571bd2d7fc4e4d709ba595ae19f44136a43e7277f17e7b6e5b6d",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-d15ef04bcfae-2s",
+          "box": [
+            87.5839614868164,
+            371.950927734375,
+            347.251953125,
+            539.9931640625
+          ],
+          "image": "scene-references/X-28/desk.png",
+          "image_sha256": "1006ae767c95fc697079eeef56c63bbebd545e2072300712af1d21539a700a8c",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              88,
+              431
+            ],
+            [
+              347,
+              397
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-d15ef04bcfae-2s",
+          "box": [
+            205.28399658203125,
+            267.7521057128906,
+            270.7183532714844,
+            367.05169677734375
+          ],
+          "image": "scene-references/X-28/safe.png",
+          "image_sha256": "396bc2ecffe310baa04d1c08debe1ca7b5d12aa5494057abf76820b855f11650",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-29": {
+      "source_sha256": "b9bfb76ac8ea47eb368fc78a2f6370e4d98e79185972f63cf301ee22f12b5941",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-b9bfb76ac8ea-2s",
+          "box": [
+            88.2582015991211,
+            371.38385009765625,
+            347.58026123046875,
+            538.3875732421875
+          ],
+          "image": "scene-references/X-29/desk.png",
+          "image_sha256": "c965d1f07a5ae9a44eababaf2765e9d9e14190441926865356083121ee0befd9",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              88,
+              430
+            ],
+            [
+              348,
+              396
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-b9bfb76ac8ea-2s",
+          "box": [
+            206.1273651123047,
+            267.69384765625,
+            271.69476318359375,
+            363.1429748535156
+          ],
+          "image": "scene-references/X-29/safe.png",
+          "image_sha256": "8768b4f277cb1a5b9b7594519f3924af7c8e1ecb9e27379eab216f363b5751ef",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-30": {
+      "source_sha256": "05af66ce27b83d7c10c5d33b6f1847ec042c01ed21afdcbd43a13abcefd28199",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-05af66ce27b8-2s",
+          "box": [
+            48,
+            374,
+            320,
+            550
+          ],
+          "image": "scene-references/X-30/desk.png",
+          "image_sha256": "f738d3a52f0bbe048ef602a9b4fe2355f8cfb6558295a9efeac82cc72f2d49ec",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              48,
+              436
+            ],
+            [
+              320,
+              400
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-05af66ce27b8-2s",
+          "box": [
+            210.25791931152344,
+            274.31878662109375,
+            279.241943359375,
+            367.0472412109375
+          ],
+          "image": "scene-references/X-30/safe.png",
+          "image_sha256": "ee6f8ce5b357b11279a2ba3f751ec0ae3ffdc54de3047765479c0e8c782afa23",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-31": {
+      "source_sha256": "6a9fa7dd2e6db4cbe57f3c96a6cb256f23c04aa4e6fd44622fdf5de662cc0649",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-6a9fa7dd2e6d-2s",
+          "box": [
+            37.07350540161133,
+            365.84765625,
+            300.6128845214844,
+            560.052001953125
+          ],
+          "image": "scene-references/X-31/desk.png",
+          "image_sha256": "ad3304de2cb8a11a1a89ba37655d27a160e6decc8bf3ac49d57dc0181831cea1",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              37,
+              434
+            ],
+            [
+              301,
+              395
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-6a9fa7dd2e6d-2s",
+          "box": [
+            211.41302490234375,
+            276.55682373046875,
+            282.19500732421875,
+            378.6131896972656
+          ],
+          "image": "scene-references/X-31/safe.png",
+          "image_sha256": "a144841d81d6b63713d838d63b98fcd07f3e5d144571ea4798ed9cd96781aed9",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-32": {
+      "source_sha256": "bcc277cbf1a36245156b2bb9a0e0b826432390b42040c0b82201a8c21ab23ce9",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-bcc277cbf1a3-2s",
+          "box": [
+            36.4145393371582,
+            365.57275390625,
+            298.0810241699219,
+            560.3629760742188
+          ],
+          "image": "scene-references/X-32/desk.png",
+          "image_sha256": "a377ef9c81d3d5667c4a82937fd1a80778ae861e8ba98597a2ccc7b691231350",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              36,
+              434
+            ],
+            [
+              298,
+              395
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-bcc277cbf1a3-2s",
+          "box": [
+            211.46270751953125,
+            276.33673095703125,
+            280.4439392089844,
+            370.1235046386719
+          ],
+          "image": "scene-references/X-32/safe.png",
+          "image_sha256": "dcfd6dde907cb6e5e933123cde18bf89e4eff4623dd0eb5bd8e1be527c974eca",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-33": {
+      "source_sha256": "209e8aaca88df59064e5f28b3bcc489fee3eea9eb920889b69c03c83d52430c6",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-209e8aaca88d-2s",
+          "box": [
+            54.4571418762207,
+            361.1784973144531,
+            329.0162658691406,
+            542.2679443359375
+          ],
+          "image": "scene-references/X-33/desk.png",
+          "image_sha256": "b6526d6d6ab55745683362b4ace14284ef9d3a79aece26418912b7dbce6409fc",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              54,
+              425
+            ],
+            [
+              329,
+              388
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-209e8aaca88d-2s",
+          "box": [
+            218.78500366210938,
+            257.6717224121094,
+            290.26361083984375,
+            368.3893127441406
+          ],
+          "image": "scene-references/X-33/safe.png",
+          "image_sha256": "e9d8092fa0027ac3746db50752b9b13c68912a7d382f95cf8b958fc14d47670c",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-34": {
+      "source_sha256": "f3e351bea71150f4e8c76e2c8f0656a4e92063319d7cd39e264078c5ba9139c3",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-f3e351bea711-2s",
+          "box": [
+            68.47506713867188,
+            363.79534912109375,
+            331.0773010253906,
+            542.4964599609375
+          ],
+          "image": "scene-references/X-34/desk.png",
+          "image_sha256": "c38c6ee0b86dfc085887459124da1fc29629d409e224878dd7e524ad5c0a3a2e",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              68,
+              426
+            ],
+            [
+              331,
+              391
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-f3e351bea711-2s",
+          "box": [
+            331.731201171875,
+            342.9856872558594,
+            450.3690490722656,
+            485.75799560546875
+          ],
+          "image": "scene-references/X-34/safe.png",
+          "image_sha256": "f66c7e15a0a908e132651fb3d15f96e65510f3bbcc712b2a5bca8fa9b4fe27f6",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-35": {
+      "source_sha256": "26430119e074d6f0eb5dbc7ec3e26bbc31cf18903265bb4372bd7d7104908640",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-26430119e074-2s",
+          "box": [
+            69.64968872070312,
+            363.84515380859375,
+            331.2336120605469,
+            542.0390014648438
+          ],
+          "image": "scene-references/X-35/desk.png",
+          "image_sha256": "7bdbb29207a71bb8fe44812223cc592e51cc5f3296a9881793660067dc709ed3",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              70,
+              426
+            ],
+            [
+              331,
+              391
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-26430119e074-2s",
+          "box": [
+            332.6557312011719,
+            342.7793884277344,
+            450.5693359375,
+            486.1128234863281
+          ],
+          "image": "scene-references/X-35/safe.png",
+          "image_sha256": "0283a907b34fd9ff4be5a21228da002b735daba66c5f55607cd2848d9c9c17a6",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-37": {
+      "source_sha256": "ac4cf04844c0aa08a5e19f5f7fe984f1477943294922d6ef77bdc5b88b97160e",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-ac4cf04844c0-2s",
+          "box": [
+            69.26212310791016,
+            365.46368408203125,
+            331.5330505371094,
+            543.2672119140625
+          ],
+          "image": "scene-references/X-37/desk.png",
+          "image_sha256": "7b6418e54a673b687d718eebe1ed2360625edb45f7ef6ff95f8f28cf6ce0ae59",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              69,
+              428
+            ],
+            [
+              332,
+              392
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-ac4cf04844c0-2s",
+          "box": [
+            332.0601806640625,
+            344.95574951171875,
+            450.7056579589844,
+            485.5312805175781
+          ],
+          "image": "scene-references/X-37/safe.png",
+          "image_sha256": "93919b3a522c542140d18524e3d53ed1efe1a6c34ca2aa28362cefa10671d28e",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-38": {
+      "source_sha256": "5a6f6a13ef88191ec1d9a2a303f1be74d16aa3381a57aaadba8850aac715ff10",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-5a6f6a13ef88-2s",
+          "box": [
+            69.29473876953125,
+            365.330078125,
+            331.8160400390625,
+            542.3218383789062
+          ],
+          "image": "scene-references/X-38/desk.png",
+          "image_sha256": "deed09b905bb8c3b386a9a232d496484de7710d852a599c33569f6db50fe0f53",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              69,
+              427
+            ],
+            [
+              332,
+              392
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-5a6f6a13ef88-2s",
+          "box": [
+            331.5502624511719,
+            345.0201416015625,
+            449.72576904296875,
+            485.0713806152344
+          ],
+          "image": "scene-references/X-38/safe.png",
+          "image_sha256": "913221a7765f71ccabe8adf5632522cc50d3338b15d4a4339ae3bf0b497e854a",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-39": {
+      "source_sha256": "deeeee54539fb894b17447296bd7f0807b9dc662bad9af4dcd27f4fbdd677187",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-deeeee54539f-2s",
+          "box": [
+            69.06664276123047,
+            366.22589111328125,
+            331.1663513183594,
+            542.105224609375
+          ],
+          "image": "scene-references/X-39/desk.png",
+          "image_sha256": "ce24564f8c0bdda6353715df7e9f4594265c7041333461708508698158eaf127",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              69,
+              428
+            ],
+            [
+              331,
+              393
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-deeeee54539f-2s",
+          "box": [
+            332.45135498046875,
+            343.9689636230469,
+            451.2800598144531,
+            485.35394287109375
+          ],
+          "image": "scene-references/X-39/safe.png",
+          "image_sha256": "2d3ddce9a778a6b9e81ecc8c6e33cd053ae90fcf4e429a8dcdebc364f8ee1eac",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-40": {
+      "source_sha256": "6a81739ced0efdcd4a4feb76ea16562a20ceb53a2232a801528716c450366c9f",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-6a81739ced0e-2s",
+          "box": [
+            53.89900207519531,
+            360.6231689453125,
+            329.3731689453125,
+            542.524169921875
+          ],
+          "image": "scene-references/X-40/desk.png",
+          "image_sha256": "df894d0f3ae6008d4c82185aa2fb05339c66cc957b1571df4a6faa8603f864db",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              54,
+              424
+            ],
+            [
+              329,
+              388
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-6a81739ced0e-2s",
+          "box": [
+            218.04319763183594,
+            257.45355224609375,
+            290.0381164550781,
+            369.2054443359375
+          ],
+          "image": "scene-references/X-40/safe.png",
+          "image_sha256": "c79e5523158854af426312ff99cafbcd382d50c85eb7fcc48da937053ddd6fbc",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-43": {
+      "source_sha256": "39e28d7be01cdb090ede1881ce3ef704fa413271deb69d6735c1953f340d6069",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-39e28d7be01c-2s",
+          "box": [
+            28.788917541503906,
+            384.2109680175781,
+            309.03173828125,
+            562.28466796875
+          ],
+          "image": "scene-references/X-43/desk.png",
+          "image_sha256": "f8d0d1dd877e67845d802740d2fb00b7bed07023c0498add0001ca65c0801af8",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              29,
+              447
+            ],
+            [
+              309,
+              411
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-39e28d7be01c-2s",
+          "box": [
+            198.342529296875,
+            277.5074768066406,
+            269.0799560546875,
+            379.4985656738281
+          ],
+          "image": "scene-references/X-43/safe.png",
+          "image_sha256": "d6a0d234f4f466482ec08024b709e961973d8f3591249033992fc63b2885c56b",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-44": {
+      "source_sha256": "9774ed882153af3ba1a7e71c9b9249619e2b3a97ae336aad6143369802ca3522",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-9774ed882153-2s",
+          "box": [
+            30.489168167114258,
+            383.9583435058594,
+            308.20123291015625,
+            560.1148681640625
+          ],
+          "image": "scene-references/X-44/desk.png",
+          "image_sha256": "df8ff12ab8b1e5326cc1afd870b60bd32a6d451c1f842d584ea90d02b8d1389f",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              30,
+              446
+            ],
+            [
+              308,
+              410
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-9774ed882153-2s",
+          "box": [
+            199.75192260742188,
+            276.6792907714844,
+            270.36651611328125,
+            381.49530029296875
+          ],
+          "image": "scene-references/X-44/safe.png",
+          "image_sha256": "5b870e9672951bfd78b5ea2c7780cf5e88741f300a16c3ec039307fd56e729ac",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-45": {
+      "source_sha256": "524bf9ff2d5e81211dbbeff73129dbb5f3a5e5e35a64f443f53e16b1c2d471c7",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-524bf9ff2d5e-2s",
+          "box": [
+            53.61090850830078,
+            362.9052734375,
+            330.3037414550781,
+            542.9559326171875
+          ],
+          "image": "scene-references/X-45/desk.png",
+          "image_sha256": "fe3432452e9ea4b2efb7469d1c21cef99b364b3f41e83b39f47c021235845da8",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              54,
+              426
+            ],
+            [
+              330,
+              390
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-524bf9ff2d5e-2s",
+          "box": [
+            218.89315795898438,
+            257.8461608886719,
+            289.5250549316406,
+            365.634521484375
+          ],
+          "image": "scene-references/X-45/safe.png",
+          "image_sha256": "b9d18156cd0966a9950ba68ff17e50c9f3412e1245d47318331827e9949b76ba",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    },
+    "X-46": {
+      "source_sha256": "66fc5d28c2371592f9260305589bdc86636fdd2ebe7a7ec976eec00a23d43df4",
+      "image_size": [
+        464,
+        848
+      ],
+      "time": 2.0,
+      "decoded_frame": 60,
+      "objects": {
+        "desk": {
+          "reference_id": "desk-66fc5d28c237-2s",
+          "box": [
+            30.096485137939453,
+            381.94647216796875,
+            308.798583984375,
+            562.2022705078125
+          ],
+          "image": "scene-references/X-46/desk.png",
+          "image_sha256": "0e7c3c6bf14bd71e808e703d1c9968fe4a222e69d9cc48376ec1e0edb80d6f14",
+          "source": "assistant_reviewed_reference",
+          "score": null,
+          "side_divider": [
+            [
+              30,
+              445
+            ],
+            [
+              309,
+              409
+            ]
+          ]
+        },
+        "safe": {
+          "reference_id": "safe-66fc5d28c237-2s",
+          "box": [
+            199.25906372070312,
+            278.065673828125,
+            269.48419189453125,
+            378.71771240234375
+          ],
+          "image": "scene-references/X-46/safe.png",
+          "image_sha256": "0f3319feee8434d7b172b82d087763f5b2d1a9e7eff73b8cd171fea08b45c783",
+          "source": "assistant_reviewed_reference",
+          "score": null
+        }
+      }
+    }
+  }
+}

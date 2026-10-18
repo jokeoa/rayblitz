@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Наблюдения по видео · Батч 1</title>
+<style>
+:root{color-scheme:light;--paper:#f7f6f3;--ink:#252724;--muted:#666861;--line:#eaeaea;--green:#edf3ec;--yellow:#fbf3db;--surface:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}button,input,select,textarea{border:1px solid #d8dad3;border-radius:5px;background:#fff}button{padding:9px 15px;font-weight:550}button:hover{background:#efefeb}button:active{transform:scale(.99)}button.primary{background:#252724;border-color:#252724;color:#fff}button.primary:hover{background:#40433d}button[aria-pressed="true"]{background:var(--green);border-color:#79947b}input,select,textarea{width:100%;padding:9px 10px}textarea{resize:vertical;min-height:90px}input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #7b967e;outline-offset:3px}input[type=checkbox]{width:18px;height:18px;accent-color:#456f49}a{color:inherit}.wrap{max-width:1240px;margin:auto;padding:34px 28px 80px}.eyebrow,.mono{font-family:ui-monospace,"SF Mono",monospace}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}h1{font:400 clamp(32px,4vw,48px)/1.1 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:14px 0}h2{font-size:19px;letter-spacing:-.02em;line-height:1.3;margin:0}h3{font-size:16px;margin:0}p{margin:8px 0}.muted{color:var(--muted)}.small{font-size:13px}.intro{max-width:760px}.topline,.actions,.bar,.row,.title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.topline,.title-row{justify-content:space-between}.actions{margin:24px 0 14px}.status{font-size:13px;color:var(--muted)}.status.error{color:#9f2f2d}.progress{height:3px;background:#e3e5df;margin:16px 0 24px}.progress>span{display:block;height:100%;width:0;background:#587b5b;transition:width .2s}.tabs{display:flex;gap:8px;margin:0 0 20px}.tabs button{display:flex;flex-direction:column;align-items:flex-start;min-width:132px;gap:3px;background:transparent}.tabs button[aria-pressed=true]{background:var(--surface);border-color:#7b967e}.tabs .count{font-size:12px;color:var(--muted)}.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px}.guide{padding:16px 20px;background:#fbf3db;border:1px solid var(--line);border-radius:8px;margin-bottom:22px}.guide strong{font-weight:600}.workspace{display:grid;grid-template-columns:minmax(310px,.92fr) minmax(400px,1.08fr);gap:24px;align-items:start}.viewer{position:sticky;top:18px}.viewer .bar{justify-content:space-between;margin-bottom:14px}.frames{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.frames button{padding:7px 10px;font-size:13px;min-width:75px}.frames button.done::after{content:' ·';color:#426c45}.scene-wrap{position:relative;background:#e8e8e2;border-radius:5px;overflow:hidden}.scene{display:block;width:100%;height:min(64vh,760px);min-height:380px}.bbox{fill:transparent;stroke:#ffcf48;stroke-width:2;cursor:pointer}.bbox.active{stroke:#65ecaa;stroke-width:4}.box-label{pointer-events:none}.viewer-controls{display:flex;justify-content:space-between;gap:10px;margin-top:12px}.viewer-controls label{display:flex;align-items:center;gap:8px;font-size:13px}.navigation{display:flex;justify-content:space-between;margin-top:18px;gap:10px}.editor{display:grid;gap:18px}.step{font-size:12px;color:#63665f;font-family:ui-monospace,monospace;margin-bottom:5px}.person{display:grid;grid-template-columns:34px minmax(100px,1fr) 140px;gap:8px;align-items:start;margin-top:12px}.person-code{padding-top:10px;font-family:ui-monospace,monospace;font-size:13px}.person input,.person select{font-size:13px}.person label{display:block}.person label span{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}.person-code{padding-top:28px}.text-btn{font-size:13px;padding:6px 10px;background:transparent;margin-top:14px}.box-row{display:grid;grid-template-columns:42px minmax(150px,1fr);gap:10px;align-items:center;margin-top:10px;padding:5px 0}.box-row.active{background:var(--green);border-radius:5px;outline:5px solid var(--green)}.box-row button{padding:6px;font-family:ui-monospace,monospace;font-size:13px}.box-row select{font-size:13px}.field{display:block;margin-top:18px}.field>span{display:block;font-weight:550;font-size:13px;margin-bottom:6px}.reviewed{display:flex;gap:10px;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:14px}.reviewed input{flex-shrink:0}.timeline{margin-top:24px}.timeline-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.timeline textarea{min-height:132px}.footnote{margin-top:22px;color:var(--muted);font-size:13px}.pill{display:inline-block;border-radius:9999px;background:var(--green);padding:3px 9px;font-size:12px}.helper{margin:10px 0 0;color:var(--muted);font-size:12px}dialog{border:1px solid var(--line);border-radius:8px;padding:26px;max-width:900px;width:calc(100% - 32px);max-height:94vh;background:var(--surface);color:var(--ink)}dialog::backdrop{background:rgba(25,30,26,.58)}dialog textarea{height:50vh;font:13px/1.5 ui-monospace,monospace;margin-top:20px}#zoom-dialog{width:min(94vw,650px)}#zoom-image{display:block;max-width:100%;max-height:78vh;margin:16px auto 0}footer{border-top:1px solid var(--line);margin-top:32px;padding-top:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}noscript{display:block;padding:20px;background:#fbf3db}
+.box-row{grid-template-columns:76px minmax(150px,1fr)}.box-row button{display:grid;gap:4px;justify-items:center}.box-row svg{display:block;width:60px;height:72px;background:#e8e8e2;border-radius:3px}.box-row label{min-width:0}
+@media(max-width:850px){.workspace{grid-template-columns:1fr}.viewer{position:static}.scene{height:65vh}.timeline-grid{grid-template-columns:1fr}.wrap{padding:24px 16px 50px}.card{padding:20px}.tabs button{min-width:0;flex:1}.topline{align-items:flex-start}.person{grid-template-columns:30px minmax(100px,1fr) 125px}.actions{gap:8px}.actions button{font-size:13px;padding:9px 11px}}
+@media(max-width:420px){.person{grid-template-columns:30px 1fr}.person label:last-child{grid-column:2}.person-code{grid-row:1/3}.card{padding:16px}.tabs button{padding:9px}.viewer-controls{flex-wrap:wrap}}
+@media(prefers-reduced-motion:no-preference){main{animation:enter .35s ease-out}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<noscript>Для заполнения формы включите JavaScript в браузере.</noscript>
+<div class="wrap">
+<header>
+<div class="topline"><span class="eyebrow">Разбор видео / Батч 01</span><span class="pill" id="progress-label">Проверено 0 из 12 кадров</span></div>
+<h1>Кто есть кто в кадре</h1>
+<p class="intro muted">Назови участников, сопоставь их с рамками на разных кадрах и опиши, что происходит. После заполнения скачай JSON или скопируй наблюдения и отправь их в чат.</p>
+<div class="actions"><button class="primary" id="download">Скачать наблюдения · JSON</button><button id="copy">Скопировать для чата</button><button id="import-button">Загрузить ответы</button><input id="import-file" class="sr-only" type="file" accept="application/json,.json" aria-label="Загрузить JSON с ответами"></div>
+<div id="save-status" class="status" role="status" aria-live="polite">Черновик сохраняется в этом браузере.</div>
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+</header>
+<nav class="tabs" id="video-tabs" aria-label="Ролики"></nav>
+<div class="guide small"><strong>P1, P2… — одни и те же люди внутри ролика.</strong> Номера D0, D1… относятся только к текущему кадру. Отражение связывай с тем же человеком. Если не уверен, выбирай «Неясно».</div>
+<main>
+<div class="workspace">
+<section class="card viewer" aria-label="Кадр видео">
+<div class="bar"><h2 id="frame-title"></h2><span class="mono small muted" id="frame-time"></span></div>
+<div id="frame-tabs" class="frames" role="group" aria-label="Моменты видео"></div>
+<div class="scene-wrap"><svg id="scene" class="scene" xmlns="http://www.w3.org/2000/svg" aria-label="Исходный кадр и рамки обнаруженных людей" role="img"></svg></div>
+<div class="viewer-controls"><label><input id="show-boxes" type="checkbox" checked>Показать рамки</label><button id="zoom" class="small">Увеличить оригинал</button></div>
+<p class="helper">Нажми на рамку или её номер, чтобы выделить соответствующую строку справа.</p>
+<div class="navigation"><button id="previous">← Предыдущий</button><button id="next">Следующий →</button></div>
+</section>
+<div class="editor">
+<section class="card"><div class="step">01 / Участники ролика</div><h2>Опиши людей один раз</h2><p class="small muted">Например: одежда, место в кабинете. Описание помогает узнавать человека; роль укажи отдельно.</p><div id="people"></div><button id="add-person" class="text-btn">+ Добавить участника</button></section>
+<section class="card"><div class="step">02 / Текущий кадр</div><h2>Кому принадлежат рамки</h2><div id="box-fields"></div><label class="field"><span>Наблюдения и пропущенные люди</span><textarea id="frame-notes" placeholder="Что видно? Кого не обвели? Есть ли перекрытие, ошибочная рамка или неясная ситуация?"></textarea></label><label class="reviewed"><input type="checkbox" id="reviewed">Этот кадр проверен</label><p class="helper" id="frame-completeness"></p></section>
+</div>
+</div>
+<section class="card timeline"><div class="step">03 / Весь ролик <span id="timeline-video"></span></div><h2>Что происходит по времени</h2><div class="timeline-grid"><div><label class="field"><span>Последовательность действий</span><textarea id="timeline-notes" placeholder="Укажи моменты входа, ухода, смены клиента и действия. Разделяй видимое на кадрах и то, что знаешь из просмотра видео."></textarea></label><label class="field"><span>Первым вошедший в кадр</span><select id="first-entrant"></select></label></div><div><label class="field"><span>Правило «первым входит банкир»</span><select id="hypothesis"><option value="">Ещё не оценено</option><option value="supported">Подтверждается в этом ролике</option><option value="contradicted">Не подтверждается: первым входит другой человек</option><option value="insufficient">Недостаточно данных / вход не показан</option></select></label><label class="field"><span>Пояснение и сомнения</span><textarea id="hypothesis-notes" placeholder="На каких моментах основан вывод? Кто уже присутствовал в начале? Что нужно дополнительно посмотреть?"></textarea></label></div></div></section>
+<footer><div class="title-row"><p class="small muted">Можно отправить частично заполненный батч. Пустые поля останутся неразмеченными.</p><button id="preview-export">Посмотреть итог</button></div><p class="footnote">Ответы сохраняются в этом браузере. HTML содержит кадры, но изменения формы записываются в черновик браузера. Для передачи ответов скачай JSON. Форма ничего не отправляет автоматически.</p></footer>
+</main>
+</div>
+<dialog id="export-dialog"><div class="title-row"><h2>Наблюдения для чата</h2><button data-close="export-dialog">Закрыть</button></div><p id="copy-status" class="small muted" role="status"></p><textarea id="export-text" readonly aria-label="Текст наблюдений"></textarea><div class="actions"><button id="copy-again" class="primary">Копировать текст</button><button id="download-again">Скачать JSON</button></div></dialog>
+<dialog id="zoom-dialog"><div class="title-row"><h2 id="zoom-title"></h2><button data-close="zoom-dialog">Закрыть</button></div><img id="zoom-image" alt="Исходный кадр без рамок"></dialog>
+<script id="review-data" type="application/json">__REVIEW_DATA__</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('review-data').textContent);
+const videos=[...new Set(DATA.frames.map(f=>f.video))];
+const key='bank-role-review:'+DATA.batch_id;
+const roleNames={banker:'Банкир',customer:'Клиент',other:'Другой участник',unknown:'Неясно'};
+const hypothesisNames={supported:'Подтверждается в этом ролике',contradicted:'Не подтверждается',insufficient:'Недостаточно данных / вход не показан'};
+const $=id=>document.getElementById(id);
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let videoIndex=0,frameIndex=0,selectedBox=null,storageAvailable=true;
+const blankVideo=()=>({people:[1,2,3].map(n=>({id:'P'+n,description:'',role:''})),timeline_notes:'',first_entrant:'',hypothesis:'',hypothesis_notes:''});
+let state={videos:Object.fromEntries(videos.map(v=>[v,blankVideo()])),frames:Object.fromEntries(DATA.frames.map(f=>[f.review_id,{assignments:{},notes:'',reviewed:false}]))};
+let pendingImport=null;
+function validState(s){
+ if(!s||typeof s!=='object'||!s.videos||!s.frames)throw Error('Нет данных формы.');
+ for(const v of videos){const x=s.videos[v];if(!x||!Array.isArray(x.people)||x.people.length<1)throw Error('Нет участников ролика '+v);
+  const ids=new Set();for(const p of x.people){if(!p||!/^P[1-9]\d*$/.test(p.id)||ids.has(p.id)||typeof p.description!=='string'||!['',...Object.keys(roleNames)].includes(p.role))throw Error('Некорректный участник '+v);ids.add(p.id);}
+  for(const k of ['timeline_notes','first_entrant','hypothesis','hypothesis_notes'])if(typeof x[k]!=='string')throw Error('Некорректные наблюдения '+v);
+  if(!['','not_shown','uncertain',...ids].includes(x.first_entrant)||!['',...Object.keys(hypothesisNames)].includes(x.hypothesis))throw Error('Некорректный вывод '+v);
+ }
+ for(const f of DATA.frames){const x=s.frames[f.review_id];if(!x||typeof x.notes!=='string'||typeof x.reviewed!=='boolean'||!x.assignments||typeof x.assignments!=='object')throw Error('Некорректный кадр '+f.review_id);
+  const choices=new Set(['','reflection','not_person','uncertain',...s.videos[f.video].people.flatMap(p=>['person:'+p.id,'reflection:'+p.id,'duplicate:'+p.id])]);
+  for(const [id,value] of Object.entries(x.assignments))if(!f.boxes.some(b=>String(b.detection_id)===id)||!choices.has(value))throw Error('Некорректная рамка '+f.review_id);
+ }
+ return s;
+}
+try{const saved=localStorage.getItem(key);if(saved)state=validState(JSON.parse(saved));}catch(error){storageAvailable=false;$('save-status').textContent='Черновик не загружен. Сохранённые данные не перезаписаны; можно загрузить JSON или скачать текущие ответы.';$('save-status').classList.add('error');}
+function save(){
+ if(storageAvailable){try{localStorage.setItem(key,JSON.stringify(state));$('save-status').textContent='Черновик сохранён · '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}catch(error){storageAvailable=false;$('save-status').textContent='Автосохранение недоступно. Скачай JSON, чтобы сохранить ответы.';$('save-status').classList.add('error');}}
+ updateProgress();
+}
+function current(){const video=videos[videoIndex],frames=DATA.frames.filter(f=>f.video===video),frame=frames[frameIndex];return{video,frames,frame,personState:state.videos[video],frameState:state.frames[frame.review_id]};}
+function personText(p){return p.id+(p.description?' · '+p.description:'')+(p.role?' — '+roleNames[p.role]:'');}
+function option(value,label,selected){return '<option value="'+esc(value)+'"'+(value===selected?' selected':'')+'>'+esc(label)+'</option>';}
+function assignmentOptions(people,value){
+ let html=option('','Не размечено',value)+'<optgroup label="Человек">';
+ html+=people.map(p=>option('person:'+p.id,personText(p),value)).join('')+'</optgroup><optgroup label="Отражение">';
+ html+=people.map(p=>option('reflection:'+p.id,'Отражение '+personText(p),value)).join('')+option('reflection','Отражение · человек не определён',value)+'</optgroup><optgroup label="Повторная рамка">';
+ html+=people.map(p=>option('duplicate:'+p.id,'Дубль рамки '+personText(p),value)).join('')+'</optgroup>';
+ return html+option('not_person','Не человек',value)+option('uncertain','Неясно',value);
+}
+function updateProgress(){
+ const total=DATA.frames.length,count=DATA.frames.filter(f=>state.frames[f.review_id].reviewed).length;
+ $('progress-label').textContent='Проверено '+count+' из '+total+' кадров';$('progress-bar').style.width=(count/total*100)+'%';
+ document.querySelectorAll('[data-video]').forEach(b=>{const v=b.dataset.video,fs=DATA.frames.filter(f=>f.video===v);b.querySelector('.count').textContent=fs.filter(f=>state.frames[f.review_id].reviewed).length+' / '+fs.length+' кадров';});
+ document.querySelectorAll('[data-frame]').forEach(b=>b.classList.toggle('done',state.frames[b.dataset.frame].reviewed));
+ const c=current(),missing=c.frame.boxes.filter(b=>!c.frameState.assignments[b.detection_id]).length;
+ const unresolved=c.frame.boxes.filter(b=>{const a=c.frameState.assignments[b.detection_id]||'';return a.startsWith('person:')&&!c.personState.people.find(p=>p.id===a.split(':')[1])?.role;}).length;
+ $('frame-completeness').textContent=missing?'Без отметки: '+missing+' рамок. Можно оставить их для следующего просмотра.':unresolved?'У '+unresolved+' участников роль ещё не указана.':'Все показанные рамки размечены. Неясные случаи сохраняются отдельно.';
+}
+function renderTabs(){
+ $('video-tabs').innerHTML=videos.map((v,n)=>'<button data-video="'+v+'" aria-pressed="'+(n===videoIndex)+'"><span>'+String.fromCharCode(65+n)+' · '+v+'</span><span class="count"></span></button>').join('');
+ $('video-tabs').querySelectorAll('button').forEach((b,n)=>b.addEventListener('click',()=>{videoIndex=n;frameIndex=0;selectedBox=null;render();}));
+}
+function renderPeople(){
+ const c=current();$('people').innerHTML=c.personState.people.map(p=>'<div class="person"><span class="person-code">'+p.id+'</span><label><span>Как узнать '+p.id+'</span><input data-person="'+p.id+'" data-field="description" value="'+esc(p.description)+'" placeholder="Одежда, положение…"></label><label><span>Роль '+p.id+'</span><select data-person="'+p.id+'" data-field="role">'+option('','Не указана',p.role)+Object.entries(roleNames).map(([v,l])=>option(v,l,p.role)).join('')+'</select></label></div>').join('');
+ $('people').querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>{const p=current().personState.people.find(p=>p.id===el.dataset.person);p[el.dataset.field]=el.value;refreshChoices();save();}));
+}
+function refreshChoices(){
+ const c=current();$('box-fields').querySelectorAll('select').forEach(el=>{el.innerHTML=assignmentOptions(c.personState.people,c.frameState.assignments[el.dataset.box]||'');});
+ $('first-entrant').innerHTML=option('','Ещё не указано',c.personState.first_entrant)+c.personState.people.map(p=>option(p.id,personText(p),c.personState.first_entrant)).join('')+option('not_shown','Вход не показан / все уже в кадре',c.personState.first_entrant)+option('uncertain','Не могу определить',c.personState.first_entrant);
+}
+function selectBox(id){selectedBox=Number(id);document.querySelectorAll('.bbox').forEach(el=>el.classList.toggle('active',Number(el.dataset.box)===selectedBox));document.querySelectorAll('.box-row').forEach(el=>el.classList.toggle('active',Number(el.dataset.box)===selectedBox));}
+function renderScene(){
+ const c=current(),f=c.frame,svg=$('scene'),ns='http://www.w3.org/2000/svg';svg.replaceChildren();svg.setAttribute('viewBox','0 0 '+f.width+' '+f.height);
+ const img=document.createElementNS(ns,'image');img.setAttribute('href',f.image);img.setAttribute('width',f.width);img.setAttribute('height',f.height);svg.append(img);
+ if(!$('show-boxes').checked)return;
+ const labels=[];
+ for(const b of f.boxes){const [x,y,x2,y2]=b.box,rect=document.createElementNS(ns,'rect');for(const [k,v]of Object.entries({x,y,width:x2-x,height:y2-y,'data-box':b.detection_id,class:'bbox'+(b.detection_id===selectedBox?' active':'')}))rect.setAttribute(k,v);rect.addEventListener('click',()=>selectBox(b.detection_id));svg.append(rect);
+  const lx=Math.max(0,Math.min(f.width-52,x));let ly=Math.max(0,y-28);while(labels.some(a=>lx<a[2]&&lx+52>a[0]&&ly<a[3]&&ly+28>a[1]))ly+=29;labels.push([lx,ly,lx+52,ly+28]);
+  const bg=document.createElementNS(ns,'rect');for(const[k,v]of Object.entries({x:lx,y:ly,width:52,height:27,fill:'#252724',class:'box-label'}))bg.setAttribute(k,v);svg.append(bg);
+  const text=document.createElementNS(ns,'text');for(const[k,v]of Object.entries({x:lx+4,y:ly+20,fill:'#ffcf48','font-size':20,'font-family':'sans-serif',class:'box-label'}))text.setAttribute(k,v);text.textContent='D'+b.detection_id;svg.append(text);
+ }
+}
+function renderFrame(){
+ const c=current();$('frame-title').textContent=c.frame.review_id+' · '+c.video;$('frame-time').textContent=c.frame.t.toFixed(1)+' с';
+ $('frame-tabs').innerHTML=c.frames.map((f,n)=>'<button data-frame="'+f.review_id+'" aria-pressed="'+(n===frameIndex)+'">'+f.review_id+' · '+f.t.toFixed(1)+' с</button>').join('');
+ $('frame-tabs').querySelectorAll('button').forEach((b,n)=>b.addEventListener('click',()=>{frameIndex=n;selectedBox=null;renderFrame();}));
+ $('box-fields').innerHTML=c.frame.boxes.map(b=>{const[x,y,x2,y2]=b.box;return '<div class="box-row" data-box="'+b.detection_id+'"><button aria-label="Выделить рамку D'+b.detection_id+'" data-box="'+b.detection_id+'"><span>D'+b.detection_id+'</span><svg aria-hidden="true" viewBox="'+[x,y,x2-x,y2-y].join(' ')+'"><image href="'+c.frame.image+'" width="'+c.frame.width+'" height="'+c.frame.height+'"/></svg></button><label><span class="sr-only">Кто в рамке D'+b.detection_id+'</span><select data-box="'+b.detection_id+'">'+assignmentOptions(c.personState.people,c.frameState.assignments[b.detection_id]||'')+'</select></label></div>';}).join('')||'<p class="muted">В этом кадре нет показанных рамок. Опиши видимых людей в наблюдениях.</p>';
+ $('box-fields').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>selectBox(b.dataset.box)));
+ $('box-fields').querySelectorAll('select').forEach(el=>el.addEventListener('change',()=>{current().frameState.assignments[el.dataset.box]=el.value;selectBox(el.dataset.box);save();}));
+ $('frame-notes').value=c.frameState.notes;$('reviewed').checked=c.frameState.reviewed;
+ $('previous').disabled=videoIndex===0&&frameIndex===0;$('next').disabled=videoIndex===videos.length-1&&frameIndex===c.frames.length-1;
+ renderScene();updateProgress();
+}
+function render(){renderTabs();renderPeople();renderFrame();const c=current();$('timeline-video').textContent=c.video;for(const[id,k]of [['timeline-notes','timeline_notes'],['hypothesis','hypothesis'],['hypothesis-notes','hypothesis_notes']])$(id).value=c.personState[k];refreshChoices();updateProgress();}
+function move(direction){const c=current();if(direction<0&&frameIndex===0){if(videoIndex===0)return;videoIndex--;frameIndex=DATA.frames.filter(f=>f.video===videos[videoIndex]).length-1;}else if(direction>0&&frameIndex===c.frames.length-1){if(videoIndex===videos.length-1)return;videoIndex++;frameIndex=0;}else frameIndex+=direction;selectedBox=null;render();}
+function decodedAssignment(value){if(!value)return{kind:'unlabeled',person_id:null};const[k,p]=value.split(':');return{kind:k,person_id:p||null};}
+function exportData(){
+ return{schema_version:1,batch_id:DATA.batch_id,exported_at:new Date().toISOString(),annotation_source:'human_form',selection:DATA.selection,
+  counts:{reviewed_frames:DATA.frames.filter(f=>state.frames[f.review_id].reviewed).length,total_frames:DATA.frames.length,labeled_boxes:DATA.frames.reduce((n,f)=>n+f.boxes.filter(b=>state.frames[f.review_id].assignments[b.detection_id]).length,0)},
+  videos:videos.map(v=>({video:v,source_sha256:DATA.frames.find(f=>f.video===v).source_sha256,...state.videos[v]})),
+  frames:DATA.frames.map(f=>({review_id:f.review_id,video:f.video,frame:f.frame,t:f.t,source_sha256:f.source_sha256,detections_sha256:f.detections_sha256,reviewed:state.frames[f.review_id].reviewed,notes:state.frames[f.review_id].notes,boxes:f.boxes.map(b=>({...b,...decodedAssignment(state.frames[f.review_id].assignments[b.detection_id])}))})),
+  form_state:structuredClone(state)};
+}
+function download(){const data=exportData(),blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='video-observations-batch-1-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+function assignmentText(value,people){if(!value)return'не размечено';const{kind,person_id}=decodedAssignment(value),p=people.find(x=>x.id===person_id),who=p?personText(p):'';return({person:who,reflection:who?'отражение '+who:'отражение, человек не определён',duplicate:'дубль рамки '+who,not_person:'не человек',uncertain:'неясно'})[kind];}
+function textReport(){
+ const lines=['Наблюдения по видео — батч 1','Проверено кадров: '+DATA.frames.filter(f=>state.frames[f.review_id].reviewed).length+'/'+DATA.frames.length,''];
+ for(const v of videos){const s=state.videos[v];lines.push(v);for(const p of s.people){const used=DATA.frames.filter(f=>f.video===v).some(f=>Object.values(state.frames[f.review_id].assignments).some(a=>a.endsWith(':'+p.id)));if(p.description||p.role||used)lines.push('  '+p.id+': '+(p.description||'описание не указано')+'; роль: '+(roleNames[p.role]||'не указана'));}
+  for(const f of DATA.frames.filter(f=>f.video===v)){const r=state.frames[f.review_id];lines.push('  '+f.review_id+' · '+f.t.toFixed(1)+' с · '+(r.reviewed?'проверен':'не отмечен как проверенный'));for(const b of f.boxes)lines.push('    D'+b.detection_id+': '+assignmentText(r.assignments[b.detection_id],s.people));if(r.notes)lines.push('    Наблюдения: '+r.notes);}
+  if(s.timeline_notes)lines.push('  Таймлайн: '+s.timeline_notes);
+  lines.push('  Первым вошедший: '+(s.first_entrant==='not_shown'?'вход не показан':s.first_entrant==='uncertain'?'неясно':s.first_entrant?personText(s.people.find(p=>p.id===s.first_entrant)):'не указано'));
+  lines.push('  Гипотеза «первым входит банкир»: '+(hypothesisNames[s.hypothesis]||'не оценена'));if(s.hypothesis_notes)lines.push('  Пояснение: '+s.hypothesis_notes);lines.push('');
+ }
+ return lines.join('\n');
+}
+function showExport(){const dialog=$('export-dialog');$('export-text').value=textReport();$('copy-status').textContent='Текст содержит все кадры, включая ещё не размеченные. Можно скопировать его целиком.';if(!dialog.open)dialog.showModal();}
+async function copyText(){showExport();try{await navigator.clipboard.writeText($('export-text').value);$('copy-status').textContent='Скопировано. Вставь текст в чат.';}catch(error){$('export-text').focus();$('export-text').select();$('copy-status').textContent='Выделен весь текст. Нажми ⌘C или Ctrl+C, затем вставь его в чат.';}}
+$('add-person').addEventListener('click',()=>{const s=current().personState,n=Math.max(...s.people.map(p=>Number(p.id.slice(1))))+1;s.people.push({id:'P'+n,description:'',role:''});renderPeople();refreshChoices();save();});
+$('frame-notes').addEventListener('input',()=>{current().frameState.notes=$('frame-notes').value;save();});
+$('reviewed').addEventListener('change',()=>{current().frameState.reviewed=$('reviewed').checked;save();});
+for(const[id,k]of [['timeline-notes','timeline_notes'],['first-entrant','first_entrant'],['hypothesis','hypothesis'],['hypothesis-notes','hypothesis_notes']])$(id).addEventListener('input',()=>{current().personState[k]=$(id).value;save();});
+$('previous').addEventListener('click',()=>move(-1));$('next').addEventListener('click',()=>move(1));$('show-boxes').addEventListener('change',renderScene);
+$('zoom').addEventListener('click',()=>{const f=current().frame;$('zoom-title').textContent=f.review_id+' · '+f.video+' · '+f.t.toFixed(1)+' с';$('zoom-image').src=f.image;$('zoom-dialog').showModal();});
+$('download').addEventListener('click',download);$('download-again').addEventListener('click',download);$('preview-export').addEventListener('click',showExport);$('copy').addEventListener('click',copyText);$('copy-again').addEventListener('click',copyText);
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
+$('import-button').addEventListener('click',()=>$('import-file').click());
+$('import-file').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.schema_version!==1||data.batch_id!==DATA.batch_id)throw Error('Этот файл относится к другому батчу или формату.');pendingImport=validState(data.form_state);if(!confirm('Заменить текущий черновик ответами из файла?'))return;state=pendingImport;render();save();$('save-status').textContent=storageAvailable?'Ответы загружены и сохранены в браузере.':'Ответы загружены. Автосохранение недоступно — скачай JSON после изменений.';$('save-status').classList.toggle('error',!storageAvailable);}catch(error){$('save-status').textContent='Не удалось загрузить ответы: '+error.message;$('save-status').classList.add('error');}finally{event.target.value='';pendingImport=null;}});
+window.addEventListener('beforeunload',event=>{if(!storageAvailable){event.preventDefault();event.returnValue='';}});
+render();
+</script>
+</body>
+</html>

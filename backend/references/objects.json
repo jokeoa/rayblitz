@@ -1,0 +1,127 @@
+{
+  "model": "google/owlv2-base-patch16-ensemble",
+  "revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+  "seed": 42,
+  "fps": 10,
+  "duration": 4,
+  "reduced_width": 336,
+  "tile_size": 384,
+  "tile_overlap": 0.2,
+  "candidate_score": 0.05,
+  "display_score": 0.15,
+  "nms_iou": 0.5,
+  "track_high_score": 0.15,
+  "track_lost_seconds": 0.5,
+  "classes": [
+    {
+      "id": "cash",
+      "name": "\u0414\u0435\u043d\u044c\u0433\u0438",
+      "prompt": "paper money banknotes"
+    },
+    {
+      "id": "card",
+      "name": "\u041a\u0430\u0440\u0442\u043e\u0447\u043a\u0430",
+      "prompt": "a small plastic identification card"
+    },
+    {
+      "id": "document",
+      "name": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 / \u043f\u0430\u043f\u043a\u0430",
+      "prompt": "paper documents or a document folder"
+    },
+    {
+      "id": "notebook",
+      "name": "\u0422\u0435\u0442\u0440\u0430\u0434\u044c",
+      "prompt": "a notebook or exercise book"
+    },
+    {
+      "id": "packaging",
+      "name": "\u0423\u043f\u0430\u043a\u043e\u0432\u043a\u0430 / \u043e\u0431\u0451\u0440\u0442\u043a\u0430",
+      "prompt": "paper or plastic packaging or a wrapper from a bundle of banknotes"
+    },
+    {
+      "id": "stamp",
+      "name": "\u041f\u0435\u0447\u0430\u0442\u044c",
+      "prompt": "an office rubber ink stamp"
+    },
+    {
+      "id": "key",
+      "name": "\u041a\u043b\u044e\u0447",
+      "prompt": "a small metal key in a lock"
+    },
+    {
+      "id": "smartphone",
+      "name": "\u0421\u043c\u0430\u0440\u0442\u0444\u043e\u043d",
+      "prompt": "a mobile smartphone"
+    },
+    {
+      "id": "desk_phone",
+      "name": "\u041d\u0430\u0441\u0442\u043e\u043b\u044c\u043d\u044b\u0439 \u0442\u0435\u043b\u0435\u0444\u043e\u043d",
+      "prompt": "an office desk telephone"
+    },
+    {
+      "id": "laptop",
+      "name": "\u041d\u043e\u0443\u0442\u0431\u0443\u043a",
+      "prompt": "a laptop computer"
+    },
+    {
+      "id": "cash_counter",
+      "name": "\u0421\u0447\u0451\u0442\u043d\u0430\u044f \u043c\u0430\u0448\u0438\u043d\u0430",
+      "prompt": "a banknote money counting machine"
+    },
+    {
+      "id": "banknote_detector",
+      "name": "\u0414\u0435\u0442\u0435\u043a\u0442\u043e\u0440 \u0431\u0430\u043d\u043a\u043d\u043e\u0442",
+      "prompt": "a desktop banknote authenticity detector"
+    },
+    {
+      "id": "safe",
+      "name": "\u0421\u0435\u0439\u0444",
+      "prompt": "a gray metal safe"
+    },
+    {
+      "id": "bag",
+      "name": "\u0421\u0443\u043c\u043a\u0430",
+      "prompt": "a handbag or a cash transport bag"
+    },
+    {
+      "id": "clothing",
+      "name": "\u041e\u0434\u0435\u0436\u0434\u0430 \u043d\u0430 \u043f\u043e\u0432\u0435\u0440\u0445\u043d\u043e\u0441\u0442\u0438",
+      "prompt": "a jacket lying on a desk"
+    },
+    {
+      "id": "cup",
+      "name": "\u0427\u0430\u0448\u043a\u0430 / \u0441\u0442\u0430\u043a\u0430\u043d",
+      "prompt": "a drinking cup or mug"
+    },
+    {
+      "id": "bottle",
+      "name": "\u0411\u0443\u0442\u044b\u043b\u043a\u0430",
+      "prompt": "a drink bottle"
+    },
+    {
+      "id": "food",
+      "name": "\u0415\u0434\u0430",
+      "prompt": "a piece of food or a snack"
+    },
+    {
+      "id": "pen",
+      "name": "\u0420\u0443\u0447\u043a\u0430",
+      "prompt": "a writing pen on a desk"
+    },
+    {
+      "id": "mouse",
+      "name": "\u041c\u044b\u0448\u044c",
+      "prompt": "a computer mouse"
+    },
+    {
+      "id": "keyboard",
+      "name": "\u041a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0430",
+      "prompt": "a separate computer keyboard"
+    },
+    {
+      "id": "scissors",
+      "name": "\u041d\u043e\u0436\u043d\u0438\u0446\u044b",
+      "prompt": "a pair of scissors"
+    }
+  ]
+}

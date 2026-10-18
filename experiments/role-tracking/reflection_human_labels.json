@@ -1,0 +1,116 @@
+[
+  {
+    "review_id": "R1",
+    "video": "X-27",
+    "frame": 190,
+    "t": 19,
+    "detection_id": 1,
+    "box": [
+      78.167,
+      174.322,
+      123.264,
+      271.572
+    ],
+    "question": "Силуэт в стекле рядом с проходящей сотрудницей",
+    "label": "reflection",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  },
+  {
+    "review_id": "R2",
+    "video": "X-27",
+    "frame": 210,
+    "t": 21,
+    "detection_id": 0,
+    "box": [
+      66.372,
+      181.063,
+      139.139,
+      357.911
+    ],
+    "question": "Человек в открывающейся стеклянной двери",
+    "label": "direct",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  },
+  {
+    "review_id": "R3",
+    "video": "X-27",
+    "frame": 230,
+    "t": 23,
+    "detection_id": 1,
+    "box": [
+      100.394,
+      171.194,
+      163.779,
+      278.692
+    ],
+    "question": "Верхняя короткая рамка у двери: отдельный человек или дубль?",
+    "label": "direct",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  },
+  {
+    "review_id": "R4",
+    "video": "X-38",
+    "frame": 360,
+    "t": 36,
+    "detection_id": 2,
+    "box": [
+      81.754,
+      204.424,
+      147.186,
+      344.44
+    ],
+    "question": "Белый силуэт за стеклом слева от посетителя",
+    "label": "reflection",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  },
+  {
+    "review_id": "R5",
+    "video": "X-38",
+    "frame": 360,
+    "t": 36,
+    "detection_id": 3,
+    "box": [
+      27.896,
+      164.143,
+      78.71,
+      271.533
+    ],
+    "question": "Силуэт за стеклом левее предыдущей рамки",
+    "label": "reflection",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  },
+  {
+    "review_id": "R6",
+    "video": "X-38",
+    "frame": 360,
+    "t": 36,
+    "detection_id": 5,
+    "box": [
+      176.471,
+      63.143,
+      196.137,
+      106.174
+    ],
+    "question": "Маленький силуэт в дальней комнате, верх кадра",
+    "label": "not_person",
+    "annotator": "human_user",
+    "selection": "source diagnostic cases; not independent random sample",
+    "source": "Explicit user response in this conversation",
+    "purpose": "evaluation only; never inference"
+  }
+]

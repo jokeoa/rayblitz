@@ -1,16 +1,11 @@
 import "@tanstack/react-start/server-only";
 import { createHash, randomBytes } from "node:crypto";
+import { DatabaseSync } from "node:sqlite";
+import { mkdirSync, chmodSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import type { Profile } from "@/lib/api/session-contracts";
 
-/**
- * Anonymous review session (docs/api-contract.md, "Доступ браузера").
- *
- * The browser keeps only an opaque `review_session` id in an HttpOnly,
- * SameSite=Strict cookie. The analyzer API key pasted on the login page lives
- * in server memory next to that id and is never serialized back to the client.
- * State is process-local, so a restart signs everyone out; a shared store is
- * the production replacement.
- */
+/** Persistent opaque sessions; API keys never leave the server. */
 export const SESSION_COOKIE = "review_session";
 const SESSION_TTL_SECONDS = 8 * 60 * 60;
 
@@ -20,12 +15,32 @@ type SessionRecord = {
 	expiresAt: number;
 };
 
-const globalStore = globalThis as typeof globalThis & {
-	__reviewSessions?: Map<string, SessionRecord>;
+const databasePath = resolve(process.env.SESSION_DB ?? "data/sessions.sqlite");
+mkdirSync(dirname(databasePath), { recursive: true, mode: 0o700 });
+const database = new DatabaseSync(databasePath);
+chmodSync(databasePath, 0o600);
+database.exec(
+	"CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, record TEXT NOT NULL, expires_at INTEGER NOT NULL)",
+);
+const sessions = {
+	set(id: string, record: SessionRecord) {
+		database
+			.prepare("DELETE FROM sessions WHERE expires_at < ?")
+			.run(Date.now());
+		database
+			.prepare("INSERT INTO sessions VALUES (?, ?, ?)")
+			.run(id, JSON.stringify(record), record.expiresAt);
+	},
+	get(id: string): SessionRecord | undefined {
+		const row = database
+			.prepare("SELECT record FROM sessions WHERE id = ?")
+			.get(id);
+		return row ? JSON.parse(row.record as string) : undefined;
+	},
+	delete(id: string) {
+		database.prepare("DELETE FROM sessions WHERE id = ?").run(id);
+	},
 };
-// Survive dev-server module reloads.
-globalStore.__reviewSessions ??= new Map();
-const sessions = globalStore.__reviewSessions;
 
 function profileFor(apiKey: string): Profile {
 	const digest = createHash("sha256")
@@ -55,7 +70,11 @@ function readCookie(request: Request, name: string): string | null {
 		const index = part.indexOf("=");
 		if (index === -1) continue;
 		if (part.slice(0, index).trim() === name) {
-			return decodeURIComponent(part.slice(index + 1).trim());
+			try {
+				return decodeURIComponent(part.slice(index + 1).trim());
+			} catch {
+				return null;
+			}
 		}
 	}
 	return null;

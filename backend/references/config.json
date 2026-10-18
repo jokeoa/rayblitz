@@ -1,0 +1,25 @@
+{
+  "videos": ["X-4", "X-18", "X-27", "X-38"],
+  "selection": {
+    "X-4": "Visitor replacement and movement near the desk",
+    "X-18": "Several participants near the desk",
+    "X-27": "People behind glass and employee movement",
+    "X-38": "Employee and visitor movement at a different setup"
+  },
+  "fps": 10,
+  "detector": "PekingU/rtdetr_v2_r50vd",
+  "detector_revision": "282494075698cab9faa1096ae26856890030c817",
+  "detector_score": 0.1,
+  "nms_iou": 0.7,
+  "high_score": 0.5,
+  "new_track_score": 0.5,
+  "lost_seconds": 3,
+  "reid": "osnet_x0_25_msmt17.pt",
+  "role_model": "Qwen/Qwen3.5-9B",
+  "role_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "role_interval_seconds": 5,
+  "role_min_votes": 2,
+  "role_reset_gap_seconds": 1,
+  "overlap_fraction": 0.3,
+  "seed": 42
+}

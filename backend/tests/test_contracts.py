@@ -136,14 +136,16 @@ class Contracts(unittest.TestCase):
         async def run():
             for failure in (None, "pipeline", "overview", "timeout"):
                 jobs._sem = None
-                result = {"verdict": "violation", "violations": [self.violation]}
+                result = {"verdict": "violation", "violations": [self.violation], "limitations": []}
                 analysis = AsyncMock(return_value=result)
                 if failure in {"pipeline", "timeout"}:
                     analysis.side_effect = TimeoutError() if failure == "timeout" else RuntimeError("secret")
                 summary = AsyncMock(return_value=self.job["overview"])
                 if failure == "overview":
                     summary.side_effect = ValueError("secret")
-                with patch.object(jobs.pipeline, "run", analysis), patch.object(overview, "generate", summary):
+                with patch.object(jobs.pipeline, "run", analysis), patch.object(overview, "generate", summary), \
+                     patch.object(jobs, "preview"), patch.object(jobs, "inspect_video", return_value=(
+                         {'geometry': {'basis': 'reviewed_scene'}}, {'limitation': 'Test visibility limit'})):
                     id_ = jobs.create("video.mov", b"x")
                     await asyncio.gather(*jobs._tasks)
                 job = jobs.get(id_)

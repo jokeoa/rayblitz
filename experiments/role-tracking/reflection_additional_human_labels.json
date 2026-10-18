@@ -1,0 +1,22 @@
+[
+  {
+    "video": "X-38",
+    "interval": 6,
+    "frame": 480,
+    "t": 48.0,
+    "detection_id": 7,
+    "box": [
+      197.535,
+      66.923,
+      217.577,
+      104.641
+    ],
+    "label": "reflection",
+    "selection": "Post-run review of start, middle and end of each accepted interval; not independent benchmark",
+    "review_id": "R7",
+    "annotator": "human_user",
+    "question": "Удалённая дальняя рамка правее ранее проверенной R6: настоящий человек, отражение или не человек?",
+    "source": "Explicit user response in this conversation: Отражение",
+    "purpose": "evaluation only; not used in inference"
+  }
+]

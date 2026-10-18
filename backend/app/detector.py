@@ -3,6 +3,7 @@ from functools import lru_cache
 from statistics import median
 
 from app.video import Frame
+from app import config, role_context
 
 MODEL = "PekingU/rtdetr_v2_r50vd"
 CLASSES = {"person", "laptop"}
@@ -100,6 +101,9 @@ def overlaps(box: list[float], zone: list[float]) -> bool:
 
 
 def persons_near(rows: list[dict], t: float, zone: list[float] | None) -> list[list[float]]:
+    bankers = role_context.banker_boxes(t, config.FRAME_WIDTH)
+    if bankers is not None:
+        return [b for b in bankers if zone is None or overlaps(b, zone)]
     if not rows:
         return []
     row = min(rows, key=lambda r: abs(r["t"] - t))
@@ -117,6 +121,13 @@ def smooth(xs: list[int], k: int = SMOOTH) -> list[int]:
 
 def events(rows: list[dict]) -> dict:
     zone = desk_zone(rows)
+    people = role_context.current.get()
+    if people and people['geometry']['objects']['desk']:
+        scale = config.FRAME_WIDTH / people['info']['width']
+        zone = [v*scale for v in people['geometry']['objects']['desk']['box']]
+    known_roles = role_context.desk_events(rows, zone, config.FRAME_WIDTH)
+    if known_roles is not None:
+        return known_roles
     if zone is None:
         return {"zone": None, "counts": [], "leaves": [], "arrivals": [], "empty": []}
     raw = [sum(o["label"] == "person" and overlaps(o["box"], zone) for o in r["objects"]) for r in rows]
@@ -138,7 +149,7 @@ def events(rows: list[dict]) -> dict:
 
 def gate(ev: dict, start: float, end: float) -> tuple[bool, float | None]:
     if ev["zone"] is None:
-        return True, None
+        return (False if ev.get('basis') else True), None
     near = [t for t in ev["leaves"] if start <= t + LEAVE_AFTER and end >= t - LEAVE_BEFORE]
     near += [s for s, e in ev["empty"] if s <= end and e >= start]
     return (True, min(near)) if near else (False, None)

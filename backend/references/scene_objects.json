@@ -1,0 +1,237 @@
+{
+  "scope": "Offline scene calibration of the same visible cash counting machine in the selected four-second clips. Class confirmed by user for left machine; transferred to matching equipment by assistant visual review. Boxes are assistant drawn, not detector ground truth. No global left/right rule.",
+  "user_reply": "настолькный телефон слева это счетная машина для денег",
+  "videos": {
+    "X-1": [
+      {
+        "id": "X-1-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          37,
+          396,
+          109,
+          485
+        ],
+        "source_sha256": "8911a9219b9433091824e553a70bb80335f075fd8ac982d2062d2ecf023c16bc",
+        "interval": [
+          20,
+          24
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-22": [
+      {
+        "id": "X-22-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          51,
+          315,
+          123,
+          405
+        ],
+        "source_sha256": "c9a30d44907e4a41b3a8ccf101774cd2e0804de20927bfbc9e1ccba1f2326b78",
+        "interval": [
+          10,
+          14
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-24": [
+      {
+        "id": "X-24-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          75,
+          345,
+          147,
+          435
+        ],
+        "source_sha256": "c175a683749401d5a9ecf6f1c188b64fa8a09543f41482c1e4eb2232255715d3",
+        "interval": [
+          7,
+          11
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-26": [
+      {
+        "id": "X-26-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          76,
+          345,
+          146,
+          431
+        ],
+        "source_sha256": "e3a00b6e0f38b1d9b5498140f14906c71e204359262a90ce7a9974d64bf081e9",
+        "interval": [
+          6,
+          10
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-40": [
+      {
+        "id": "X-40-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          237,
+          309,
+          298,
+          383
+        ],
+        "source_sha256": "6a81739ced0efdcd4a4feb76ea16562a20ceb53a2232a801528716c450366c9f",
+        "interval": [
+          13,
+          17
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "right"
+      }
+    ],
+    "X-44": [
+      {
+        "id": "X-44-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          213,
+          337,
+          276,
+          402
+        ],
+        "source_sha256": "9774ed882153af3ba1a7e71c9b9249619e2b3a97ae336aad6143369802ca3522",
+        "interval": [
+          13,
+          17
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "right"
+      }
+    ],
+    "X-46": [
+      {
+        "id": "X-46-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          209,
+          332,
+          274,
+          397
+        ],
+        "source_sha256": "66fc5d28c2371592f9260305589bdc86636fdd2ebe7a7ec976eec00a23d43df4",
+        "interval": [
+          8,
+          12
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "right"
+      }
+    ],
+    "X-13": [
+      {
+        "id": "X-13-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          31,
+          314,
+          101,
+          396
+        ],
+        "source_sha256": "a37930cf119bb691be77d8624b18333b04d9c67066a7f4627d63e3208dfa6057",
+        "interval": [
+          34,
+          38
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-14": [
+      {
+        "id": "X-14-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          50,
+          365,
+          119,
+          453
+        ],
+        "source_sha256": "7d6890ecb4a2b28bbdd3b61b6711566eee84a53ab3439c40cd9b6a3a6714c681",
+        "interval": [
+          76,
+          80
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-15": [
+      {
+        "id": "X-15-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          31,
+          320,
+          100,
+          404
+        ],
+        "source_sha256": "69caf59620fcd80bedcb664514730ab38f2f800da27000a8e037d7440be5dc7a",
+        "interval": [
+          9,
+          13
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ],
+    "X-17": [
+      {
+        "id": "X-17-cash-counter",
+        "class": "cash_counter",
+        "class_index": 10,
+        "box": [
+          31,
+          310,
+          102,
+          400
+        ],
+        "source_sha256": "0378b8026b2e6afd1775a5d0fdd12dd09c491785b626e9c20428f7dc6bd59364",
+        "interval": [
+          6,
+          10
+        ],
+        "reviewed_frame": 20,
+        "identity_source": "human_class_assistant_scene_match",
+        "position": "left"
+      }
+    ]
+  }
+}

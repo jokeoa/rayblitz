@@ -65,6 +65,9 @@ type Job = {
 	createdAt: number;
 	outcome: Outcome;
 	durationSec: number;
+	fileName: string;
+	video: Buffer;
+	review: { reviewed: boolean; notes: string };
 };
 
 
@@ -144,41 +147,28 @@ function snapshot(job: Job, now: number) {
 	};
 }
 
-/** Streams the upload once: reads the multipart head and the MOV `mvhd` atom for the duration. */
+/** The development mock keeps the original upload in memory for playback. */
 async function inspectUpload(request: IncomingMessage) {
-	let head: Buffer = Buffer.alloc(0);
-	let total = 0;
-	let carry: Buffer = Buffer.alloc(0);
-	let durationSec: number | null = null;
-
-	for await (const chunk of request as AsyncIterable<Buffer>) {
-		total += chunk.length;
-		if (head.length < 8192) {
-			head = Buffer.concat([head, chunk]).subarray(0, 8192);
-		}
-		if (durationSec !== null) continue;
-		const buffer = carry.length > 0 ? Buffer.concat([carry, chunk]) : chunk;
-		const at = buffer.indexOf("mvhd");
-		if (at !== -1 && at + 40 <= buffer.length) {
-			const version = buffer[at + 4];
-			const timescale =
-				version === 1 ? buffer.readUInt32BE(at + 24) : buffer.readUInt32BE(at + 16);
-			const duration =
-				version === 1
-					? Number(buffer.readBigUInt64BE(at + 28))
-					: buffer.readUInt32BE(at + 20);
-			const seconds = timescale > 0 ? duration / timescale : 0;
-			if (seconds > 0 && seconds < 24 * 3600) durationSec = seconds;
-			carry = Buffer.alloc(0);
-		} else {
-			carry = buffer.subarray(at !== -1 ? at : Math.max(0, buffer.length - 40));
-		}
-	}
-
-	const text = head.toString("latin1");
-	const fileName = /filename="([^"]*)"/i.exec(text)?.[1] ?? null;
-	const fieldName = /name="([^"]*)"/i.exec(text)?.[1] ?? null;
-	return { total, fileName, fieldName, durationSec };
+ const chunks: Buffer[] = [];
+ let total = 0;
+ for await (const chunk of request as AsyncIterable<Buffer>) {
+  total += chunk.length;
+  if (total > MAX_VIDEO_BYTES + MULTIPART_OVERHEAD) return { total, fileName:null, fieldName:null, durationSec:null, video:Buffer.alloc(0) };
+  chunks.push(chunk);
+ }
+ const form = await new Response(Buffer.concat(chunks), {headers:{"Content-Type":request.headers["content-type"] ?? ""}}).formData();
+ const file = form.get("file");
+ if (!(file instanceof File) || [...form.keys()].length !== 1) return { total, fileName:null, fieldName:null, durationSec:null, video:Buffer.alloc(0) };
+ const video = Buffer.from(await file.arrayBuffer());
+ let durationSec: number | null = null;
+ const at = video.indexOf("mvhd");
+ if (at >= 0 && at+40 <= video.length) {
+  const version = video[at+4];
+  const timescale = video.readUInt32BE(at+(version === 1 ? 24 : 16));
+  const duration = version === 1 ? Number(video.readBigUInt64BE(at+28)) : video.readUInt32BE(at+20);
+  if (timescale > 0 && duration > 0) durationSec = duration/timescale;
+ }
+ return {total, fileName:file.name, fieldName:"file", durationSec, video};
 }
 
 export type MockAnalyzer = { server: Server; port: number; close: () => Promise<void> };
@@ -333,12 +323,51 @@ export async function startMockAnalyzer(options: { port?: number } = {}): Promis
 				createdAt: Date.now(),
 				outcome: chooseOutcome(upload.fileName),
 				durationSec: upload.durationSec ?? FIXTURE_DURATION_SEC,
+                fileName: upload.fileName, video: upload.video, review: { reviewed:false, notes:"" },
 			});
 			return send(res, 202, { job_id: id }, {
 				Location: `/api/v1/jobs/${id}`,
 				"Retry-After": "2",
 			});
 		}
+
+        if (path === "/jobs" && method === "GET") {
+            return send(res, 200, {items:[...jobs.values()].reverse().map(job => {
+                const state = snapshot(job, Date.now());
+                return {jobId:job.id, fileName:job.fileName, sizeBytes:job.video.length,
+                    createdAt:job.createdAt, startedAt:job.createdAt+QUEUE_MS,
+                    queued:Date.now()-job.createdAt < QUEUE_MS, playbackReady:true,
+                    status:state.status, percent:state.progress.percent,
+                    ...(state.status === "done" ? {verdict:state.verdict, violationsCount:state.violations_count} : {}),
+                    ...(state.status === "failed" ? {errorCode:state.error.code} : {})};
+            })});
+        }
+        const mediaMatch = /^\/jobs\/([A-Za-z0-9_-]+)\/(video|observations|review)$/.exec(path);
+        if (mediaMatch) {
+            const job = jobs.get(mediaMatch[1]);
+            if (!job) return fail(res, 404, "JOB_NOT_FOUND", "Задание не найдено.");
+            if (mediaMatch[2] === "review") {
+                if (method === "PUT") {
+                    const chunks:Buffer[] = [];
+                    for await (const chunk of req) chunks.push(Buffer.from(chunk));
+                    const value = JSON.parse(Buffer.concat(chunks).toString());
+                    if (typeof value.reviewed !== "boolean" || typeof value.notes !== "string" || value.notes.length > 8000) return fail(res,400,"BAD_REQUEST","Некорректная заметка.");
+                    job.review = {reviewed:value.reviewed, notes:value.notes};
+                }
+                return send(res,200,job.review);
+            }
+            if (mediaMatch[2] === "observations") return send(res,200,{people:null,objects:null});
+            const range = /^bytes=(\d+)-(\d*)$/.exec(req.headers.range ?? "");
+            const start = range ? Number(range[1]) : 0;
+            const end = range?.[2] ? Math.min(Number(range[2]),job.video.length-1) : job.video.length-1;
+            if (start > end || start >= job.video.length) {
+                res.writeHead(416,{"Content-Range":`bytes */${job.video.length}`}); return res.end();
+            }
+            res.writeHead(range ? 206 : 200,{"Content-Type":"video/quicktime","Accept-Ranges":"bytes",
+                "Content-Length":String(end-start+1),"Cache-Control":"no-store",
+                ...(range ? {"Content-Range":`bytes ${start}-${end}/${job.video.length}`} : {})});
+            return res.end(job.video.subarray(start,end+1));
+        }
 
 		const jobMatch = /^\/jobs\/([^/]+)(?:\/violations(?:\/([^/]+)\/frames\/([^/]+))?)?$/.exec(path);
 		if (jobMatch && method === "GET") {
